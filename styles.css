@@ -167,6 +167,7 @@ header {
   color: var(--dark-color);
   font-weight: 600;
   position: relative;
+  font-size: 1.2rem; /* Increased font size */
 }
 
 #navbar a::after {
