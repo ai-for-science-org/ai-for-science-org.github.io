@@ -11,33 +11,49 @@
     />
   </head>
   <body>
+    <div class="top-header">
+      <a
+        href="https://www.utoronto.ca"
+        target="_blank"
+        class="top-header-logo-link"
+      >
+        <img
+          src="imgs/uoft_logo.png"
+          alt="University of Toronto Logo"
+          class="top-header-logo"
+        />
+      </a>
+      <nav class="top-header-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#organizers">Organizers</a></li>
+        </ul>
+      </nav>
+    </div>
+
     <header>
-      <img src="banner.png" alt="Conference Banner" class="banner" />
+      <img
+        src="imgs/homepage_banner.jpeg"
+        alt="Conference Banner"
+        class="banner"
+      />
       <div class="banner-title">
-        <h1>
-          AI Foundation Models for Next-Generation Scientific Collaborations
-        </h1>
+        <h1>Foundation Models for Science</h1>
         <p class="subtitle">
-          A three-day hands-on workshop organized by the University of Toronto
+          Workshop at the University of Toronto | November 3-5, 2025
         </p>
-        <p class="date-range">
-          Tentative date range: Mid October to Mid November 2025
-        </p>
+        <a
+          href="https://forms.gle/osgDArBNrnuAkL2p8"
+          target="_blank"
+          class="apply-now-btn"
+          >Apply Now</a
+        >
       </div>
     </header>
 
-    <nav id="navbar">
-      <div class="container">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#goals">Goals</a></li>
-          <li><a href="#eligibility">Target Audience</a></li>
-        </ul>
-      </div>
-    </nav>
-
     <main>
-      <section id="about" class="section">
+      <section id="about" class="section section-light-bg">
         <div class="container">
           <h2 class="section-title">About the Workshop</h2>
           <div class="section-box">
@@ -73,56 +89,44 @@
         </div>
       </section>
 
-      <section id="goals" class="section">
+      <section id="schedule" class="section section-mid-bg">
         <div class="container">
-          <h2 class="section-title">Goals for the workshop</h2>
+          <h2 class="section-title">Workshop Schedule</h2>
           <div class="section-box">
-            <ul class="goals-list">
-              <li>
-                Understand the state-of-the-art foundation models across various
-                disciplines.
-              </li>
-              <li>
-                Gain hands-on experience implementing foundation models across
-                different scientific domains.
-              </li>
-              <li>
-                Develop interdisciplinary problem-solving and communication
-                skills for tackling complex scientific challenges.
-              </li>
-              <li>
-                Form cross-institutional research networks that can continue
-                beyond the workshop.
-              </li>
-            </ul>
+            <p>
+              Detailed schedule coming soon! Check back for updates on sessions,
+              speakers, and hackathon timing.
+            </p>
+            <!-- Placeholder for schedule content -->
+            <div class="schedule-tabs">
+              <button class="tab-btn active" data-day="day1-new">
+                Day 1 (Nov 3)
+              </button>
+              <button class="tab-btn" data-day="day2-new">Day 2 (Nov 4)</button>
+              <button class="tab-btn" data-day="day3-new">Day 3 (Nov 5)</button>
+            </div>
+            <div id="day1-new" class="schedule-content active">
+              <p>Day 1 activities will be listed here.</p>
+            </div>
+            <div id="day2-new" class="schedule-content">
+              <p>Day 2 activities will be listed here.</p>
+            </div>
+            <div id="day3-new" class="schedule-content">
+              <p>Day 3 activities will be listed here.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="eligibility" class="section">
+      <section id="organizers" class="section section-light-bg">
         <div class="container">
-          <h2 class="section-title">Target Audience</h2>
+          <h2 class="section-title">Organizers</h2>
           <div class="section-box">
-            <div class="eligibility-content">
-              <p>
-                We are seeking approximately 50 participants with diverse
-                scientific backgrounds who are interested in learning and
-                applying cross-domain AI solutions. Researchers who plan to or
-                currently use foundation models to unlock new insights in
-                scientific research are particularly encouraged to apply.
-                Proficiency in Python and at least one deep learning framework
-                (PyTorch, TensorFlow, or JAX) is expected, though various levels
-                of familiarity with foundation models are welcome, as tutorials
-                will accommodate different skill levels.
-              </p>
-              <p>
-                First-year fellows interested in foundation models are
-                especially encouraged to attend. Ideal candidates will possess
-                technical programming abilities, domain-specific knowledge and
-                an interest in working on scientific use cases that may not
-                directly relate to their current research.
-              </p>
-            </div>
+            <p>
+              Information about the organizing committee and sponsoring
+              institutions will be available here.
+            </p>
+            <!-- Placeholder for organizers -->
           </div>
         </div>
       </section>

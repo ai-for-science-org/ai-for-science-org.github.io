@@ -1,10 +1,11 @@
 /* General Styles */
 :root {
-  --primary-color: #3a86ff;
-  --secondary-color: #8338ec;
-  --accent-color: #ff006e;
-  --dark-color: #023e8a;
-  --light-color: #f8f9fa;
+  --primary-color: #1e3765;
+  --secondary-color: #007894;
+  --accent-color: #6fc7ea;
+  --mid-color: #d0d1c9;
+  --dark-color: #000000;
+  --light-color: #ffffff;
   --max-width: 1200px;
   --transition: all 0.3s ease;
 }
@@ -16,11 +17,112 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.8; /* Increased from 1.6 for better readability */
   color: #222; /* Darker text color for better contrast */
   background-color: var(--light-color);
   font-size: 1.1rem; /* Added base font size for the whole document */
+}
+
+.top-header {
+  background-color: white;
+  padding: 10px 5%; /* Adjusted padding to align logo with banner text */
+  display: flex;
+  justify-content: space-between; /* This will push logo to left and nav to right */
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it spans full width */
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+  z-index: 1000; /* Keeps header on top */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.top-header-logo-link img {
+  height: 75px; /* Reduced logo height */
+  width: auto;
+  display: block; /* Removes extra space under the image */
+}
+
+.top-header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.top-header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end; /* Align items to the bottom */
+}
+
+.top-header-nav li {
+  margin-left: 30px; /* Space between navigation items */
+}
+
+.top-header-nav a {
+  font-family: Arial, sans-serif;
+  color: rgb(30, 55, 101); /* Specified text color */
+  text-decoration: none;
+  font-weight: bold; /* Bold font */
+  font-size: 1.8rem; /* Matched to banner subtitle font size */
+  padding: 5px 10px; /* Adjusted padding for highlight box */
+  padding-bottom: 10px; /* Adjust as needed for visual alignment */
+  border-radius: 4px; /* Rounded corners for highlight box */
+  transition: color 0.3s ease; /* Only transition color now */
+  position: relative; /* Added for positioning */
+  top: 15px; /* Move text down by 5 pixels */
+}
+
+.top-header-nav a:hover {
+  /* background-color: var(--mid-color); */ /* Removed background highlight */
+  color: var(--secondary-color); /* Change text color on hover */
+  text-decoration: none; /* Remove underline from general a:hover */
+}
+
+.top-header-nav a.active-section {
+  /* background-color: var(--accent-color); */ /* Removed background highlight */
+  color: var(--secondary-color); /* Text color for active section */
+  border: 3px solid var(--mid-color); /* Add border with mid-color */
+  background-color: transparent; /* Ensure background is transparent */
+}
+
+/* New Apply Now Button Styles */
+.apply-now-btn {
+  display: inline-block;
+  background-color: transparent; /* No background */
+  color: white; /* White text */
+  padding: 15px 35px; /* Increased by 50% */
+  border-radius: 8px; /* Increased by 50% */
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 1.65rem; /* Increased by 50% */
+  font-weight: bold;
+  margin-top: 30px; /* Increased by 50%, ensures it's on a new line */
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, transform 0.3s ease;
+  box-shadow: none; /* Remove previous box-shadow */
+  border: 3px solid white; /* Increased by 50% */
+}
+
+.apply-now-btn:hover {
+  background-color: white; /* White background on hover */
+  color: var(--primary-color); /* Text color changes to primary theme color */
+  border-color: white; /* Border remains white or matches background */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow on hover */
+}
+/* End of New Apply Now Button Styles */
+
+/* Section Backgrounds */
+.section-light-bg {
+  background-color: var(--light-color);
+}
+
+.section-mid-bg {
+  background-color: var(--mid-color);
 }
 
 p {
@@ -107,8 +209,8 @@ button {
 /* Header Styles */
 header {
   position: relative;
-  height: 70vh; /* Reduced from 100vh to 70vh (30% reduction) */
-  min-height: 420px; /* Reduced from 600px */
+  height: 85vh; /* Increased banner height */
+  min-height: 500px; /* Increased banner min-height */
   color: white;
   text-align: center;
   overflow: hidden;
@@ -129,27 +231,31 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 95%;
-  max-width: 1000px; /* Increased from 800px to allow more width for subtitle */
+  width: 90%; /* Adjusted to align with new header padding */
+  max-width: 1000px;
   z-index: 1;
 }
 
 .banner-title h1 {
-  font-size: 3rem;
+  font-family: Arial, sans-serif;
+  font-weight: 900; /* "heavy" is typically 900 */
+  font-size: 5rem; /* Increased font size by 50% */
   text-align: center;
   color: white;
   margin: 0 0 15px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.1; /* Reduce space between line breaks */
 }
 
 .banner-title .subtitle {
-  font-size: 1.4rem;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.8rem; /* Increased font size */
   color: white;
   text-align: center;
   margin: 0 0 20px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Darker shadow for better contrast */
   font-weight: 500; /* Slightly bolder */
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
   padding: 8px 15px;
   border-radius: 5px;
   display: inline-block; /* To make background fit the text */
@@ -167,54 +273,6 @@ header {
   padding: 6px 12px;
   border-radius: 5px;
   display: inline-block; /* To make background fit the text */
-}
-
-/* Navigation */
-#navbar {
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-#navbar .container {
-  display: flex;
-  justify-content: center;
-}
-
-#navbar ul {
-  display: flex;
-  justify-content: center;
-}
-
-#navbar li {
-  padding: 20px 0;
-}
-
-#navbar a {
-  padding: 20px 15px;
-  color: var(--dark-color);
-  font-weight: 600;
-  position: relative;
-  font-size: 1.2rem; /* Increased font size */
-}
-
-#navbar a::after {
-  content: "";
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: var(--transition);
-  transform: translateX(-50%);
-}
-
-#navbar a:hover::after,
-#navbar a:focus::after {
-  width: 80%;
 }
 
 /* About Section */
