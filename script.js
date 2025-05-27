@@ -17,32 +17,34 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Smooth scrolling for anchor links
-  document.querySelectorAll('.top-header-nav a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
+  document
+    .querySelectorAll('.top-header-nav a[href^="#"]')
+    .forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-      const targetId = this.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
 
-      if (targetElement) {
-        // Remove active class from all nav links immediately for responsiveness
-        document.querySelectorAll(".top-header-nav a").forEach((navLink) => {
-          navLink.classList.remove("active-section");
-        });
-        // Add active class to the clicked nav link immediately
-        this.classList.add("active-section");
+        if (targetElement) {
+          // Remove active class from all nav links immediately for responsiveness
+          document.querySelectorAll(".top-header-nav a").forEach((navLink) => {
+            navLink.classList.remove("active-section");
+          });
+          // Add active class to the clicked nav link immediately
+          this.classList.add("active-section");
 
-        window.scrollTo({
-          top: targetElement.offsetTop - 80, // Offset for the sticky header
-          behavior: "smooth",
-        });
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // Offset for the sticky header
+            behavior: "smooth",
+          });
 
-        // Optionally, re-run updateActiveNav after scroll to ensure correctness if needed,
-        // though the immediate class add should suffice for click.
-        // setTimeout(updateActiveNav, 300); // Adjust delay as needed for scroll duration
-      }
+          // Optionally, re-run updateActiveNav after scroll to ensure correctness if needed,
+          // though the immediate class add should suffice for click.
+          // setTimeout(updateActiveNav, 300); // Adjust delay as needed for scroll duration
+        }
+      });
     });
-  });
 
   // Function to update active section in nav on scroll
   const sections = document.querySelectorAll("section[id]");

@@ -85,8 +85,6 @@ body {
 .top-header-nav a.active-section {
   /* background-color: var(--accent-color); */ /* Removed background highlight */
   color: var(--secondary-color); /* Text color for active section */
-  border: 3px solid var(--mid-color); /* Add border with mid-color */
-  background-color: transparent; /* Ensure background is transparent */
 }
 
 /* New Apply Now Button Styles */
@@ -123,6 +121,30 @@ body {
 
 .section-mid-bg {
   background-color: var(--mid-color);
+}
+
+/* Schedule Section Specific Styles */
+#schedule {
+  background-color: rgba(
+    208,
+    209,
+    201,
+    0.2
+  ); /* --mid-color (#d0d1c9) with 80% transparency */
+}
+
+.tentative-schedule-note {
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
+  color: var(--dark-color);
+}
+
+#schedule .container > div:not(.schedule-tabs):not(.schedule-content) {
+  /* Targeting the div that used to be section-box */
+  padding: 0; /* Remove padding if section-box is removed */
+  box-shadow: none; /* Remove box-shadow if section-box is removed */
+  border-top: none; /* Remove border if section-box is removed */
 }
 
 p {
@@ -168,26 +190,22 @@ button {
 
 .section-title {
   font-size: 2.5rem;
-  text-align: center;
+  text-align: left; /* Changed from center to left */
   margin-bottom: 50px;
-  color: var(--dark-color);
+  color: var(--primary-color); /* Updated to primary color */
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 5px; /* Reduced from 15px */
 }
 
 .section-title::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0; /* Adjusted to align with new padding */
+  left: 0; /* Changed from 50% to 0 */
+  /* transform: translateX(-50%); Removed to align left */
   width: 80px;
   height: 4px;
-  background: linear-gradient(
-    to right,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  background: var(--accent-color); /* Updated to accent color */
 }
 
 /* Section Box Style */
@@ -199,6 +217,25 @@ button {
   margin-bottom: 30px;
   border-top: 5px solid var(--primary-color);
   transition: all 0.3s ease;
+}
+
+/* Specific styles for #about section paragraphs */
+#about .container div p {
+  font-family: Arial, sans-serif;
+  font-size: 18pt; /* Preserving current font size */
+  margin-left: 0; /* Align paragraph block to the left */
+  text-align: justify; /* Align text within the block to be justified */
+  max-width: 1200px;
+}
+
+.sponsorship-note {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.sponsor-logo {
+  max-width: 300px; /* Increased by 50% from 200px */
+  margin-top: 10px;
 }
 
 .section-box:hover {
@@ -269,7 +306,12 @@ header {
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Matching shadow with subtitle */
   font-style: italic;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Semi-transparent background - 80% transparent */
   padding: 6px 12px;
   border-radius: 5px;
   display: inline-block; /* To make background fit the text */
@@ -394,12 +436,15 @@ header {
 .tab-btn {
   background-color: transparent;
   color: var(--dark-color);
-  padding: 12px 25px;
+  padding: 20px; /* Increased padding to match .time */
+  min-width: 200px; /* Added to match .time */
   margin: 5px;
   border-radius: 5px;
   font-weight: 600;
+  font-size: 1.2rem; /* Increased font size */
   transition: var(--transition);
   border: 2px solid transparent;
+  text-align: center; /* Added to match .time */
 }
 
 .tab-btn:hover {
@@ -429,7 +474,7 @@ header {
 }
 
 .time {
-  background-color: var(--dark-color);
+  background-color: var(--primary-color); /* Changed to primary-color */
   color: white;
   padding: 20px;
   min-width: 200px;
