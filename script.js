@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (targetElement) {
           // Remove active class from all nav links immediately for responsiveness
           document.querySelectorAll(".top-header-nav a").forEach((navLink) => {
-            navLink.classList.remove("active-section");
+            navLink.classList.remove("active"); // Changed from active-section
           });
           // Add active class to the clicked nav link immediately
-          this.classList.add("active-section");
+          this.classList.add("active"); // Changed from active-section
 
           window.scrollTo({
             top: targetElement.offsetTop - 80, // Offset for the sticky header
@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     navLinks.forEach((link) => {
-      link.classList.remove("active-section");
+      link.classList.remove("active"); // Changed from active-section
       if (link.getAttribute("href") === "#" + currentSectionId) {
-        link.classList.add("active-section");
+        link.classList.add("active"); // Changed from active-section
       }
     });
   }

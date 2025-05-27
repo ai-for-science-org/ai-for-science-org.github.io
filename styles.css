@@ -62,29 +62,64 @@ body {
   margin-left: 30px; /* Space between navigation items */
 }
 
-.top-header-nav a {
+.top-header-nav ul li a {
   font-family: Arial, sans-serif;
-  color: rgb(30, 55, 101); /* Specified text color */
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: var(--primary-color); /* Initial color */
   text-decoration: none;
-  font-weight: bold; /* Bold font */
-  font-size: 1.8rem; /* Matched to banner subtitle font size */
-  padding: 5px 10px; /* Adjusted padding for highlight box */
-  padding-bottom: 10px; /* Adjust as needed for visual alignment */
-  border-radius: 4px; /* Rounded corners for highlight box */
-  transition: color 0.3s ease; /* Only transition color now */
-  position: relative; /* Added for positioning */
-  top: 15px; /* Move text down by 5 pixels */
+  padding: 10px 15px;
+  transition: color 0.3s ease; /* Updated transition */
+  display: inline-block;
+  line-height: normal;
+  position: relative; /* Added for ::after positioning */
 }
 
-.top-header-nav a:hover {
-  /* background-color: var(--mid-color); */ /* Removed background highlight */
-  color: var(--secondary-color); /* Change text color on hover */
-  text-decoration: none; /* Remove underline from general a:hover */
+.top-header-nav ul li a:hover {
+  color: var(--secondary-color); /* Hover text color */
 }
 
-.top-header-nav a.active-section {
-  /* background-color: var(--accent-color); */ /* Removed background highlight */
-  color: var(--secondary-color); /* Text color for active section */
+.top-header-nav ul li a.active {
+  color: var(--secondary-color); /* Active text color - persists */
+}
+
+/* Underline pseudo-element for navigation links */
+.top-header-nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0; /* Initial state: hidden */
+  height: 3px;
+  bottom: 5px; /* Positioned 5px from the bottom of the 'a' tag's padding box */
+  left: 50%; /* Start from center for text-width effect */
+  transform: translateX(-50%); /* Center the underline */
+  background-color: var(
+    --secondary-color
+  ); /* Color for hover state as default */
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Underline becomes visible and matches text width on hover */
+.top-header-nav ul li a:hover::after {
+  width: calc(
+    100% - 30px
+  ); /* Adjust width to be similar to text, considering padding */
+  background-color: var(--secondary-color);
+}
+
+/* Underline style for active link */
+.top-header-nav ul li a.active::after {
+  width: calc(
+    100% - 30px
+  ); /* Adjust width to be similar to text, considering padding */
+  background-color: var(
+    --secondary-color
+  ); /* Active underline color matches text color */
+}
+
+/* Underline style for active link when it is also hovered */
+/* This ensures that when an active link is hovered, it still shows the hover color for the underline */
+.top-header-nav ul li a.active:hover::after {
+  background-color: var(--secondary-color);
 }
 
 /* New Apply Now Button Styles */
