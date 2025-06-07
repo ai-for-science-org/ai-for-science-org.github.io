@@ -23,12 +23,17 @@
           class="top-header-logo"
         />
       </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <nav class="top-header-nav">
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#organizers">Organizers</a></li>
           <li><a href="#logistics">Logistics</a></li>
+          <li><a href="#organizers">Organizers</a></li>
         </ul>
       </nav>
     </div>
@@ -40,6 +45,11 @@
         class="banner"
       />
       <div class="banner-title">
+        <img
+          src="imgs/caret.svg"
+          alt="Accent Caret"
+          class="title-accent-caret"
+        />
         <h1>Foundation Models for Science</h1>
         <p class="subtitle">
           Workshop at the University of Toronto | November 3-5, 2025
@@ -100,9 +110,11 @@
         <div class="container">
           <h2 class="section-title">Workshop Schedule</h2>
           <p class="tentative-schedule-note">
-            <em
-              >Please note: This schedule is tentative and subject to change as
-              we get closer to the workshop dates.</em
+            <strong
+              ><em
+                >Please note: This schedule is tentative and subject to
+                change</em
+              ></strong
             >
           </p>
           <div>
@@ -114,26 +126,45 @@
               <button class="tab-btn" data-day="day3-new">Day 3 (Nov 5)</button>
             </div>
 
+            <div class="schedule-legend">
+              <div class="legend-item">
+                <div class="legend-color keynote-color"></div>
+                <span>Keynotes & Presentations</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color tutorial-color"></div>
+                <span>Tutorials & Workshops</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color social-color"></div>
+                <span>Social & Networking</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color break-color"></div>
+                <span>Breaks & Meals</span>
+              </div>
+            </div>
+
             <div id="day1-new" class="schedule-content active">
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">9:00 AM</div>
                 <div class="details">
                   <h3>Breakfast</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item keynote">
                 <div class="time">10:00 AM</div>
                 <div class="details">
                   <h3>Keynote 1: Introduction to Foundation Models</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">11:00 AM</div>
                 <div class="details">
                   <h3>Morning tea</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item tutorial">
                 <div class="time">11:15 AM</div>
                 <div class="details">
                   <h3>
@@ -141,31 +172,31 @@
                   </h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">12:30 PM</div>
                 <div class="details">
                   <h3>Lunch</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item tutorial">
                 <div class="time">1:30 PM</div>
                 <div class="details">
                   <h3>Tutorial 2: Overview of hackathon projects</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item social">
                 <div class="time">3:00 PM</div>
                 <div class="details">
                   <h3>Networking and Team Formation</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">4:30 PM</div>
                 <div class="details">
                   <h3>Evening tea</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item social">
                 <div class="time">5:00 PM</div>
                 <div class="details">
                   <h3>Social event + networking dinner</h3>
@@ -180,13 +211,13 @@
             </div>
 
             <div id="day2-new" class="schedule-content">
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">9:00 AM</div>
                 <div class="details">
                   <h3>Breakfast</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item keynote">
                 <div class="time">10:00 AM</div>
                 <div class="details">
                   <h3>
@@ -195,13 +226,13 @@
                   </h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">11:00 AM</div>
                 <div class="details">
                   <h3>Morning tea</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item tutorial">
                 <div class="time">11:15 AM</div>
                 <div class="details">
                   <h3>
@@ -210,7 +241,7 @@
                   </h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">12:30 PM</div>
                 <div class="details">
                   <h3>Lunch</h3>
@@ -222,7 +253,7 @@
                   <h3>Hackathon kick off and initial implementations.</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">4:30 PM</div>
                 <div class="details">
                   <h3>Evening tea</h3>
@@ -243,13 +274,13 @@
             </div>
 
             <div id="day3-new" class="schedule-content">
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">9:00 AM</div>
                 <div class="details">
                   <h3>Breakfast</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item keynote">
                 <div class="time">10:00 AM</div>
                 <div class="details">
                   <h3>
@@ -257,7 +288,7 @@
                   </h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">11:00 AM</div>
                 <div class="details">
                   <h3>Morning tea</h3>
@@ -269,7 +300,7 @@
                   <h3>Hackathon continues</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">12:30 PM</div>
                 <div class="details">
                   <h3>Lunch</h3>
@@ -281,19 +312,19 @@
                   <h3>Hackathon wrap up</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item break">
                 <div class="time">4:30 PM</div>
                 <div class="details">
                   <h3>Evening tea</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item keynote">
                 <div class="time">5:00 PM</div>
                 <div class="details">
                   <h3>Presentation of hackathon awards and closing remarks</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item social">
                 <div class="time">6:30 PM</div>
                 <div class="details">
                   <h3>Social event + closing dinner</h3>
@@ -310,26 +341,6 @@
         </div>
       </section>
 
-      <section id="organizers" class="section section-light-bg">
-        <div class="container">
-          <h2 class="section-title">Organizers</h2>
-          <div class="section-box">
-            <p>
-              Information about the organizing committee and sponsoring
-              institutions will be available here.
-            </p>
-            <p>
-              For all conference-related questions and communications, please
-              contact us at:
-              <a href="mailto:contact@ai-for-science.org"
-                >contact@ai-for-science.org</a
-              >.
-            </p>
-            <!-- Placeholder for organizers -->
-          </div>
-        </div>
-      </section>
-
       <section id="logistics" class="section section-light-bg">
         <div class="container">
           <h2 class="section-title">Logistics</h2>
@@ -337,10 +348,16 @@
             <h3>Conference Location</h3>
             <p>
               The conference will be held at the
-              <strong
-                >second floor of Schwartz Reisman Innovation Campus</strong
-              >
-              in Toronto.
+              <strong>
+                <a
+                  href="https://sric.utoronto.ca/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Second Floor of Schwartz Reisman Innovation Campus (SRIC)
+                </a>
+              </strong>
+              in Toronto, Canada.
             </p>
             <div class="map-container">
               <iframe
@@ -354,15 +371,265 @@
                 title="Schwartz Reisman Innovation Campus Location"
               ></iframe>
             </div>
+
+            <h3>Accommodation</h3>
+            <div class="clean-light-gray-box">
+              <p>
+                Accommodation will be provided to all Schmidt Fellows at the
+                <strong>
+                  <a
+                    href="https://www.chelseatoronto.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Chelsea Hotel
+                  </a>
+                </strong>
+                in downtown Toronto from
+                <strong>November 2 to 6, 2025</strong>. Accommodation may be
+                provided to other attendees depending on availability but is not
+                guaranteed. The organizers will reach out about accommodation
+                arrangements after the selected participants confirm their
+                attendance.
+              </p>
+              <p>
+                For participants whose accommodation is being covered and who
+                are also planning to attend the Foundation Models for Science
+                workshop at the Vector Institute, there will be an option to
+                extend your stay until November 8th at a discounted rate, but at
+                the participants' own expense. Please contact the organizers for
+                more information about extended stay arrangements once the
+                selection results are announced by the Vector Institute.
+              </p>
+            </div>
+
+            <h3>Travel to Toronto</h3>
+            <div class="visa-info">
+              <p>
+                <strong
+                  >Participants are responsible for arranging and funding their
+                  own travel to and from Toronto.</strong
+                >
+              </p>
+            </div>
+
+            <div class="visa-info">
+              <p>
+                <strong>International Travel:</strong> Participants traveling
+                from outside of Canada may need a valid passport and either a
+                visa or an Electronic Travel Authorization (eTA) depending on
+                their citizenship. Please consult
+                <a
+                  href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Immigration, Refugees and Citizenship Canada (IRCC)
+                </a>
+                for travel requirements and take appropriate steps. The
+                organizers can provide an invitation letter for visa purposes.
+                Please
+                <a href="mailto:contact@ai-for-science.org">reach out</a> if a
+                letter is needed.
+              </p>
+            </div>
+
+            <div class="transport-grid">
+              <div class="transport-item">
+                <p>
+                  <strong>Air Travel:</strong> Toronto is served by the Pearson
+                  International Airport (YYZ) and the Billy Bishop Toronto City
+                  Airport (YTZ). Pearson offers extensive international
+                  connections, while Billy Bishop serves domestic and select US
+                  destinations.
+                </p>
+              </div>
+              <div class="transport-item">
+                <p>
+                  <strong>Ground Transportation:</strong> Toronto is
+                  well-connected by highway, with major routes including the
+                  401, 400, and QEW. VIA Rail provides train service from major
+                  Canadian cities, with Union Station as the central hub.
+                  Greyhound and other bus companies offer intercity service.
+                </p>
+              </div>
+              <div class="transport-item">
+                <p>
+                  <strong>Public Transit:</strong> The Toronto Transit
+                  Commission (TTC) operates an extensive network of subways,
+                  buses, and streetcars throughout the city. The UP Express
+                  provides direct rail service between Pearson Airport and Union
+                  Station in downtown Toronto. A free ferry shuttle connects the
+                  Billy Bishop Airport to the mainland. Taxis and ride-hailing
+                  services such as Uber and Lyft are also widely available.
+                </p>
+              </div>
+            </div>
             <!-- Additional logistics information can be added here -->
+          </div>
+        </div>
+      </section>
+
+      <section id="organizers" class="section section-light-bg">
+        <div class="container">
+          <h2 class="section-title">Organizers</h2>
+          <div class="organizers-intro">
+            <p>
+              This workshop is organized by a multidisciplinary team of
+              researchers from the University of Toronto, bringing together
+              expertise in artificial intelligence, machine learning, and
+              various scientific domains.
+            </p>
+          </div>
+
+          <div class="organizers-grid">
+            <div class="organizer-card">
+              <img
+                src="imgs/Biprateep_Dey.jpg"
+                alt="Biprateep Dey"
+                class="organizer-photo"
+              />
+              <div class="organizer-info">
+                <h3>Biprateep Dey</h3>
+                <p class="organizer-title">Assistant Professor</p>
+                <p class="organizer-affiliation">
+                  Department of Astronomy & Astrophysics<br />University of
+                  Toronto
+                </p>
+              </div>
+            </div>
+
+            <div class="organizer-card">
+              <img
+                src="imgs/Chris_Maddison.jpg"
+                alt="Chris Maddison"
+                class="organizer-photo"
+              />
+              <div class="organizer-info">
+                <h3>Chris Maddison</h3>
+                <p class="organizer-title">Assistant Professor</p>
+                <p class="organizer-affiliation">
+                  Department of Computer Science<br />University of Toronto
+                </p>
+              </div>
+            </div>
+
+            <div class="organizer-card">
+              <img
+                src="imgs/Rahul_Krishnan.jpg"
+                alt="Rahul Krishnan"
+                class="organizer-photo"
+              />
+              <div class="organizer-info">
+                <h3>Rahul Krishnan</h3>
+                <p class="organizer-title">Assistant Professor</p>
+                <p class="organizer-affiliation">
+                  Department of Computer Science<br />University of Toronto
+                </p>
+              </div>
+            </div>
+
+            <div class="organizer-card">
+              <img
+                src="imgs/David_Pellow.jpg"
+                alt="David Pellow"
+                class="organizer-photo"
+              />
+              <div class="organizer-info">
+                <h3>David Pellow</h3>
+                <p class="organizer-title">Professor</p>
+                <p class="organizer-affiliation">
+                  Department of Sociology<br />University of Toronto
+                </p>
+              </div>
+            </div>
+
+            <div class="organizer-card">
+              <img
+                src="imgs/Amanda_Mohabeer.jpg"
+                alt="Amanda Mohabeer"
+                class="organizer-photo"
+              />
+              <div class="organizer-info">
+                <h3>Amanda Mohabeer</h3>
+                <p class="organizer-title">Postdoctoral Researcher</p>
+                <p class="organizer-affiliation">University of Toronto</p>
+              </div>
+            </div>
+
+            <div class="organizer-card">
+              <img
+                src="imgs/Ashley_Dale.jpg"
+                alt="Ashley Dale"
+                class="organizer-photo"
+              />
+              <div class="organizer-info">
+                <h3>Ashley Dale</h3>
+                <p class="organizer-title">Research Scientist</p>
+                <p class="organizer-affiliation">University of Toronto</p>
+              </div>
+            </div>
+
+            <div class="organizer-card">
+              <img
+                src="imgs/Ishrath_Mohamed_Irshadeen.jpeg"
+                alt="Ishrath Mohamed Irshadeen"
+                class="organizer-photo"
+              />
+              <div class="organizer-info">
+                <h3>Ishrath Mohamed Irshadeen</h3>
+                <p class="organizer-title">Graduate Student</p>
+                <p class="organizer-affiliation">University of Toronto</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-section">
+            <h3>Contact Information</h3>
+            <p>
+              For all conference-related questions and communications, please
+              contact us at:
+              <a href="mailto:contact@ai-for-science.org"
+                >contact@ai-for-science.org</a
+              >.
+            </p>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="container">
-        <!-- Empty footer - just a solid color bar -->
+    <footer class="uoft-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img
+            src="imgs/defy_gravity.svg"
+            alt="University of Toronto - Defy Gravity"
+            class="footer-defy-gravity"
+          />
+        </div>
+
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="https://www.utoronto.ca/accessibility" target="_blank">
+                Accessibility
+              </a>
+            </li>
+            <li>
+              <a href="https://www.utoronto.ca/privacy" target="_blank">
+                Privacy
+              </a>
+            </li>
+            <li>
+              <a href="https://safety.utoronto.ca/" target="_blank">
+                Campus Safety
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@ai-for-science.org">Contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
 

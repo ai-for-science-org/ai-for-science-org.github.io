@@ -1,4 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Mobile menu toggle functionality
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  const topHeaderNav = document.querySelector(".top-header-nav");
+
+  if (mobileMenuToggle && topHeaderNav) {
+    mobileMenuToggle.addEventListener("click", function () {
+      mobileMenuToggle.classList.toggle("active");
+      topHeaderNav.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking on a nav link
+    const navLinks = document.querySelectorAll(".top-header-nav a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        mobileMenuToggle.classList.remove("active");
+        topHeaderNav.classList.remove("active");
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function (e) {
+      if (
+        !mobileMenuToggle.contains(e.target) &&
+        !topHeaderNav.contains(e.target)
+      ) {
+        mobileMenuToggle.classList.remove("active");
+        topHeaderNav.classList.remove("active");
+      }
+    });
+  }
+
   // Tab functionality for schedule
   const tabButtons = document.querySelectorAll(".tab-btn");
   const scheduleContents = document.querySelectorAll(".schedule-content");
