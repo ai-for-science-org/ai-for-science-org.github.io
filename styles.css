@@ -2256,3 +2256,235 @@ header {
     font-size: 0.9rem;
   }
 }
+
+/* ===================================
+   FLOATING NAVIGATION MENU STYLES
+   =================================== */
+
+/* Floating Navigation Container */
+.floating-nav {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999; /* Below top header but above content */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.floating-nav.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+.floating-nav.hide {
+  transform: translateY(-50%) translateX(-100%);
+}
+
+/* Toggle Button */
+.floating-nav-toggle {
+  background: var(--primary-color);
+  color: var(--light-color);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(30, 55, 101, 0.3);
+  transition: all 0.3s ease;
+  font-size: 18px;
+  position: relative;
+  z-index: 1001;
+}
+
+.floating-nav-toggle:hover {
+  background: var(--secondary-color);
+  box-shadow: 0 6px 16px rgba(0, 120, 148, 0.4);
+  transform: scale(1.05);
+}
+
+.floating-nav-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Navigation Content */
+.floating-nav-content {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) translateX(-20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.floating-nav.expanded .floating-nav-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: all;
+}
+
+/* Navigation Panel (individual sections) */
+.floating-nav-section {
+  display: none;
+}
+
+.floating-nav-section.active {
+  display: block;
+}
+
+/* Section Title */
+.floating-nav-section h4 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Navigation List */
+.floating-nav-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.floating-nav-section li {
+  margin: 0 0 8px 0;
+}
+
+.floating-nav-section li:last-child {
+  margin-bottom: 0;
+}
+
+/* Navigation Links */
+.floating-nav-section a {
+  display: block;
+  color: var(--dark-color);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  position: relative;
+  border-left: 3px solid transparent;
+}
+
+.floating-nav-section a:hover {
+  background: rgba(30, 55, 101, 0.08);
+  color: var(--primary-color);
+  border-left-color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.floating-nav-section a.active {
+  background: rgba(30, 55, 101, 0.12);
+  color: var(--primary-color);
+  border-left-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.floating-nav-section a.active:hover {
+  background: rgba(30, 55, 101, 0.15);
+  border-left-color: var(--secondary-color);
+}
+
+/* Smooth scroll behavior for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .floating-nav {
+    left: 15px;
+  }
+
+  .floating-nav-content {
+    min-width: 220px;
+    left: 55px;
+  }
+
+  .floating-nav-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .floating-nav {
+    display: none !important; /* Hide on mobile to avoid clutter */
+  }
+}
+
+/* Large screens - adjust positioning */
+@media (min-width: 1400px) {
+  .floating-nav {
+    left: 40px;
+  }
+
+  .floating-nav-content {
+    left: 70px;
+    min-width: 280px;
+  }
+
+  .floating-nav-toggle {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+  }
+}
+
+/* Animation classes for JavaScript control */
+.floating-nav.fade-in {
+  animation: fadeInNav 0.5s ease forwards;
+}
+
+.floating-nav.fade-out {
+  animation: fadeOutNav 0.5s ease forwards;
+}
+
+@keyframes fadeInNav {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes fadeOutNav {
+  from {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100%);
+  }
+}

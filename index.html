@@ -38,6 +38,56 @@
       </nav>
     </div>
 
+    <!-- Floating Section Navigation -->
+    <div class="floating-nav" id="floating-nav">
+      <div class="floating-nav-toggle" id="floating-nav-toggle">
+        <i class="fas fa-list"></i>
+      </div>
+      <div class="floating-nav-content" id="floating-nav-content">
+        <div class="floating-nav-section" id="about-nav" style="display: none">
+          <h4>About</h4>
+          <ul>
+            <li>
+              <a href="#about-foundation-models"
+                >What are AI Foundation Models?</a
+              >
+            </li>
+            <li><a href="#about-what-to-expect">What to Expect</a></li>
+            <li><a href="#about-why-attend">Why Attend</a></li>
+            <li><a href="#about-expectations">What We Expect</a></li>
+            <li>
+              <a href="#about-vector-workshop">Vector Institute Workshop</a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="floating-nav-section"
+          id="logistics-nav"
+          style="display: none"
+        >
+          <h4>Logistics</h4>
+          <ul>
+            <li><a href="#logistics-location">Conference Location</a></li>
+            <li><a href="#logistics-accommodation">Accommodation</a></li>
+            <li><a href="#logistics-travel">Travel to Toronto</a></li>
+          </ul>
+        </div>
+        <div
+          class="floating-nav-section"
+          id="organizers-nav"
+          style="display: none"
+        >
+          <h4>Organizers</h4>
+          <ul>
+            <li><a href="#organizers-contact">Contact Information</a></li>
+            <li><a href="#organizers-local">Local Organizers</a></li>
+            <li><a href="#organizers-advisors">Scientific Advisors</a></li>
+            <li><a href="#organizers-funding">Funding Acknowledgment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <header>
       <img
         src="imgs/homepage_banner.jpeg"
@@ -69,7 +119,7 @@
           <h2 class="section-title">About the Workshop</h2>
           <div class="about-sections">
             <div class="about-subsection">
-              <h3 class="about-subsection-heading">
+              <h3 class="about-subsection-heading" id="about-foundation-models">
                 <i class="fas fa-brain"></i> What are AI Foundation Models?
               </h3>
               <p>
@@ -84,7 +134,7 @@
             </div>
 
             <div class="about-subsection">
-              <h3 class="about-subsection-heading">
+              <h3 class="about-subsection-heading" id="about-what-to-expect">
                 <i class="fas fa-lightbulb"></i> What to Expect from This
                 Workshop
               </h3>
@@ -102,7 +152,7 @@
             </div>
 
             <div class="about-subsection">
-              <h3 class="about-subsection-heading">
+              <h3 class="about-subsection-heading" id="about-why-attend">
                 <i class="fas fa-star"></i> Why Attend This Workshop?
               </h3>
               <p>
@@ -122,7 +172,7 @@
             </div>
 
             <div class="about-subsection">
-              <h3 class="about-subsection-heading">
+              <h3 class="about-subsection-heading" id="about-expectations">
                 <i class="fas fa-users"></i> What Do We Expect from the
                 Participants?
               </h3>
@@ -140,29 +190,24 @@
                 current research.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Extended Learning Opportunity Highlight -->
-      <section class="section section-light-bg">
-        <div class="container">
-          <div class="extended-learning-highlight">
-            <h3>
-              <i class="fas fa-graduation-cap"></i> Continue your foundation
-              models for science journey with the Vector Institute!
-            </h3>
-            <p>
-              Participants of this workshop will have the opportunity to attend
-              Vector Institute's workshop on foundation models for science held
-              right after this workshop from
-              <strong>November 6-7, 2025</strong>. This two-day event will dive
-              deeper into cutting-edge research on AI foundation models and
-              their applications in scientific research through a series of
-              talks and poster presentations. Indicate your interest in
-              attending this workshop in the application form, and we will reach
-              out with more details.
-            </p>
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-vector-workshop">
+                <i class="fas fa-graduation-cap"></i> Continue your foundation
+                models for science journey with the Vector Institute!
+              </h3>
+              <p>
+                Participants of this workshop will have the opportunity to
+                attend Vector Institute's workshop on foundation models for
+                science held right after this workshop from
+                <strong>November 6-7, 2025</strong>. This two-day event will
+                dive deeper into cutting-edge research on AI foundation models
+                and their applications in scientific research through a series
+                of talks and poster presentations. Indicate your interest in
+                attending this workshop in the application form, and we will
+                reach out with more details.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -406,7 +451,7 @@
         <div class="container">
           <h2 class="section-title">Logistics</h2>
           <div class="logistics-content">
-            <h3 class="logistics-location-heading">
+            <h3 class="logistics-location-heading" id="logistics-location">
               <i class="fas fa-map-marker-alt"></i> Conference Location
             </h3>
             <p>
@@ -435,7 +480,10 @@
               ></iframe>
             </div>
 
-            <h3 class="logistics-accommodation-heading">
+            <h3
+              class="logistics-accommodation-heading"
+              id="logistics-accommodation"
+            >
               <i class="fas fa-bed"></i> Accommodation
             </h3>
             <div class="clean-light-gray-box">
@@ -468,7 +516,7 @@
               </p>
             </div>
 
-            <h3 class="logistics-travel-heading">
+            <h3 class="logistics-travel-heading" id="logistics-travel">
               <i class="fas fa-plane"></i> Travel to Toronto
             </h3>
             <div class="visa-info">
@@ -543,7 +591,7 @@
 
           <div class="organizers-content">
             <div class="contact-section">
-              <h3 class="contact-information-heading">
+              <h3 class="contact-information-heading" id="organizers-contact">
                 <i class="fas fa-envelope"></i> Contact Information
               </h3>
               <p>
@@ -558,7 +606,7 @@
             </div>
 
             <div class="organizer-tier">
-              <h3 class="local-organizers-heading">
+              <h3 class="local-organizers-heading" id="organizers-local">
                 <i class="fas fa-users"></i> Local Organizers
               </h3>
               <div class="organizers-grid">
@@ -700,7 +748,7 @@
             </div>
 
             <div class="organizer-tier">
-              <h3 class="scientific-advisors-heading">
+              <h3 class="scientific-advisors-heading" id="organizers-advisors">
                 <i class="fas fa-user"></i> Scientific Advisors
               </h3>
               <div class="organizers-grid">
@@ -765,7 +813,10 @@
             </div>
 
             <div class="funding-acknowledgment">
-              <h3 class="funding-acknowledgment-heading">
+              <h3
+                class="funding-acknowledgment-heading"
+                id="organizers-funding"
+              >
                 <i class="fas fa-dollar-sign"></i> Funding Acknowledgment
               </h3>
               <div class="sponsorship-note">
