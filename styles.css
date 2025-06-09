@@ -576,7 +576,7 @@ header {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid var(--primary-color);
+  border-left: 10px solid var(--primary-color); /* Increased from 8px to 10px */
   transition: var(--transition);
   position: relative;
 }
