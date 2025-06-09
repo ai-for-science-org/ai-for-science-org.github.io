@@ -288,7 +288,7 @@ button {
 /* Specific styles for #about section paragraphs */
 #about .container div p {
   font-family: Arial, sans-serif;
-  font-size: 18pt; /* Preserving current font size */
+  font-size: 1.1rem; /* Changed from 18pt to match other sections */
   margin-left: 0; /* Align paragraph block to the left */
   text-align: justify; /* Align text within the block to be justified */
   max-width: 1200px;
@@ -855,6 +855,60 @@ header {
 
 .visa-info p:last-child {
   margin-bottom: 0;
+}
+
+.extended-learning-highlight {
+  background-color: rgba(0, 120, 148, 0.08);
+  border: 1px solid rgba(0, 120, 148, 0.2);
+  border-radius: 8px;
+  padding: 25px;
+  margin: 30px 0;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.extended-learning-highlight:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.extended-learning-highlight h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.extended-learning-highlight h3 i {
+  background-color: var(--primary-color);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.extended-learning-highlight p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.extended-learning-highlight p:last-child {
+  margin-bottom: 0;
+}
+
+.extended-learning-highlight strong {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .transport-grid {
@@ -1424,7 +1478,7 @@ header {
   }
 
   #about .container div p {
-    font-size: 16pt;
+    font-size: 1rem;
   }
 
   .highlights {
@@ -1529,6 +1583,26 @@ header {
   .map-container {
     margin-top: 20px;
   }
+
+  .extended-learning-highlight {
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .extended-learning-highlight h3 {
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+
+  .extended-learning-highlight h3 i {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .extended-learning-highlight p {
+    font-size: 0.95rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1594,7 +1668,7 @@ header {
   }
 
   #about .container div p {
-    font-size: 14pt;
+    font-size: 0.95rem;
   }
 
   .tab-btn {
@@ -1988,4 +2062,197 @@ header {
   color: white;
   font-size: 12px;
   margin-right: 12px;
+}
+
+/* About Section Styles */
+.about-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-subsection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 120, 148, 0.1);
+}
+
+.about-subsection-heading {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 40px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color);
+  position: relative;
+  gap: 12px;
+}
+
+.about-subsection-heading:first-of-type {
+  margin-top: 0;
+}
+
+.about-subsection-heading i {
+  width: 24px;
+  height: 24px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 12px;
+  margin-right: 0;
+}
+
+.about-subsection p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: none;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Mobile responsiveness for about sections */
+@media (max-width: 768px) {
+  .about-subsection {
+    padding: 1rem;
+  }
+
+  .about-subsection-heading {
+    font-size: 1.6rem;
+    margin: 30px 0 15px 0;
+    gap: 10px;
+  }
+
+  .about-subsection-heading:first-of-type {
+    margin-top: 0;
+  }
+
+  .about-subsection-heading i {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .about-subsection p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Footer Styles */
+.uoft-footer {
+  background-color: var(--primary-color);
+  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 4px solid var(--accent-color);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  flex-shrink: 0;
+}
+
+.footer-defy-gravity {
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1); /* Make logo white */
+  transition: var(--transition);
+}
+
+.footer-defy-gravity:hover {
+  filter: brightness(0) invert(1) opacity(0.8);
+  transform: scale(1.05);
+}
+
+.footer-links {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 0;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+/* Footer responsive styles */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-links ul {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-defy-gravity {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .uoft-footer {
+    padding: 15px 0;
+  }
+
+  .footer-content {
+    padding: 0 15px;
+  }
+
+  .footer-links ul {
+    gap: 12px;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
 }
