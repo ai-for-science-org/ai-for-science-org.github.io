@@ -170,28 +170,68 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Smooth scrolling for floating nav links with offset for header
-  floatingNavLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      const targetElement = document.querySelector(targetId);
+  // Enhanced smooth scrolling for floating nav links with dynamic link detection
+  function attachFloatingNavListeners() {
+    // Always select currently visible links
+    const floatingNavLinks = document.querySelectorAll(
+      ".floating-nav-section.active a"
+    );
+    floatingNavLinks.forEach((link) => {
+      link.onclick = function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        // Only handle valid hash links
+        if (targetId && targetId.startsWith("#")) {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            // Calculate offset: sticky header + extra buffer
+            const stickyHeaderHeight = 100; // Height of .top-header
+            const additionalBuffer = 15; // Small buffer to ensure heading is fully visible
 
-      if (targetElement) {
-        const headerOffset = 100; // Account for sticky header
-        const elementPosition = targetElement.offsetTop;
-        const offsetPosition = elementPosition - headerOffset;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              window.pageYOffset +
+              elementPosition -
+              stickyHeaderHeight -
+              additionalBuffer;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-
-        // Close the floating nav after clicking a link
-        floatingNav.classList.remove("expanded");
-      }
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+            floatingNav.classList.remove("expanded");
+          }
+        }
+      };
     });
-  });
+  }
+
+  // Call this whenever the floating nav panel changes
+  function updateFloatingNavVisibility() {
+    const currentSection = getCurrentSection();
+    if (currentSection && sectionsWithFloatingNav.includes(currentSection)) {
+      if (!floatingNav.classList.contains("show")) {
+        floatingNav.classList.remove("hide", "fade-out");
+        floatingNav.classList.add("show", "fade-in");
+      }
+      floatingNavPanels.forEach((panel) => {
+        panel.classList.remove("active");
+        panel.style.display = "none";
+      });
+      const activePanelId = sectionPanelMap[currentSection];
+      const activePanel = document.getElementById(activePanelId);
+      if (activePanel) {
+        activePanel.classList.add("active");
+        activePanel.style.display = "block";
+        attachFloatingNavListeners(); // Attach listeners to visible links only
+      }
+    } else {
+      if (floatingNav.classList.contains("show")) {
+        floatingNav.classList.remove("show", "fade-in", "expanded");
+        floatingNav.classList.add("hide", "fade-out");
+      }
+    }
+  }
 
   // Function to determine current section
   function getCurrentSection() {
@@ -255,6 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (activePanel) {
         activePanel.classList.add("active");
         activePanel.style.display = "block";
+        attachFloatingNavListeners(); // Ensure listeners are attached to newly visible links
       }
     } else {
       // Hide floating navigation
@@ -306,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", throttledScrollHandler);
 
   // Initial call to set up floating navigation state
-  handleFloatingNavScroll();
+  updateFloatingNavVisibility();
 
   // Handle window resize to ensure proper positioning
   window.addEventListener("resize", () => {
