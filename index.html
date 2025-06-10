@@ -3,7 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Foundation Models for Science Conference 2025</title>
+    <meta
+      name="description"
+      content="Join the AI Foundation Models for Science Conference in Toronto (Nov 3-5, 2025). Explore cutting-edge AI applications in scientific research, network with experts, and participate in a hands-on hackathon. Sponsored by Schmidt Sciences and the University of Toronto."
+    />
+    <meta
+      name="keywords"
+      content="AI for Science, Foundation Models, Scientific Research, Machine Learning, Deep Learning, Hackathon, Conference, Workshop, University of Toronto, Schmidt Sciences, AI in Science, Toronto Events"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ai-for-science-org.github.io/" />
+    <meta
+      property="og:title"
+      content="AI Foundation Models for Science Conference 2025"
+    />
+    <meta
+      property="og:description"
+      content="Explore cutting-edge AI applications in scientific research at the AI Foundation Models for Science Conference in Toronto (Nov 3-5, 2025). Network, learn, and innovate."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ai-for-science-org.github.io/" />
+    <meta
+      property="og:image"
+      content="https://ai-for-science-org.github.io/imgs/homepage_banner.jpeg"
+    />
+    <meta
+      property="og:site_name"
+      content="AI Foundation Models for Science Conference"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AI Foundation Models for Science Conference 2025"
+    />
+    <meta
+      name="twitter:description"
+      content="Join us for the AI Foundation Models for Science Conference in Toronto (Nov 3-5, 2025). Discover AI's role in science, network, and participate in a hackathon."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ai-for-science-org.github.io/imgs/homepage_banner.jpeg"
+    />
+
+    <title>AI Foundation Models for Science Workshop 2025</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -11,126 +53,880 @@
     />
   </head>
   <body>
+    <div class="top-header">
+      <a
+        href="https://www.utoronto.ca"
+        target="_blank"
+        class="top-header-logo-link"
+      >
+        <img
+          src="imgs/uoft_logo.png"
+          alt="University of Toronto Logo"
+          class="top-header-logo"
+        />
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-header-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#logistics">Logistics</a></li>
+          <li><a href="#organizers">Organizers</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Floating Section Navigation -->
+    <div class="floating-nav" id="floating-nav">
+      <div class="floating-nav-toggle" id="floating-nav-toggle">
+        <i class="fas fa-list"></i>
+      </div>
+      <div class="floating-nav-content" id="floating-nav-content">
+        <div class="floating-nav-section" id="about-nav" style="display: none">
+          <h4>About</h4>
+          <ul>
+            <li>
+              <a href="#about-foundation-models"
+                >What are AI Foundation Models?</a
+              >
+            </li>
+            <li><a href="#about-what-to-expect">What to Expect</a></li>
+            <li><a href="#about-why-attend">Why Attend</a></li>
+            <li><a href="#about-expectations">What We Expect</a></li>
+            <li>
+              <a href="#about-vector-workshop">Vector Institute Workshop</a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="floating-nav-section"
+          id="logistics-nav"
+          style="display: none"
+        >
+          <h4>Logistics</h4>
+          <ul>
+            <li><a href="#logistics-location">Conference Location</a></li>
+            <li><a href="#logistics-accommodation">Accommodation</a></li>
+            <li><a href="#logistics-travel">Travel to Toronto</a></li>
+          </ul>
+        </div>
+        <div
+          class="floating-nav-section"
+          id="organizers-nav"
+          style="display: none"
+        >
+          <h4>Organizers</h4>
+          <ul>
+            <li><a href="#organizers-contact">Contact Information</a></li>
+            <li><a href="#organizers-local">Local Organizers</a></li>
+            <li><a href="#organizers-advisors">Scientific Advisors</a></li>
+            <li><a href="#organizers-funding">Funding Acknowledgment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <header>
-      <img src="banner.png" alt="Conference Banner" class="banner" />
+      <img
+        src="imgs/homepage_banner.jpeg"
+        alt="Conference Banner"
+        class="banner"
+      />
       <div class="banner-title">
-        <h1>
-          AI Foundation Models for Next-Generation Scientific Collaborations
-        </h1>
+        <img
+          src="imgs/caret.svg"
+          alt="Accent Caret"
+          class="title-accent-caret"
+        />
+        <h1>Foundation Models<br />for<br />Science</h1>
         <p class="subtitle">
-          A three-day hands-on workshop organized by the University of Toronto
+          Workshop at the University of Toronto | November 3-5, 2025
         </p>
-        <p class="date-range">
-          Tentative date range: Mid October to Mid November 2025
-        </p>
+        <a
+          href="https://forms.gle/osgDArBNrnuAkL2p8"
+          target="_blank"
+          class="apply-now-btn"
+          >Apply Now</a
+        >
       </div>
     </header>
 
-    <nav id="navbar">
-      <div class="container">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#goals">Goals</a></li>
-          <li><a href="#eligibility">Target Audience</a></li>
-        </ul>
-      </div>
-    </nav>
-
     <main>
-      <section id="about" class="section">
+      <section id="about" class="section section-light-bg">
         <div class="container">
           <h2 class="section-title">About the Workshop</h2>
-          <div class="section-box">
-            <p>
-              The Schmidt AI for Science program at the University of Toronto
-              will host a three-day workshop in Toronto exploring how AI
-              foundation models can solve interdisciplinary scientific problems.
-              A foundation model is a general-purpose AI/ML model that has
-              already learned information suitable for diverse tasks;
-              state-of-the-art results show that a foundation model trained with
-              data from one scientific domain (e.g., astronomy) may be suitable
-              for problems in another scientific domain (e.g., chemistry). This
-              workshop combines lectures with hands-on tutorials and culminates
-              in a hackathon.
-            </p>
-            <p>
-              In the hackathon, attendees will form teams that test and utilize
-              foundation models for science; teams will compete for prizes in
-              categories such as innovative solutions, best team spirit, and
-              most robust model. All local expenses, including four nights'
-              accommodation, transportation, and meals, will be covered by the
-              organizers. Attendees will be responsible for funding their travel
-              to and from Toronto, along with any extra days outside of the
-              workshop days.
-            </p>
-            <p>
-              Participants are expected to attend the full three-day program
-              (approximately 9:00 AM to 5:00 PM daily) and actively contribute
-              to the hackathon. Participants will also attend social events
-              organized outside of workshop hours.
-            </p>
+          <div class="about-sections">
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-foundation-models">
+                <i class="fas fa-brain"></i> What are AI Foundation Models?
+              </h3>
+              <p>
+                AI foundation models are large-scale machine learning models
+                trained on vast amounts of data that can be adapted for a wide
+                range of downstream tasks. In science, foundation models are
+                increasingly being used to accelerate discovery across domains
+                like drug design, materials science, climate modeling, and
+                genomics by leveraging their ability to understand complex
+                patterns and relationships in data.
+              </p>
+            </div>
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-what-to-expect">
+                <i class="fas fa-lightbulb"></i> What to Expect from This
+                Workshop
+              </h3>
+              <p>
+                This three-day hands-on workshop in Toronto will explore how AI
+                foundation models can solve interdisciplinary scientific
+                problems. The workshop will feature keynote and participant
+                lectures, interactive tutorials, and a hackathon, all alongside
+                a social program. Tutorial and hackathon topics will be tailored
+                to participants' interests and experience – let us know in the
+                application form! You'll gain practical experience with
+                cutting-edge AI tools and techniques while collaborating with
+                researchers from diverse scientific backgrounds.
+              </p>
+            </div>
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-why-attend">
+                <i class="fas fa-star"></i> Why Attend This Workshop?
+              </h3>
+              <p>
+                This workshop offers a unique opportunity to learn how
+                foundation models can accelerate scientific discovery across
+                disciplines. You'll network with leading researchers, gain
+                hands-on experience with state-of-the-art AI tools, and explore
+                cross-disciplinary applications that could transform your
+                research approach. Set in Toronto—a vibrant multicultural city
+                and global AI research hub—you'll be learning at the University
+                of Toronto, where the modern AI revolution began. This workshop
+                provides an ideal platform to connect with experts, share
+                innovative ideas, and collaborate on cutting-edge solutions to
+                scientific challenges while building lasting professional
+                relationships that extend beyond the event.
+              </p>
+            </div>
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-expectations">
+                <i class="fas fa-users"></i> What Do We Expect from the
+                Participants?
+              </h3>
+              <p>
+                We are seeking participants with diverse scientific backgrounds
+                interested in learning and applying cross-domain AI solutions.
+                Researchers who currently use or plan to use foundation models
+                to unlock new insights in scientific research are particularly
+                encouraged to apply. Proficiency in Python and a deep learning
+                framework (PyTorch, TensorFlow, JAX) is expected, though various
+                levels of familiarity with foundation models are welcome. Ideal
+                candidates will possess technical programming abilities,
+                domain-specific knowledge, and an interest in working on
+                scientific use cases that may not directly relate to their
+                current research.
+              </p>
+            </div>
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-vector-workshop">
+                <i class="fas fa-graduation-cap"></i> Continue your AI for
+                science journey with the Vector Institute!
+              </h3>
+              <p>
+                Participants of this workshop will have the opportunity to
+                attend
+                <a
+                  href="https://vectorinstitute.ai/"
+                  target="_blank"
+                  rel="noopener"
+                  >Vector Institute's</a
+                >
+                workshop on foundation models for science held right after this
+                workshop from <strong>November 6-7, 2025</strong>. This two-day
+                event will dive deeper into cutting-edge research on AI
+                foundation models and their applications in scientific research
+                through a series of talks and poster presentations. Indicate
+                your interest in attending this workshop in the application
+                form, and we will reach out with more details.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="goals" class="section">
+      <section id="schedule" class="section section-mid-bg">
         <div class="container">
-          <h2 class="section-title">Goals for the workshop</h2>
-          <div class="section-box">
-            <ul class="goals-list">
-              <li>
-                Understand the state-of-the-art foundation models across various
-                disciplines.
-              </li>
-              <li>
-                Gain hands-on experience implementing foundation models across
-                different scientific domains.
-              </li>
-              <li>
-                Develop interdisciplinary problem-solving and communication
-                skills for tackling complex scientific challenges.
-              </li>
-              <li>
-                Form cross-institutional research networks that can continue
-                beyond the workshop.
-              </li>
-            </ul>
+          <h2 class="section-title">Workshop Schedule</h2>
+          <p class="tentative-schedule-note">
+            <strong
+              ><em
+                >Please note: This schedule is tentative and subject to
+                change</em
+              ></strong
+            >
+          </p>
+          <div>
+            <div class="schedule-tabs">
+              <button class="tab-btn active" data-day="day1-new">
+                Day 1 (Nov 3)
+              </button>
+              <button class="tab-btn" data-day="day2-new">Day 2 (Nov 4)</button>
+              <button class="tab-btn" data-day="day3-new">Day 3 (Nov 5)</button>
+            </div>
+
+            <div class="schedule-legend">
+              <div class="legend-item">
+                <div class="legend-color keynote-color"></div>
+                <span>Keynotes & Presentations</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color tutorial-color"></div>
+                <span>Tutorials & Workshops</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color social-color"></div>
+                <span>Social & Networking</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color break-color"></div>
+                <span>Breaks & Meals</span>
+              </div>
+            </div>
+
+            <div id="day1-new" class="schedule-content active">
+              <div class="schedule-item break">
+                <div class="time">9:00 AM</div>
+                <div class="details">
+                  <h3>Breakfast</h3>
+                </div>
+              </div>
+              <div class="schedule-item keynote">
+                <div class="time">10:00 AM</div>
+                <div class="details">
+                  <h3>Keynote 1: Introduction to Foundation Models</h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">11:00 AM</div>
+                <div class="details">
+                  <h3>Morning tea</h3>
+                </div>
+              </div>
+              <div class="schedule-item tutorial">
+                <div class="time">11:15 AM</div>
+                <div class="details">
+                  <h3>
+                    Tutorial 1: Hands-on Introduction to Foundation Models
+                  </h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">12:30 PM</div>
+                <div class="details">
+                  <h3>Lunch</h3>
+                </div>
+              </div>
+              <div class="schedule-item tutorial">
+                <div class="time">1:30 PM</div>
+                <div class="details">
+                  <h3>Tutorial 2: Overview of Hackathon Projects</h3>
+                </div>
+              </div>
+              <div class="schedule-item social">
+                <div class="time">3:00 PM</div>
+                <div class="details">
+                  <h3>Networking and Team Formation</h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">4:30 PM</div>
+                <div class="details">
+                  <h3>Evening Tea</h3>
+                </div>
+              </div>
+              <div class="schedule-item social">
+                <div class="time">5:00 PM</div>
+                <div class="details">
+                  <h3>Social Event + Networking Dinner</h3>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">8:30 PM</div>
+                <div class="details">
+                  <h3>Day Close</h3>
+                </div>
+              </div>
+            </div>
+
+            <div id="day2-new" class="schedule-content">
+              <div class="schedule-item break">
+                <div class="time">9:00 AM</div>
+                <div class="details">
+                  <h3>Breakfast</h3>
+                </div>
+              </div>
+              <div class="schedule-item keynote">
+                <div class="time">10:00 AM</div>
+                <div class="details">
+                  <h3>
+                    Keynote 2: Current Challenges to Developing a Foundation
+                    Model for Science
+                  </h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">11:00 AM</div>
+                <div class="details">
+                  <h3>Morning Tea</h3>
+                </div>
+              </div>
+              <div class="schedule-item tutorial">
+                <div class="time">11:15 AM</div>
+                <div class="details">
+                  <h3>
+                    Tutorial 3: Advanced Tutorials and Hands-on Exercises on
+                    Foundation Models
+                  </h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">12:30 PM</div>
+                <div class="details">
+                  <h3>Lunch</h3>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">1:30 PM</div>
+                <div class="details">
+                  <h3>Hackathon Kick Off and Initial Implementations</h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">4:30 PM</div>
+                <div class="details">
+                  <h3>Evening Tea</h3>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">5:00 PM</div>
+                <div class="details">
+                  <h3>Continued: Hackathon</h3>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">6:30 PM</div>
+                <div class="details">
+                  <h3>Day Close</h3>
+                </div>
+              </div>
+            </div>
+
+            <div id="day3-new" class="schedule-content">
+              <div class="schedule-item break">
+                <div class="time">9:00 AM</div>
+                <div class="details">
+                  <h3>Breakfast</h3>
+                </div>
+              </div>
+              <div class="schedule-item keynote">
+                <div class="time">10:00 AM</div>
+                <div class="details">
+                  <h3>Lightning Talks</h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">11:00 AM</div>
+                <div class="details">
+                  <h3>Morning Tea</h3>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">11:15 AM</div>
+                <div class="details">
+                  <h3>Hackathon Continues</h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">12:30 PM</div>
+                <div class="details">
+                  <h3>Lunch</h3>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">1:30 PM</div>
+                <div class="details">
+                  <h3>Hackathon Wrap Up</h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">4:30 PM</div>
+                <div class="details">
+                  <h3>Evening Tea</h3>
+                </div>
+              </div>
+              <div class="schedule-item keynote">
+                <div class="time">5:00 PM</div>
+                <div class="details">
+                  <h3>Presentation of Hackathon Awards and Closing Remarks</h3>
+                </div>
+              </div>
+              <div class="schedule-item social">
+                <div class="time">6:30 PM</div>
+                <div class="details">
+                  <h3>Social Event + Closing Dinner</h3>
+                </div>
+              </div>
+              <div class="schedule-item">
+                <div class="time">8:30 PM</div>
+                <div class="details">
+                  <h3>Program Ends</h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="eligibility" class="section">
+      <section id="logistics" class="section section-light-bg">
         <div class="container">
-          <h2 class="section-title">Target Audience</h2>
-          <div class="section-box">
-            <div class="eligibility-content">
+          <h2 class="section-title">Logistics</h2>
+          <div class="logistics-content">
+            <h3 class="logistics-location-heading" id="logistics-location">
+              <i class="fas fa-map-marker-alt"></i> Conference Location
+            </h3>
+            <p>
+              The conference will be held at the
+              <strong>
+                <a
+                  href="https://sric.utoronto.ca/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Schwartz Reisman Innovation Campus (SRIC)
+                </a>
+              </strong>
+              in Toronto, Canada.
+            </p>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.4152844332293!2d-79.39172032425849!3d43.66033225197023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34b7c83aaaab%3A0xbf20255b53811677!2sU%20of%20T%3A%20Schwartz%20Reisman%20Innovation%20Campus!5e0!3m2!1sen!2sca!4v1749245986728!5m2!1sen!2sca"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Schwartz Reisman Innovation Campus Location"
+              ></iframe>
+            </div>
+
+            <h3
+              class="logistics-accommodation-heading"
+              id="logistics-accommodation"
+            >
+              <i class="fas fa-bed"></i> Accommodation
+            </h3>
+            <div class="clean-light-gray-box">
               <p>
-                We are seeking approximately 50 participants with diverse
-                scientific backgrounds who are interested in learning and
-                applying cross-domain AI solutions. Researchers who plan to or
-                currently use foundation models to unlock new insights in
-                scientific research are particularly encouraged to apply.
-                Proficiency in Python and at least one deep learning framework
-                (PyTorch, TensorFlow, or JAX) is expected, though various levels
-                of familiarity with foundation models are welcome, as tutorials
-                will accommodate different skill levels.
+                Accommodation will be provided to all Schmidt Fellows at the
+                <strong>
+                  <a
+                    href="https://www.chelseatoronto.com/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Chelsea Hotel
+                  </a>
+                </strong>
+                in downtown Toronto from
+                <strong>November 2 to 6, 2025</strong>. Accommodation may be
+                provided to other attendees depending on availability but is not
+                guaranteed. The organizers will reach out about accommodation
+                arrangements after the selected participants confirm their
+                attendance.
               </p>
               <p>
-                First-year fellows interested in foundation models are
-                especially encouraged to attend. Ideal candidates will possess
-                technical programming abilities, domain-specific knowledge and
-                an interest in working on scientific use cases that may not
-                directly relate to their current research.
+                For participants whose accommodation is being covered and who
+                are also planning to attend the Foundation Models for Science
+                workshop at the Vector Institute, there will be an option to
+                extend your stay until November 8th at a discounted rate, but at
+                the participants' own expense. Please contact the organizers for
+                more information about extended stay arrangements once the
+                selection results are announced by the Vector Institute.
               </p>
+            </div>
+
+            <h3 class="logistics-travel-heading" id="logistics-travel">
+              <i class="fas fa-plane"></i> Travel to Toronto
+            </h3>
+            <div class="visa-info">
+              <p>
+                <strong
+                  >Participants are responsible for arranging and funding their
+                  own travel to and from Toronto.</strong
+                >
+              </p>
+            </div>
+
+            <div class="visa-info">
+              <p>
+                <strong>International Travel:</strong> Participants traveling
+                from outside of Canada may need a valid passport and either a
+                visa or an Electronic Travel Authorization (eTA) depending on
+                their citizenship. Please consult
+                <a
+                  href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Immigration, Refugees and Citizenship Canada (IRCC)
+                </a>
+                for travel requirements and take appropriate steps. The
+                organizers can provide an invitation letter for visa purposes.
+                Please
+                <a href="mailto:contact@ai-for-science.org">reach out</a> if a
+                letter is needed.
+              </p>
+            </div>
+
+            <div class="transport-grid">
+              <div class="transport-item">
+                <p>
+                  <strong>Air Travel:</strong> Toronto is served by the Pearson
+                  International Airport (YYZ) and the Billy Bishop Toronto City
+                  Airport (YTZ). Pearson offers extensive international
+                  connections, while Billy Bishop serves domestic and select US
+                  destinations.
+                </p>
+              </div>
+              <div class="transport-item">
+                <p>
+                  <strong>Ground Transportation:</strong> Toronto is
+                  well-connected by highway, with major routes including the
+                  401, 400, and QEW. VIA Rail provides train service from major
+                  Canadian cities, with Union Station as the central hub.
+                  Greyhound and other bus companies offer intercity service.
+                </p>
+              </div>
+              <div class="transport-item">
+                <p>
+                  <strong>Public Transit:</strong> The Toronto Transit
+                  Commission (TTC) operates an extensive network of subways,
+                  buses, and streetcars throughout the city. The UP Express
+                  provides direct rail service between Pearson Airport and Union
+                  Station in downtown Toronto. A free ferry shuttle connects the
+                  Billy Bishop Airport to the mainland. Taxis and ride-hailing
+                  services such as Uber and Lyft are also widely available.
+                </p>
+              </div>
+            </div>
+            <!-- Additional logistics information can be added here -->
+          </div>
+        </div>
+      </section>
+
+      <section id="organizers" class="section section-light-bg">
+        <div class="container">
+          <h2 class="section-title">Organizers</h2>
+
+          <div class="organizers-content">
+            <div class="contact-section">
+              <h3 class="contact-information-heading" id="organizers-contact">
+                <i class="fas fa-envelope"></i> Contact Information
+              </h3>
+              <p>
+                <span class="highlight-text"
+                  >For all conference-related questions and communications,
+                  please contact us at:
+                  <a href="mailto:contact@ai-for-science.org"
+                    >contact@ai-for-science.org</a
+                  >.</span
+                >
+              </p>
+            </div>
+
+            <div class="organizer-tier">
+              <h3 class="local-organizers-heading" id="organizers-local">
+                <i class="fas fa-users"></i> Local Organizers
+              </h3>
+              <div class="organizers-grid">
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Ashley_Dale.jpg"
+                    alt="Ashley Dale"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://daleas0120.github.io/"
+                        target="_blank"
+                        rel="noopener"
+                        >Ashley Dale</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Materials Science and Engineering
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Biprateep_Dey.jpg"
+                    alt="Biprateep Dey"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://biprateep.de/"
+                        target="_blank"
+                        rel="noopener"
+                        >Biprateep Dey</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Statistical Sciences
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/David_Pellow.jpg"
+                    alt="David Pellow"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://scholar.google.com/citations?user=Uc9XIIwAAAAJ&hl=en"
+                        target="_blank"
+                        rel="noopener"
+                        >David Pellow</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Computer Science
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Ishrath_Mohamed_Irshadeen.jpeg"
+                    alt="Ishrath Mohamed Irshadeen"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://www.linkedin.com/in/ishrathmohamedirshadeen/"
+                        target="_blank"
+                        rel="noopener"
+                        >Ishrath Mohamed Irshadeen</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Chemistry
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Amanda_Mohabeer.jpg"
+                    alt="Amanda Mohabeer"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://www.linkedin.com/in/amanda-mohabeer"
+                        target="_blank"
+                        rel="noopener"
+                        >Amanda Mohabeer</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Schmidt Futures Postdoctoral Program Manager
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Faculty of Arts and Sciences
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="organizer-tier">
+              <h3 class="scientific-advisors-heading" id="organizers-advisors">
+                <i class="fas fa-user"></i> Scientific Advisors
+              </h3>
+              <div class="organizers-grid">
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Chris_Maddison.jpg"
+                    alt="Chris J. Maddison"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://www.cs.toronto.edu/~cmaddis/"
+                        target="_blank"
+                        rel="noopener"
+                        >Chris J. Maddison</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Assistant Professor & CIFAR AI Chair
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Computer Science & Department of
+                        Statistical Sciences
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                      <p class="organizer-institution">Vector Institute</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Rahul_Krishnan.jpg"
+                    alt="Rahul G. Krishnan"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://www.cs.toronto.edu/~rahulgk/"
+                        target="_blank"
+                        rel="noopener"
+                        >Rahul G. Krishnan</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Assistant Professor & CIFAR AI Chair
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Computer Science & Department of
+                        Laboratory Medicine and Pathobiology
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                      <p class="organizer-institution">Vector Institute</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="funding-acknowledgment">
+              <h3
+                class="funding-acknowledgment-heading"
+                id="organizers-funding"
+              >
+                <i class="fas fa-dollar-sign"></i> Funding Acknowledgment
+              </h3>
+              <div class="sponsorship-note">
+                <p>
+                  This workshop is sponsored by
+                  <a
+                    href="https://schmidtsciences.org/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Schmidt Sciences</a
+                  >
+                  in partnership with the University of Toronto.
+                </p>
+                <img
+                  src="imgs/SchmidtSciences_primary.png"
+                  alt="Schmidt Sciences Logo"
+                  class="sponsor-logo"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="container">
-        <!-- Empty footer - just a solid color bar -->
+    <footer class="uoft-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a
+            href="https://www.utoronto.ca/"
+            target="_blank"
+            aria-label="University of Toronto"
+          >
+            <img
+              src="imgs/defy_gravity.svg"
+              alt="University of Toronto - Defy Gravity"
+              class="footer-defy-gravity"
+            />
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="https://www.utoronto.ca/accessibility" target="_blank">
+                Accessibility
+              </a>
+            </li>
+            <li>
+              <a href="https://www.utoronto.ca/privacy" target="_blank">
+                Privacy
+              </a>
+            </li>
+            <li>
+              <a href="https://safety.utoronto.ca/" target="_blank">
+                Campus Safety
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@ai-for-science.org">Contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
 

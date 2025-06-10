@@ -1,10 +1,11 @@
 /* General Styles */
 :root {
-  --primary-color: #3a86ff;
-  --secondary-color: #8338ec;
-  --accent-color: #ff006e;
-  --dark-color: #023e8a;
-  --light-color: #f8f9fa;
+  --primary-color: #1e3765;
+  --secondary-color: #007894;
+  --accent-color: #6fc7ea;
+  --mid-color: #d0d1c9;
+  --dark-color: #000000;
+  --light-color: #ffffff;
   --max-width: 1200px;
   --transition: all 0.3s ease;
 }
@@ -16,11 +17,200 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   line-height: 1.8; /* Increased from 1.6 for better readability */
   color: #222; /* Darker text color for better contrast */
   background-color: var(--light-color);
   font-size: 1.1rem; /* Added base font size for the whole document */
+}
+
+.top-header {
+  background-color: white;
+  padding: 10px 5%; /* Adjusted padding to align logo with banner text */
+  display: flex;
+  justify-content: space-between; /* This will push logo to left and nav to right */
+  align-items: flex-end; /* Align items to the bottom */
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it spans full width */
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+  z-index: 1000; /* Keeps header on top */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.top-header-logo-link img {
+  height: 70px; /* Updated logo height to 70px */
+  width: auto;
+  display: block; /* Removes extra space under the image */
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.top-header-nav {
+  display: flex;
+  align-items: flex-end; /* Align navigation to bottom */
+}
+
+.top-header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end; /* Align items to the bottom */
+}
+
+.top-header-nav li {
+  margin-left: 30px; /* Space between navigation items */
+}
+
+.top-header-nav ul li a {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem; /* Reduced from 1.8rem for better aesthetics */
+  color: var(--primary-color); /* Initial color */
+  text-decoration: none;
+  padding: 0 15px 5px 15px; /* Minimal top padding, bottom padding for spacing */
+  transition: color 0.3s ease; /* Updated transition */
+  display: inline-block;
+  line-height: 1.2; /* Tighter line height for better alignment */
+  position: relative; /* Added for ::after positioning */
+}
+
+.top-header-nav ul li a:hover {
+  color: var(--secondary-color); /* Hover text color */
+}
+
+.top-header-nav ul li a.active {
+  color: var(--secondary-color); /* Active text color - persists */
+}
+
+/* Underline pseudo-element for navigation links */
+.top-header-nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0; /* Initial state: hidden */
+  height: 3px;
+  bottom: 1px; /* Positioned 12px from the bottom of the 'a' tag's padding box */
+  left: 50%; /* Start from center for text-width effect */
+  transform: translateX(-50%); /* Center the underline */
+  background-color: var(
+    --secondary-color
+  ); /* Color for hover state as default */
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Underline becomes visible and matches text width on hover */
+.top-header-nav ul li a:hover::after {
+  width: calc(
+    100% - 30px
+  ); /* Adjust width to be similar to text, considering padding */
+  background-color: var(--secondary-color);
+}
+
+/* Underline style for active link */
+.top-header-nav ul li a.active::after {
+  width: calc(
+    100% - 30px
+  ); /* Adjust width to be similar to text, considering padding */
+  background-color: var(
+    --secondary-color
+  ); /* Active underline color matches text color */
+}
+
+/* Underline style for active link when it is also hovered */
+/* This ensures that when an active link is hovered, it still shows the hover color for the underline */
+.top-header-nav ul li a.active:hover::after {
+  background-color: var(--secondary-color);
+}
+
+/* New Apply Now Button Styles */
+.apply-now-btn {
+  display: inline-block;
+  background-color: transparent; /* No background */
+  color: white; /* White text */
+  padding: 15px 35px; /* Increased by 50% */
+  border-radius: 8px; /* Increased by 50% */
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 1.65rem; /* Increased by 50% */
+  font-weight: bold;
+  margin-top: 30px; /* Increased by 50%, ensures it's on a new line */
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, transform 0.3s ease;
+  box-shadow: none; /* Remove previous box-shadow */
+  border: 3px solid white; /* Increased by 50% */
+}
+
+.apply-now-btn:hover {
+  background-color: white; /* White background on hover */
+  color: var(--primary-color); /* Text color changes to primary theme color */
+  border-color: white; /* Border remains white or matches background */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow on hover */
+}
+/* End of New Apply Now Button Styles */
+
+/* Section Backgrounds */
+.section-light-bg {
+  background-color: var(--light-color);
+}
+
+.section-mid-bg {
+  background-color: var(--mid-color);
+}
+
+/* Schedule Section Specific Styles */
+#schedule {
+  background-color: rgba(
+    208,
+    209,
+    201,
+    0.2
+  ); /* --mid-color (#d0d1c9) with 80% transparency */
+}
+
+.tentative-schedule-note {
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
+  color: var(--dark-color);
+}
+
+#schedule .container > div:not(.schedule-tabs):not(.schedule-content) {
+  /* Targeting the div that used to be section-box */
+  padding: 0; /* Remove padding if section-box is removed */
+  box-shadow: none; /* Remove box-shadow if section-box is removed */
+  border-top: none; /* Remove border if section-box is removed */
 }
 
 p {
@@ -66,26 +256,22 @@ button {
 
 .section-title {
   font-size: 2.5rem;
-  text-align: center;
+  text-align: left; /* Changed from center to left */
   margin-bottom: 50px;
-  color: var(--dark-color);
+  color: var(--primary-color); /* Updated to primary color */
   position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 5px; /* Reduced from 15px */
 }
 
 .section-title::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0; /* Adjusted to align with new padding */
+  left: 0; /* Changed from 50% to 0 */
+  /* transform: translateX(-50%); Removed to align left */
   width: 80px;
   height: 4px;
-  background: linear-gradient(
-    to right,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  background: var(--accent-color); /* Updated to accent color */
 }
 
 /* Section Box Style */
@@ -99,6 +285,35 @@ button {
   transition: all 0.3s ease;
 }
 
+/* Specific styles for #about section paragraphs */
+#about .container div p {
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem; /* Changed from 18pt to match other sections */
+  margin-left: 0; /* Align paragraph block to the left */
+  text-align: justify; /* Align text within the block to be justified */
+  max-width: 1200px;
+}
+
+.sponsorship-note {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.sponsor-logo {
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+  margin: 25px auto 0;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: var(--transition);
+}
+
+.sponsor-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
 .section-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -107,8 +322,8 @@ button {
 /* Header Styles */
 header {
   position: relative;
-  height: 70vh; /* Reduced from 100vh to 70vh (30% reduction) */
-  min-height: 420px; /* Reduced from 600px */
+  height: 85vh; /* Increased banner height */
+  min-height: 500px; /* Increased banner min-height */
   color: white;
   text-align: center;
   overflow: hidden;
@@ -122,6 +337,7 @@ header {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  filter: saturate(90%) brightness(100%); /* Adjust saturation and brightness */
 }
 
 .banner-title {
@@ -129,27 +345,31 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 95%;
-  max-width: 1000px; /* Increased from 800px to allow more width for subtitle */
+  width: 90%; /* Adjusted to align with new header padding */
+  max-width: 1000px;
   z-index: 1;
 }
 
 .banner-title h1 {
-  font-size: 3rem;
+  font-family: Arial, sans-serif;
+  font-weight: 900; /* "heavy" is typically 900 */
+  font-size: 5rem; /* Increased font size by 50% */
   text-align: center;
   color: white;
   margin: 0 0 15px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.1; /* Reduce space between line breaks */
 }
 
 .banner-title .subtitle {
-  font-size: 1.4rem;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1.8rem; /* Increased font size */
   color: white;
   text-align: center;
   margin: 0 0 20px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Darker shadow for better contrast */
   font-weight: 500; /* Slightly bolder */
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
   padding: 8px 15px;
   border-radius: 5px;
   display: inline-block; /* To make background fit the text */
@@ -163,58 +383,15 @@ header {
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Matching shadow with subtitle */
   font-style: italic;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Semi-transparent background - 80% transparent */
   padding: 6px 12px;
   border-radius: 5px;
   display: inline-block; /* To make background fit the text */
-}
-
-/* Navigation */
-#navbar {
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-#navbar .container {
-  display: flex;
-  justify-content: center;
-}
-
-#navbar ul {
-  display: flex;
-  justify-content: center;
-}
-
-#navbar li {
-  padding: 20px 0;
-}
-
-#navbar a {
-  padding: 20px 15px;
-  color: var(--dark-color);
-  font-weight: 600;
-  position: relative;
-  font-size: 1.2rem; /* Increased font size */
-}
-
-#navbar a::after {
-  content: "";
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--primary-color);
-  transition: var(--transition);
-  transform: translateX(-50%);
-}
-
-#navbar a:hover::after,
-#navbar a:focus::after {
-  width: 80%;
 }
 
 /* About Section */
@@ -331,26 +508,58 @@ header {
   justify-content: center;
   margin-bottom: 30px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .tab-btn {
-  background-color: transparent;
-  color: var(--dark-color);
-  padding: 12px 25px;
-  margin: 5px;
-  border-radius: 5px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 14px 28px;
+  min-width: 180px;
+  border-radius: 25px;
   font-weight: 600;
+  font-size: 1.1rem;
   transition: var(--transition);
-  border: 2px solid transparent;
+  border: none;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 58, 117, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.tab-btn:hover::before {
+  left: 100%;
 }
 
 .tab-btn:hover {
-  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 58, 117, 0.3);
 }
 
 .tab-btn.active {
-  background-color: var(--primary-color);
-  color: white;
+  background: linear-gradient(135deg, var(--dark-color), #1a1a1a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .schedule-content {
@@ -363,33 +572,112 @@ header {
 
 .schedule-item {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 10px solid var(--primary-color); /* Increased from 8px to 10px */
+  transition: var(--transition);
+  position: relative;
+}
+
+.schedule-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.schedule-item.keynote {
+  border-left-color: #e74c3c;
+}
+
+.schedule-item.tutorial {
+  border-left-color: #27ae60;
+}
+
+.schedule-item.social {
+  border-left-color: #f39c12;
+}
+
+.schedule-item.break {
+  border-left-color: #95a5a6;
 }
 
 .time {
-  background-color: var(--dark-color);
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
   color: white;
-  padding: 20px;
-  min-width: 200px;
+  padding: 16px 20px;
+  min-width: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
 .details {
-  padding: 20px;
+  padding: 16px 20px;
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .details h3 {
-  margin-bottom: 5px;
+  margin: 0;
   color: var(--dark-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Schedule Legend */
+.schedule-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.keynote-color {
+  background-color: #e74c3c;
+}
+
+.tutorial-color {
+  background-color: #27ae60;
+}
+
+.social-color {
+  background-color: #f39c12;
+}
+
+.break-color {
+  background-color: #95a5a6;
 }
 
 .schedule-download {
@@ -447,6 +735,218 @@ header {
   justify-content: center;
   border-radius: 8px;
   border: 2px dashed #aaa;
+}
+
+/* Logistics Section */
+.logistics-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: none;
+}
+
+.logistics-content h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 40px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logistics-content h3:first-of-type {
+  margin-top: 0;
+}
+
+/* Font Awesome icons for logistics section headings with circular backgrounds */
+.logistics-location-heading i,
+.logistics-accommodation-heading i,
+.logistics-travel-heading i {
+  width: 24px;
+  height: 24px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 12px;
+  margin-right: 12px;
+}
+
+.logistics-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: none;
+  line-height: 1.7;
+  color: #444;
+}
+
+.logistics-content p strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.logistics-content a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.logistics-content a:hover {
+  color: var(--primary-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.map-container {
+  margin: 30px 0;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.clean-light-gray-box {
+  padding: 0;
+  border: none;
+  margin: 20px 0;
+}
+
+.clean-light-gray-box p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.clean-light-gray-box p:last-child {
+  margin-bottom: 0;
+}
+
+.visa-info {
+  background-color: rgba(0, 120, 148, 0.08);
+  border: 1px solid rgba(0, 120, 148, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  border-left: 4px solid var(--primary-color);
+}
+
+.visa-info p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.visa-info p:last-child {
+  margin-bottom: 0;
+}
+
+.extended-learning-highlight {
+  background-color: rgba(0, 120, 148, 0.08);
+  border: 1px solid rgba(0, 120, 148, 0.2);
+  border-radius: 8px;
+  padding: 25px;
+  margin: 30px 0;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.extended-learning-highlight:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.extended-learning-highlight h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.extended-learning-highlight h3 i {
+  background-color: var(--primary-color);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.extended-learning-highlight p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.extended-learning-highlight p:last-child {
+  margin-bottom: 0;
+}
+
+.extended-learning-highlight strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.transport-item {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transport-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transport-item p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.transport-item p:last-child {
+  margin-bottom: 0;
+}
+
+.transport-item strong {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 /* Registration Section */
@@ -694,93 +1194,1298 @@ header {
   color: var(--primary-color);
 }
 
-/* Footer */
-footer {
-  background-color: var(--dark-color);
-  height: 60px; /* Set a fixed height for the empty footer bar */
-  margin-top: 40px; /* Add some space between the last section and footer */
+/* Organizers Section */
+/* Styles for subsection titles like "Local Organizers" are assumed to be in place as per summary */
+
+.organizers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  max-width: 920px; /* 3 cards * 280px + 2 gaps * 30px = 920px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.organizer-card {
+  background-color: var(--light-color); /* White background for cards */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 280px; /* Fixed width to match image container size */
+  height: auto; /* Remove fixed height, let content determine height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px; /* Ensures space if cards wrap on smaller screens */
+}
+
+.organizer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.organizer-photo {
+  width: 100%;
+  height: 280px; /* Consistent photo height */
+  object-fit: contain; /* Preserve aspect ratio, no zoom/crop */
+  background-color: #f8f9fa; /* Light grey background for letterboxing */
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator */
+}
+
+.organizer-info {
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows info to fill space in card */
+  justify-content: flex-start; /* Align content to top of info section */
+  min-height: 120px; /* Ensure minimum height for consistent text area */
+}
+
+.organizer-info h3 {
+  /* Name container - NO ICONS for individual names */
+  margin-top: 0; /* Remove default h3 margin if any */
+  margin-bottom: 8px;
+  font-size: 1.43rem !important; /* Increased by 30% from 1.1rem */
+}
+
+/* Explicitly prevent any ::before content on individual organizer names */
+.organizer-info h3::before,
+.organizer-card h3::before {
+  content: none !important;
+  display: none !important;
+}
+
+.organizer-info h3 a {
+  /* Name link - match navigation panel styling */
+  font-weight: bold; /* Match navigation font weight */
+  color: var(--primary-color) !important; /* Same initial color as navigation */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Match navigation transition */
+  position: relative;
+  font-size: inherit !important; /* Inherit the h3 font size */
+}
+
+.organizer-info h3 a:hover {
+  color: var(--secondary-color) !important; /* Match navigation hover color */
+}
+
+.organizer-info h3 a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.organizer-info h3 a:hover::after {
+  width: 100%;
+}
+
+.organizer-title {
+  /* Position - clean and simple */
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: left !important;
+}
+
+.organizer-affiliation {
+  /* Affiliation container - clean and compact */
+  margin-bottom: 0;
+  margin-top: 8px;
+  text-align: left !important;
+}
+
+.organizer-department {
+  /* Department - clean and readable */
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0 0 3px 0;
+  padding: 0;
+}
+
+.organizer-university {
+  /* University - secondary styling */
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0 0 2px 0;
+  padding: 0;
+}
+
+.organizer-institution {
+  /* Additional institutions - subtle styling */
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: normal;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive adjustments for affiliations */
+@media screen and (max-width: 480px) {
+  .organizer-department {
+    font-size: 0.8rem;
+  }
+
+  .organizer-university {
+    font-size: 0.75rem;
+  }
+
+  .organizer-institution {
+    font-size: 0.7rem;
+  }
+
+  .organizer-affiliation {
+    margin-top: 6px;
+  }
 }
 
 /* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .top-header {
+    padding: 8px 3%;
+  }
+
+  .top-header-logo-link img {
+    height: 63px; /* Proportionally scaled from 70px for tablet */
+  }
+
+  .top-header-nav ul li a {
+    font-size: 1.3rem; /* Reduced for better aesthetics */
+    padding: 0 12px 4px 12px; /* Adjusted padding for bottom alignment */
+  }
+
+  .top-header-nav li {
+    margin-left: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .top-header {
+    padding: 10px 15px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .top-header-logo-link img {
+    height: 56px; /* Proportionally scaled from 70px for mobile */
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  .top-header-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    order: 4;
+  }
+
+  .top-header-nav.active {
+    max-height: 300px;
+  }
+
+  .top-header-nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0;
+  }
+
+  .top-header-nav li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .top-header-nav ul li a {
+    font-size: 1.2rem; /* Reduced for better aesthetics */
+    padding: 15px 20px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .top-header-nav ul li:last-child a {
+    border-bottom: none;
+  }
+
   .banner-title h1 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
+    line-height: 1.1;
   }
 
-  .header-content h1 {
-    font-size: 2.2rem;
+  .title-accent-caret {
+    width: 3.36rem; /* Proportional scaling: 2.8rem title ÷ 5rem * 6rem */
+    margin-bottom: 15px;
   }
 
-  .header-content h2 {
+  .banner-title .subtitle {
+    font-size: 1.4rem;
+    padding: 6px 12px;
+  }
+
+  .banner-title .date-range {
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+
+  .apply-now-btn {
     font-size: 1.3rem;
-  }
-
-  .conference-date {
-    font-size: 1.1rem;
+    padding: 12px 25px;
+    margin-top: 20px;
   }
 
   .section {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   .section-title {
     font-size: 2rem;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
-  #navbar ul {
-    flex-wrap: wrap;
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
   }
 
-  #navbar li {
-    flex-grow: 1;
-    text-align: center;
+  #about .container div p {
+    font-size: 1rem;
+  }
+
+  .highlights {
+    flex-direction: column;
+  }
+
+  .highlight-item {
+    margin: 10px 0;
+    min-width: auto;
+  }
+
+  .schedule-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tab-btn {
+    min-width: 100%;
+    margin: 0;
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+
+  .schedule-legend {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .legend-item {
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  .schedule-item {
+    flex-direction: column;
+    margin-bottom: 6px;
+  }
+
+  .schedule-item:hover {
+    transform: translateY(-2px);
   }
 
   .time {
-    min-width: 120px;
+    min-width: auto;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
     font-size: 0.9rem;
-    padding: 15px;
+  }
+
+  .details {
+    padding: 12px 15px;
+  }
+
+  .details h3 {
+    font-size: 1rem;
+  }
+
+  .venue-info {
+    flex-direction: column;
+  }
+
+  .venue-details {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-info {
+    padding-right: 0;
+  }
+
+  .speakers-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .registration-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .registration-card {
+    max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .registration-card.featured {
     transform: scale(1);
   }
+
+  .sponsor-logo {
+    max-width: 250px;
+  }
+
+  .map-container {
+    margin-top: 20px;
+  }
+
+  .extended-learning-highlight {
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .extended-learning-highlight h3 {
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+
+  .extended-learning-highlight h3 i {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .extended-learning-highlight p {
+    font-size: 0.95rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .top-header {
+    padding: 8px 10px;
+  }
+
+  .top-header-logo-link img {
+    height: 49px; /* Proportionally scaled from 70px for small mobile */
+  }
+
+  .top-header-nav ul {
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .top-header-nav ul li a {
+    font-size: 1rem; /* Reduced for better aesthetics */
+    padding: 6px 8px;
+  }
+
   .banner-title h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
-  .header-content h1 {
-    font-size: 1.8rem;
+  .title-accent-caret {
+    width: 2.64rem; /* Proportional scaling: 2.2rem title ÷ 5rem * 6rem */
+    margin-bottom: 12px;
   }
 
-  .header-content h2 {
+  .banner-title .subtitle {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+  }
+
+  .banner-title .date-range {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+
+  .apply-now-btn {
     font-size: 1.1rem;
-  }
-
-  .conference-date {
-    font-size: 1rem;
-    padding: 5px 15px;
-  }
-
-  .register-btn {
-    font-size: 1rem;
     padding: 10px 20px;
+    border-width: 2px;
   }
 
-  .schedule-item {
-    flex-direction: column;
-  }
-
-  .time {
-    width: 100%;
-    padding: 10px;
+  .section {
+    padding: 40px 0;
   }
 
   .section-title {
     font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #about .container div p {
+    font-size: 0.95rem;
+  }
+
+  .tab-btn {
+    padding: 14px;
+    font-size: 1rem;
+    min-width: 100%;
+  }
+
+  .time {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .details {
+    padding: 10px 12px;
+  }
+
+  .details h3 {
+    font-size: 0.95rem;
+  }
+
+  .schedule-legend {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
+  }
+
+  .details {
+    padding: 12px;
+  }
+
+  .details h3 {
+    font-size: 1.1rem;
+  }
+
+  .sponsor-logo {
+    max-width: 200px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .goals-list li {
+    font-size: 1rem;
+    padding-left: 25px;
+  }
+
+  .eligibility-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .eligibility-content p {
+    font-size: 1rem;
+  }
+
+  #logistics .logistics-content {
+    padding: 25px 20px;
+    border-radius: 10px;
+  }
+
+  #logistics .logistics-content h3 {
+    font-size: 1.6rem;
+    margin: 30px 0 15px 0;
+    gap: 10px;
+  }
+
+  #logistics .logistics-location-heading i,
+  #logistics .logistics-accommodation-heading i,
+  #logistics .logistics-travel-heading i {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  #logistics .logistics-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .map-container {
+    margin: 20px 0 25px 0;
+    border-radius: 10px;
+  }
+}
+
+/* New styles for title accent caret */
+.title-accent-caret {
+  display: block;
+  margin: 0 auto 20px auto; /* Center horizontally, add bottom margin */
+  width: 6rem; /* Increased size for better desktop visibility - proportional to the 5rem title */
+  height: auto;
+  filter: brightness(0) invert(1); /* Make the caret white to match the text */
+  opacity: 0.9; /* Slightly transparent for elegance */
+  animation: subtle-pulse 3s ease-in-out infinite; /* Add a subtle animation */
+}
+
+/* Subtle pulsing animation for the caret */
+@keyframes subtle-pulse {
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Organizers Section */
+#organizers {
+  background-color: #f8f9fa; /* UofT Wolf Grey - clean and neutral */
+  position: relative;
+  padding-top: 1px; /* Minor fix for potential margin collapse */
+  padding-bottom: 1px; /* Minor fix for potential margin collapse */
+}
+
+#organizers::before {
+  display: none; /* Remove previous radial gradient background */
+}
+
+/* Organizers content wrapper - matches logistics section */
+#organizers .organizers-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: none; /* Remove border to match logistics */
+}
+
+/* Style subsection headers to match logistics */
+#organizers .organizers-content h3 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 40px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color); /* Match logistics exactly */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#organizers .organizers-content h3:first-of-type {
+  margin-top: 0;
+}
+
+/* Style text content to match logistics */
+#organizers .organizers-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: none;
+  line-height: 1.7;
+  color: #444;
+}
+
+#organizers .organizers-content p strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+#organizers .organizers-content a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#organizers .organizers-content a:hover {
+  color: var(--primary-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.organizer-tier {
+  background-color: transparent; /* Remove white background since it's now in content wrapper */
+  border-radius: 0; /* Remove border radius */
+  box-shadow: none; /* Remove shadow */
+  margin-bottom: 40px;
+  overflow: visible; /* Change from hidden */
+  position: relative;
+}
+
+.organizer-tier::before {
+  display: none; /* Remove gradient line above tier */
+}
+
+/* Organizer tier heading styles now handled by .organizers-content */
+
+/* Contact section styles now handled by .organizers-content */
+
+/* Funding acknowledgment styles now handled by .organizers-content */
+
+/* Sponsorship Note */
+.sponsorship-note {
+  max-width: none;
+  margin: 0;
+}
+
+.sponsorship-note p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: none;
+}
+
+.sponsorship-note a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sponsorship-note a:hover {
+  color: var(--primary-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.sponsor-logo {
+  max-width: 350px; /* Slightly reduced for balance */
+  width: 100%;
+  height: auto;
+  margin: 25px auto 0;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Adjusting section title for organizers if it was too stylized */
+#organizers .section-title {
+  background: none; /* Remove gradient text if too flashy */
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  color: var(--primary-color); /* Standard UofT primary color */
+  font-size: 2.2rem; /* Ensure it's prominent */
+  margin-bottom: 40px;
+}
+
+#organizers .section-title::after {
+  background: var(
+    --accent-color
+  ); /* Match default section title underline color */
+  height: 3px; /* Adjusted thickness */
+  width: 70px; /* Adjusted width */
+}
+
+/* Enhanced visual elements for UofT branding consistency */
+.organizer-tier::before {
+  display: none; /* Remove gradient line above tier */
+}
+
+/* Subtle pattern overlay for the organizers section */
+#organizers .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced card styling with UofT colors */
+.organizer-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-color),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.organizer-card:hover::before {
+  opacity: 1;
+}
+
+/* Organizers Grid Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .organizers-grid {
+    max-width: 620px; /* Accommodate 2 columns + gap */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .organizers-grid {
+    max-width: 320px; /* Single card width + padding */
+    gap: 20px; /* Reduce gap on mobile */
+  }
+
+  .organizer-card {
+    width: 100%; /* Full width within container on mobile */
+    max-width: 300px; /* Prevent cards from becoming too wide */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .organizers-grid {
+    gap: 15px; /* Further reduce gap on very small screens */
+  }
+
+  .organizer-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .organizer-photo {
+    height: 240px; /* Slightly smaller photo height on small screens */
+  }
+
+  .organizer-info {
+    padding: 15px; /* Reduce padding on small screens */
+    min-height: 100px; /* Reduce minimum height */
+  }
+}
+
+/* Responsive animation adjustments */
+@media (prefers-reduced-motion: reduce) {
+  .organizer-card,
+  .contact-section,
+  .organizer-tier,
+  .funding-acknowledgment {
+    animation: none;
+  }
+
+  .organizer-card:hover {
+    transform: none;
+  }
+
+  .organizer-photo {
+    transition: none;
+  }
+}
+
+/* Contact text highlighting */
+.highlight-text {
+  background: linear-gradient(
+    135deg,
+    rgba(111, 199, 234, 0.15),
+    rgba(0, 120, 148, 0.1)
+  );
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 500;
+  color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.highlight-text:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(111, 199, 234, 0.2),
+    rgba(0, 120, 148, 0.15)
+  );
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom icons for organizer section headings only - not individual person names */
+.contact-information-heading i,
+.local-organizers-heading i,
+.scientific-advisors-heading i,
+.funding-acknowledgment-heading i {
+  width: 24px;
+  height: 24px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 12px;
+  margin-right: 12px;
+}
+
+/* About Section Styles */
+.about-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-subsection {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 120, 148, 0.1);
+}
+
+.about-subsection-heading {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 40px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color);
+  position: relative;
+  gap: 12px;
+}
+
+.about-subsection-heading:first-of-type {
+  margin-top: 0;
+}
+
+.about-subsection-heading i {
+  width: 24px;
+  height: 24px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 12px;
+  margin-right: 0;
+}
+
+.about-subsection p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: none;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Mobile responsiveness for about sections */
+@media (max-width: 768px) {
+  .about-subsection {
+    padding: 1rem;
+  }
+
+  .about-subsection-heading {
+    font-size: 1.6rem;
+    margin: 30px 0 15px 0;
+    gap: 10px;
+  }
+
+  .about-subsection-heading:first-of-type {
+    margin-top: 0;
+  }
+
+  .about-subsection-heading i {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .about-subsection p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Footer Styles */
+.uoft-footer {
+  background-color: var(--primary-color);
+  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 4px solid var(--accent-color);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  flex-shrink: 0;
+}
+
+.footer-defy-gravity {
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1); /* Make logo white */
+  transition: var(--transition);
+}
+
+.footer-defy-gravity:hover {
+  filter: brightness(0) invert(1) opacity(0.8);
+  transform: scale(1.05);
+}
+
+.footer-links {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 0;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+/* Footer responsive styles */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-links ul {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-defy-gravity {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .uoft-footer {
+    padding: 15px 0;
+  }
+
+  .footer-content {
+    padding: 0 15px;
+  }
+
+  .footer-links ul {
+    gap: 12px;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===================================
+   FLOATING NAVIGATION MENU STYLES
+   =================================== */
+
+/* Floating Navigation Container */
+.floating-nav {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999; /* Below top header but above content */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.floating-nav.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+.floating-nav.hide {
+  transform: translateY(-50%) translateX(-100%);
+}
+
+/* Toggle Button */
+.floating-nav-toggle {
+  background: var(--primary-color);
+  color: var(--light-color);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(30, 55, 101, 0.3);
+  transition: all 0.3s ease;
+  font-size: 18px;
+  position: relative;
+  z-index: 1001;
+}
+
+.floating-nav-toggle:hover {
+  background: var(--secondary-color);
+  box-shadow: 0 6px 16px rgba(0, 120, 148, 0.4);
+  transform: scale(1.05);
+}
+
+.floating-nav-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Navigation Content */
+.floating-nav-content {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 250px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) translateX(-20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.floating-nav.expanded .floating-nav-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: all;
+}
+
+/* Navigation Panel (individual sections) */
+.floating-nav-section {
+  display: none;
+}
+
+.floating-nav-section.active {
+  display: block;
+}
+
+/* Section Title */
+.floating-nav-section h4 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Navigation List */
+.floating-nav-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.floating-nav-section li {
+  margin: 0 0 8px 0;
+}
+
+.floating-nav-section li:last-child {
+  margin-bottom: 0;
+}
+
+/* Navigation Links */
+.floating-nav-section a {
+  display: block;
+  color: var(--dark-color);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  position: relative;
+  border-left: 3px solid transparent;
+}
+
+.floating-nav-section a:hover {
+  background: rgba(30, 55, 101, 0.08);
+  color: var(--primary-color);
+  border-left-color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.floating-nav-section a.active {
+  background: rgba(30, 55, 101, 0.12);
+  color: var(--primary-color);
+  border-left-color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.floating-nav-section a.active:hover {
+  background: rgba(30, 55, 101, 0.15);
+  border-left-color: var(--secondary-color);
+}
+
+/* Smooth scroll behavior for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .floating-nav {
+    left: 15px;
+  }
+
+  .floating-nav-content {
+    min-width: 220px;
+    left: 55px;
+  }
+
+  .floating-nav-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .floating-nav {
+    display: none !important; /* Hide on mobile to avoid clutter */
+  }
+}
+
+/* Large screens - adjust positioning */
+@media (min-width: 1400px) {
+  .floating-nav {
+    left: 40px;
+  }
+
+  .floating-nav-content {
+    left: 70px;
+    min-width: 280px;
+  }
+
+  .floating-nav-toggle {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+  }
+}
+
+/* Animation classes for JavaScript control */
+.floating-nav.fade-in {
+  animation: fadeInNav 0.5s ease forwards;
+}
+
+.floating-nav.fade-out {
+  animation: fadeOutNav 0.5s ease forwards;
+}
+
+@keyframes fadeInNav {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+@keyframes fadeOutNav {
+  from {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-100%);
   }
 }
