@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
   line-height: 1.8; /* Increased from 1.6 for better readability */
   color: #222; /* Darker text color for better contrast */
   background-color: var(--light-color);
@@ -94,7 +94,7 @@ body {
 }
 
 .top-header-nav ul li a {
-  font-family: Arial, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
   font-weight: bold;
   font-size: 1.5rem; /* Reduced from 1.8rem for better aesthetics */
   color: var(--primary-color); /* Initial color */
@@ -322,8 +322,8 @@ button {
 /* Header Styles */
 header {
   position: relative;
-  height: 85vh; /* Increased banner height */
-  min-height: 500px; /* Increased banner min-height */
+  height: 100vh; /* Increased to full viewport height */
+  min-height: 700px; /* Increased significantly to prevent cutoff */
   color: white;
   text-align: center;
   overflow: hidden;
@@ -342,34 +342,47 @@ header {
 
 .banner-title {
   position: absolute;
-  top: 50%;
+  top: 45%; /* Moved up to prevent cutoff */
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90%; /* Adjusted to align with new header padding */
-  max-width: 1000px;
+  width: 100%; /* Changed from 95% to 100% to allow full logo width */
+  max-width: none; /* Removed max-width constraint */
+  padding: 0;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.banner-title h1 {
-  font-family: Arial, sans-serif;
-  font-weight: 900; /* "heavy" is typically 900 */
-  font-size: 5rem; /* Increased font size by 50% */
-  text-align: center;
-  color: white;
-  margin: 0 0 15px 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  line-height: 1.1; /* Reduce space between line breaks */
+/* Responsive banner positioning */
+@media (max-width: 700px) {
+  .banner-title {
+    top: 40%; /* Move higher on narrow screens for vertical logo */
+    width: 100%; /* Changed from 90% to 100% to allow full logo width */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-title {
+    top: 38%; /* Even higher on very small screens */
+    width: 100%; /* Changed from 95% to 100% to allow full logo width */
+  }
+
+  .banner-title .subtitle {
+    font-size: 1.4rem; /* Smaller text on mobile */
+    margin-bottom: 12px;
+  }
 }
 
 .banner-title .subtitle {
-  font-family: Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Lato", Arial, sans-serif;
+  font-weight: 500; /* Slightly bolder */
   font-size: 1.8rem; /* Increased font size */
   color: white;
   text-align: center;
-  margin: 0 0 20px 0;
+  margin: 10px 0 15px 0; /* Added negative top margin to move subtitle up by 20% */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Darker shadow for better contrast */
-  font-weight: 500; /* Slightly bolder */
   padding: 8px 15px;
   border-radius: 5px;
   display: inline-block; /* To make background fit the text */
@@ -1443,11 +1456,6 @@ header {
     line-height: 1.1;
   }
 
-  .title-accent-caret {
-    width: 3.36rem; /* Proportional scaling: 2.8rem title ÷ 5rem * 6rem */
-    margin-bottom: 15px;
-  }
-
   .banner-title .subtitle {
     font-size: 1.4rem;
     padding: 6px 12px;
@@ -1629,11 +1637,6 @@ header {
     font-size: 2.2rem;
   }
 
-  .title-accent-caret {
-    width: 2.64rem; /* Proportional scaling: 2.2rem title ÷ 5rem * 6rem */
-    margin-bottom: 12px;
-  }
-
   .banner-title .subtitle {
     font-size: 1.2rem;
     padding: 5px 10px;
@@ -1763,30 +1766,6 @@ header {
   .map-container {
     margin: 20px 0 25px 0;
     border-radius: 10px;
-  }
-}
-
-/* New styles for title accent caret */
-.title-accent-caret {
-  display: block;
-  margin: 0 auto 20px auto; /* Center horizontally, add bottom margin */
-  width: 6rem; /* Increased size for better desktop visibility - proportional to the 5rem title */
-  height: auto;
-  filter: brightness(0) invert(1); /* Make the caret white to match the text */
-  opacity: 0.9; /* Slightly transparent for elegance */
-  animation: subtle-pulse 3s ease-in-out infinite; /* Add a subtle animation */
-}
-
-/* Subtle pulsing animation for the caret */
-@keyframes subtle-pulse {
-  0%,
-  100% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
   }
 }
 
@@ -2488,4 +2467,67 @@ html {
     opacity: 0;
     transform: translateY(-50%) translateX(-100%);
   }
+}
+
+/* Adaptive Logo Styles */
+.adaptive-logo {
+  display: block;
+  width: 100% !important;
+  max-width: 900px !important; /* Increased by 10% from 1200px */
+  height: auto;
+  margin: 0 auto 8px auto;
+  object-fit: contain;
+  filter: drop-shadow(
+    2px 2px 4px rgba(0, 0, 0, 0.8)
+  ); /* Shadow matching subtitle */
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .adaptive-logo {
+    max-width: 1030px; /* Increased by 10% from 936px */
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .adaptive-logo {
+    max-width: 858px; /* Increased by 10% from 780px */
+    width: 95vw; /* Increased from 90vw to accommodate larger logo */
+  }
+}
+
+/* For narrow screens - switch to vertical logo */
+@media (max-width: 700px) {
+  .adaptive-logo {
+    max-width: 601px; /* Increased by 10% from 546px */
+    width: 85vw; /* Increased from 80vw to accommodate larger logo */
+    margin-bottom: 6px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .adaptive-logo {
+    max-width: 481px; /* Increased by 10% from 437px */
+    width: 90vw; /* Increased from 85vw to accommodate larger logo */
+    margin-bottom: 5px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .adaptive-logo {
+    max-width: 429px; /* Increased by 10% from 390px */
+    width: 95vw; /* Increased from 90vw to accommodate larger logo */
+    margin-bottom: 4px;
+  }
+}
+
+/* Picture element - ensure no constraints */
+.banner-title picture {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
 }
