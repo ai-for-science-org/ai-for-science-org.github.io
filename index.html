@@ -311,6 +311,12 @@
                         </p>
                       </div>
                     </div>
+                    <a
+                      href="#"
+                      class="keynote-bio-link"
+                      onclick="openKeynoteBio(event)"
+                      >bio>></a
+                    >
                   </div>
                 </div>
               </div>
@@ -975,6 +981,46 @@
       </div>
     </footer>
 
+    <!-- Keynote Speaker Bio Modal (moved outside card for stability) -->
+    <div
+      class="keynote-bio-modal"
+      id="keynote-bio-modal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="keynote-bio-modal-content">
+        <button
+          class="keynote-bio-close"
+          onclick="closeKeynoteBio(event)"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Ava Amini</h3>
+        <p>
+          Ava Amini is a Principal Researcher at Microsoft Research. Her
+          research focuses on developing new AI methods to understand and design
+          biology, with the ultimate aim of realizing precision biomedicines
+          that improve human health. She is a co-lead of
+          <a
+            href="https://www.microsoft.com/en-us/research/project/project-ex-vivo/"
+            target="_blank"
+            rel="noopener"
+            >Project Ex Vivo</a
+          >, a collaborative effort between Microsoft and the Broad Institute,
+          that is focused on defining, engineering, and targeting cell states in
+          cancer. In addition to research, Ava is passionate about AI education
+          and outreach — she is a lead organizer and instructor for
+          <a
+            href="https://introtodeeplearning.com/"
+            target="_blank"
+            rel="noopener"
+            >MIT Introduction to Deep Learning</a
+          >, an in-person and global course on the fundamentals of deep
+          learning.
+        </p>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
