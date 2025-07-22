@@ -1,3 +1,221 @@
+/* Keynote Speaker Section Box */
+.keynote-speaker-box {
+  background: #f5f7fa;
+  border: 2px solid #e0e4ea;
+  border-radius: 14px;
+  padding: 2em 1.5em 1.5em 1.5em;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+  box-shadow: 0 2px 12px 0 rgba(30, 55, 101, 0.07);
+}
+
+/* Keynote Speaker Card Styles (match organizer cards exactly) */
+.keynote-speaker-card {
+  background-color: var(--light-color); /* White background for cards */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 280px; /* Fixed width to match image container size */
+  height: auto; /* Remove fixed height, let content determine height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px; /* Ensures space if cards wrap on smaller screens */
+}
+
+.keynote-speaker-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.keynote-speaker-photo {
+  width: 100%;
+  height: 280px; /* Consistent photo height */
+  object-fit: contain; /* Preserve aspect ratio, no zoom/crop */
+  background-color: #f8f9fa; /* Light grey background for letterboxing */
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator */
+}
+
+.keynote-speaker-info {
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows info to fill space in card */
+  justify-content: flex-start; /* Align content to top of info section */
+  min-height: 120px; /* Ensure minimum height for consistent text area */
+}
+
+.keynote-speaker-info h3 {
+  /* Name container - NO ICONS for individual names */
+  margin-top: -5px; /* Remove default h3 margin if any */
+  margin-bottom: 8px;
+  font-size: 1.43rem;
+  color: var(--primary-color);
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color); /* Match logistics exactly */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Explicitly prevent any ::before content on individual keynote speaker names */
+.keynote-speaker-info h3::before,
+.keynote-speaker-card h3::before {
+  content: none !important;
+  display: none !important;
+}
+
+.keynote-speaker-info h3 a {
+  /* Name link - match navigation panel styling */
+  font-weight: bold; /* Match navigation font weight */
+  color: var(--primary-color) !important; /* Same initial color as navigation */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Match navigation transition */
+  position: relative;
+  font-size: inherit !important; /* Inherit the h3 font size */
+}
+
+.keynote-speaker-info h3 a:hover {
+  color: var(--secondary-color) !important; /* Match navigation hover color */
+}
+
+.keynote-speaker-info h3 a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.keynote-speaker-info h3 a:hover::after {
+  width: 100%;
+}
+
+.keynote-speaker-title {
+  /* Position - clean and simple */
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  margin-left: -2px; /* Align with name */
+  max-width: none;
+  line-height: 1.7;
+  color: #444;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: left !important;
+}
+
+.keynote-speaker-affiliation {
+  /* Affiliation container - clean and compact */
+  margin-bottom: 0;
+  margin-top: 8px;
+  text-align: left !important;
+}
+
+.keynote-speaker-department {
+  /* Department - clean and readable */
+
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: left !important;
+  max-width: none;
+  line-height: 1.7;
+  color: #444;
+}
+
+.keynote-speaker-university {
+  /* University - secondary styling */
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0 0 2px 0;
+  padding: 0;
+}
+
+.keynote-speaker-institution {
+  /* Additional institutions - subtle styling */
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: normal;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive adjustments for keynote speaker affiliations */
+@media screen and (max-width: 480px) {
+  .keynote-speaker-department {
+    font-size: 0.8rem;
+  }
+
+  .keynote-speaker-university {
+    font-size: 0.75rem;
+  }
+
+  .keynote-speaker-institution {
+    font-size: 0.7rem;
+  }
+
+  .keynote-speaker-affiliation {
+    margin-top: 6px;
+  }
+}
+
+/* Keynote Speaker Grid Responsive Styles */
+@media screen and (max-width: 768px) {
+  .keynote-speaker-card {
+    width: 100%; /* Full width within container on mobile */
+    max-width: 300px; /* Prevent cards from becoming too wide */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .keynote-speaker-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .keynote-speaker-photo {
+    height: 240px; /* Slightly smaller photo height on small screens */
+  }
+
+  .keynote-speaker-info {
+    padding: 15px; /* Reduce padding on small screens */
+    min-height: 100px; /* Reduce minimum height */
+  }
+}
+
+/* Style for schedule subsection headings to match about subsection headings */
+.schedule-subsection-heading {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 5px 0 5px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-color);
+  position: relative;
+  gap: 12px;
+}
+
+.schedule-subsection-heading i {
+  width: 24px;
+  height: 24px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 12px;
+  margin-right: 0;
+}
 /* General Styles */
 :root {
   --primary-color: #1e3765;
@@ -1985,17 +2203,20 @@ header {
 /* Responsive animation adjustments */
 @media (prefers-reduced-motion: reduce) {
   .organizer-card,
+  .keynote-speaker-card,
   .contact-section,
   .organizer-tier,
   .funding-acknowledgment {
     animation: none;
   }
 
-  .organizer-card:hover {
+  .organizer-card:hover,
+  .keynote-speaker-card:hover {
     transform: none;
   }
 
-  .organizer-photo {
+  .organizer-photo,
+  .keynote-speaker-photo {
     transition: none;
   }
 }
