@@ -1,3 +1,116 @@
+/* Organizer bio link (bottom right of card, matches keynote) */
+.organizer-bio-link {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  background: #f5f7fa;
+  border-radius: 6px;
+  padding: 4px 16px 4px 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(30, 55, 101, 0.07);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  z-index: 2;
+}
+.organizer-bio-link:hover {
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(30, 55, 101, 0.13);
+}
+
+/* Organizer bio modal (matches keynote modal style) */
+.organizer-bio-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s;
+}
+.organizer-bio-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+.organizer-bio-modal-content {
+  background: linear-gradient(135deg, #f7fafd 0%, #eaf3fb 100%);
+  border-radius: 16px;
+  max-width: 420px;
+  width: 90vw;
+  max-height: 80vh;
+  padding: 2.2em 2em 1.5em 2em;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  position: relative;
+  font-family: "Lato", Arial, sans-serif;
+  animation: modalFadeIn 0.2s;
+  overflow-y: auto;
+}
+.organizer-bio-close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #888;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.organizer-bio-close:hover,
+.organizer-bio-close:focus {
+  color: #333;
+  outline: none;
+}
+.organizer-bio-modal-content h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 0.7em;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.3em;
+}
+@media (max-width: 600px) {
+  .organizer-bio-modal-content h3 {
+    font-size: 1.15em;
+  }
+}
+.organizer-bio-modal-content p {
+  font-size: 1.08em;
+  color: #333;
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .organizer-bio-modal-content {
+    max-width: 98vw;
+    max-height: 85vh;
+    padding: 1.2em 0.7em 1.2em 0.7em;
+  }
+  .organizer-bio-modal-content h3 {
+    font-size: 1.15em;
+  }
+}
+/* Ensure organizer card is positioned relative for link placement */
+.organizer-card {
+  position: relative;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 /* Keynote Speaker Bio Link and Modal */
 
 .keynote-bio-link {

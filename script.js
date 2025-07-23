@@ -1,3 +1,83 @@
+// Organizer Bio Modal Logic (same as keynote, but for each organizer)
+window.openOrganizerBio = function (event, organizer) {
+  event.preventDefault();
+  const modal = document.getElementById(`organizer-bio-modal-${organizer}`);
+  if (modal) {
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    // Trap focus inside modal
+    const focusable = modal.querySelector(
+      'button, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable) focusable.focus();
+    document.body.style.overflow = "hidden";
+  }
+};
+
+window.closeOrganizerBio = function (event, organizer) {
+  event.preventDefault();
+  const modal = document.getElementById(`organizer-bio-modal-${organizer}`);
+  if (modal) {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    // Return focus to the correct bio link
+    const link = document.querySelector(
+      `.organizer-bio-link[data-organizer="${organizer}"]`
+    );
+    if (link) link.focus();
+  }
+};
+
+// Close modals on Escape key
+document.addEventListener("keydown", function (e) {
+  // Keynote modal
+  const keynoteModal = document.getElementById("keynote-bio-modal");
+  if (keynoteModal && keynoteModal.classList.contains("active")) {
+    if (e.key === "Escape") {
+      closeKeynoteBio(e);
+    }
+    return;
+  }
+  // Organizer modals
+  const organizerModals = document.querySelectorAll(
+    ".organizer-bio-modal.active"
+  );
+  organizerModals.forEach((modal) => {
+    if (e.key === "Escape") {
+      const id = modal.id.replace("organizer-bio-modal-", "");
+      closeOrganizerBio(e, id);
+    }
+  });
+});
+
+// Close modals when clicking outside the content
+document.addEventListener("mousedown", function (e) {
+  // Keynote modal
+  const keynoteModal = document.getElementById("keynote-bio-modal");
+  if (keynoteModal && keynoteModal.classList.contains("active")) {
+    if (
+      !keynoteModal
+        .querySelector(".keynote-bio-modal-content")
+        .contains(e.target)
+    ) {
+      closeKeynoteBio(e);
+    }
+    return;
+  }
+  // Organizer modals
+  const organizerModals = document.querySelectorAll(
+    ".organizer-bio-modal.active"
+  );
+  organizerModals.forEach((modal) => {
+    if (
+      !modal.querySelector(".organizer-bio-modal-content").contains(e.target)
+    ) {
+      const id = modal.id.replace("organizer-bio-modal-", "");
+      closeOrganizerBio(e, id);
+    }
+  });
+});
 // Keynote Speaker Bio Modal Logic
 window.openKeynoteBio = function (event) {
   event.preventDefault();
