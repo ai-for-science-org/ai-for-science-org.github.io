@@ -311,6 +311,12 @@
                         </p>
                       </div>
                     </div>
+                    <a
+                      href="#"
+                      class="keynote-bio-link"
+                      onclick="openKeynoteBio(event)"
+                      >bio>></a
+                    >
                   </div>
                 </div>
               </div>
@@ -726,6 +732,13 @@
                       <p class="organizer-university">University of Toronto</p>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="organizer-bio-link"
+                    data-organizer="ashley"
+                    onclick="openOrganizerBio(event, 'ashley')"
+                    >bio>></a
+                  >
                 </div>
 
                 <div class="organizer-card">
@@ -753,6 +766,13 @@
                       <p class="organizer-university">University of Toronto</p>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="organizer-bio-link"
+                    data-organizer="biprateep"
+                    onclick="openOrganizerBio(event, 'biprateep')"
+                    >bio>></a
+                  >
                 </div>
 
                 <div class="organizer-card">
@@ -780,6 +800,13 @@
                       <p class="organizer-university">University of Toronto</p>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="organizer-bio-link"
+                    data-organizer="david"
+                    onclick="openOrganizerBio(event, 'david')"
+                    >bio>></a
+                  >
                 </div>
 
                 <div class="organizer-card">
@@ -807,6 +834,13 @@
                       <p class="organizer-university">University of Toronto</p>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="organizer-bio-link"
+                    data-organizer="ishrath"
+                    onclick="openOrganizerBio(event, 'ishrath')"
+                    >bio>></a
+                  >
                 </div>
 
                 <div class="organizer-card">
@@ -834,6 +868,13 @@
                       <p class="organizer-university">University of Toronto</p>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="organizer-bio-link"
+                    data-organizer="amanda"
+                    onclick="openOrganizerBio(event, 'amanda')"
+                    >bio>></a
+                  >
                 </div>
               </div>
             </div>
@@ -870,6 +911,13 @@
                       <p class="organizer-institution">Vector Institute</p>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="organizer-bio-link"
+                    data-organizer="chris"
+                    onclick="openOrganizerBio(event, 'chris')"
+                    >bio>></a
+                  >
                 </div>
 
                 <div class="organizer-card">
@@ -899,6 +947,13 @@
                       <p class="organizer-institution">Vector Institute</p>
                     </div>
                   </div>
+                  <a
+                    href="#"
+                    class="organizer-bio-link"
+                    data-organizer="rahul"
+                    onclick="openOrganizerBio(event, 'rahul')"
+                    >bio>></a
+                  >
                 </div>
               </div>
             </div>
@@ -975,6 +1030,255 @@
       </div>
     </footer>
 
+    <!-- Keynote Speaker Bio Modal (moved outside card for stability) -->
+    <div
+      class="keynote-bio-modal"
+      id="keynote-bio-modal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="keynote-bio-modal-content">
+        <button
+          class="keynote-bio-close"
+          onclick="closeKeynoteBio(event)"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Ava Amini</h3>
+        <p>
+          Ava Amini is a Principal Researcher at Microsoft Research. Her
+          research focuses on developing new AI methods to understand and design
+          biology, with the ultimate aim of realizing precision biomedicines
+          that improve human health. She is a co-lead of
+          <a
+            href="https://www.microsoft.com/en-us/research/project/project-ex-vivo/"
+            target="_blank"
+            rel="noopener"
+            >Project Ex Vivo</a
+          >, a collaborative effort between Microsoft and the Broad Institute,
+          that is focused on defining, engineering, and targeting cell states in
+          cancer. In addition to research, Ava is passionate about AI education
+          and outreach — she is a lead organizer and instructor for
+          <a
+            href="https://introtodeeplearning.com/"
+            target="_blank"
+            rel="noopener"
+            >MIT Introduction to Deep Learning</a
+          >, an in-person and global course on the fundamentals of deep
+          learning.
+        </p>
+      </div>
+    </div>
+    <!-- Organizer Bio Modals -->
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-chris"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'chris')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Chris J. Maddison</h3>
+        <p>
+          Chris Maddison is an assistant professor in the Department of Computer
+          Science and the Department of Statistical Sciences at the University
+          of Toronto. He is a CIFAR AI Chair at the Vector Institute, a member
+          of the ELLIS Society, and a faculty affiliate of the Schwartz Reisman
+          Institute for Technology and Society. He completed his DPhil at the
+          University of Oxford. Maddison previously held a senior research
+          scientist position at Google DeepMind and a membership at the
+          Institute for Advanced Study in Princeton, NJ. He was an Open
+          Philanthropy AI Fellow during his graduate studies, and he received a
+          NeurIPS Best Paper Award in 2014. Maddison works on the methodology of
+          machine learning with the goal of designing algorithms that can take
+          advantage of the natural structure of data, such as evolutionary
+          relationships between proteins, to learn more efficiently from
+          examples. Maddison developed gradient estimation techniques that are
+          now standard tools in the deep learning toolbox, and he was a founding
+          member of the AlphaGo project, which was the first computer program to
+          defeat a world champion in the game of Go.
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-rahul"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'rahul')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Rahul G. Krishnan</h3>
+        <p>
+          Rahul G. Krishnan is an Assistant Professor of Computer Science and
+          Medicine (Laboratory Medicine and Pathobiology) where he holds a Tier
+          II Canada Research Chair in Computational Medicine. He is a CIFAR AI
+          Chair at the Vector Institute and a member of the Temerty Center for
+          Artificial Intelligence in Medicine. He works on deep learning, causal
+          inference and machine learning in healthcare. Previously, he was a
+          Senior Researcher at Microsoft Research New England. He received his
+          MS from New York University and his PhD in Electrical Engineering and
+          Computer Science from MIT in 2020.
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-ashley"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'ashley')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Ashley Dale</h3>
+        <p>
+          Ashley Dale researches Trustworthy AI (TAI) and explainable
+          uncertainty quantification (xUQ) for scientific machine learning
+          applications. She began her journey as a researcher of magnetic
+          molecules and a dissector of black box computer vision models; these
+          experiences led her to the Schmidt AI for Science Postdoctoral
+          fellowship at the University of Toronto. Ashley enjoys testing her
+          work in experimental laboratory settings and has recently started
+          exploring self-driving labs and machine learning for accelerated
+          materials discovery. In the long term, she hopes to have her own
+          self-driving laboratory that discovers new magnetic materials. Until
+          then, she has the most fun swing dancing, rock climbing, singing
+          karaoke, or playing music with friends.
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-biprateep"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'biprateep')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Biprateep Dey</h3>
+        <p>
+          Biprateep develops AI methods grounded in statistical theory to study
+          galaxy formation and evolution. His techniques enable reliable
+          scientific discovery, offering the speed and flexibility offered by
+          modern AI methods while maintaining the rigour expected from
+          traditional statistical data analysis. Outside of research, he enjoys
+          exploring the city by bike and learning to play the piano.
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-david"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'david')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>David Pellow</h3>
+        <p>
+          After finishing his PhD in computational biology, David Pellow moved
+          from studying cow gut bacteria to human health. He is excited about
+          the potential for machine learning and AI to transform medicine.
+          Currently, he works on modelling long-term liver transplant outcomes
+          to improve patient care. When not researching, he enjoys reading,
+          hiking, and biking with his kids.
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-ishrath"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'ishrath')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Ishrath Mohamed Irshadeen</h3>
+        <p>
+          After earning her PhD in Chemistry from the Queensland University of
+          Technology, Ishrath Mohamed Irshadeen brought her interest in
+          cross-disciplinary problem solving at the intersection of industry and
+          academic research to the University of Toronto as a Schmidt AI in
+          Science Postdoctoral Research Fellow. She enjoys combining chemistry
+          and machine learning to solve real-world chemistry problems and works
+          with diverse, cross-disciplinary teams to deliver well-crafted
+          outcomes. When not working with chemicals, she can be found searching
+          for new matcha spots, attending pilates classes, or attempting to
+          befriend cats.
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-amanda"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'amanda')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Amanda Mohabeer</h3>
+        <p>
+          Amanda Mohabeer is the Schmidt AI in Science Postdoctoral Program
+          Manager at the University of Toronto, where she manages strategic
+          programming initiatives, budgeting, and administrative tasks. Her
+          background includes a diverse set of experiences, including roles in
+          research operations, awards administration, and teaching and learning.
+          In addition to a Ph.D. in Pathobiology from UofT, she completed the
+          Adult Learning and Development Certificate at OISE and is pursuing
+          Lean Six Sigma certification. She was the recipient of the 2021 Avrum
+          Gotlieb Award for Curriculum Development and Teaching Excellence in
+          Training, and is driven by student success initiatives and trainee
+          development. When not working on providing the best experience for the
+          Schmidt Fellows, Amanda enjoys reading, baking, and working on
+          <a href="https://www.beyondthesc.com/" target="_blank" rel="noopener"
+            >Beyond the BSc</a
+          >—a higher education blog for STEM students.
+        </p>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
