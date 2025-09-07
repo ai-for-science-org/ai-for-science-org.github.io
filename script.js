@@ -79,9 +79,10 @@ document.addEventListener("mousedown", function (e) {
   });
 });
 // Keynote Speaker Bio Modal Logic
-window.openKeynoteBio = function (event) {
+window.openKeynoteBio = function (event, speaker) {
   event.preventDefault();
-  const modal = document.getElementById("keynote-bio-modal");
+  var modalId = "keynote-bio-modal-" + speaker;
+  const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
@@ -94,37 +95,46 @@ window.openKeynoteBio = function (event) {
   }
 };
 
-window.closeKeynoteBio = function (event) {
+window.closeKeynoteBio = function (event, speaker) {
   event.preventDefault();
-  const modal = document.getElementById("keynote-bio-modal");
+  var modalId = "keynote-bio-modal-" + speaker;
+  const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
     // Return focus to the bio link
-    const link = document.querySelector(".keynote-bio-link");
+    const link = document.querySelector(
+      '.keynote-bio-link[onclick*="' + speaker + '"]'
+    );
     if (link) link.focus();
   }
 };
 
 // Close modal on Escape key
 document.addEventListener("keydown", function (e) {
-  const modal = document.getElementById("keynote-bio-modal");
-  if (modal && modal.classList.contains("active")) {
-    if (e.key === "Escape") {
-      closeKeynoteBio(e);
+  ["ava", "brendan"].forEach(function (speaker) {
+    var modal = document.getElementById("keynote-bio-modal-" + speaker);
+    if (modal && modal.classList.contains("active")) {
+      if (e.key === "Escape") {
+        closeKeynoteBio(e, speaker);
+      }
     }
-  }
+  });
 });
 
 // Close modal when clicking outside the content
 document.addEventListener("mousedown", function (e) {
-  const modal = document.getElementById("keynote-bio-modal");
-  if (modal && modal.classList.contains("active")) {
-    if (!modal.querySelector(".keynote-bio-modal-content").contains(e.target)) {
-      closeKeynoteBio(e);
+  ["ava", "brendan"].forEach(function (speaker) {
+    var modal = document.getElementById("keynote-bio-modal-" + speaker);
+    if (modal && modal.classList.contains("active")) {
+      if (
+        !modal.querySelector(".keynote-bio-modal-content").contains(e.target)
+      ) {
+        closeKeynoteBio(e, speaker);
+      }
     }
-  }
+  });
 });
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile menu toggle functionality

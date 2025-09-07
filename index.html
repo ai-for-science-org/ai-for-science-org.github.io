@@ -314,7 +314,39 @@
                     <a
                       href="#"
                       class="keynote-bio-link"
-                      onclick="openKeynoteBio(event)"
+                      onclick="openKeynoteBio(event, 'ava')"
+                      >bio>></a
+                    >
+                  </div>
+                  <div class="keynote-speaker-card">
+                    <img
+                      src="imgs/Brendan_Frey.png"
+                      alt="Brendan Frey"
+                      class="keynote-speaker-photo"
+                    />
+                    <div class="keynote-speaker-info">
+                      <h3>
+                        <a
+                          href="https://www.deepgenomics.com/company/"
+                          target="_blank"
+                          rel="noopener"
+                          >Brendan Frey</a
+                        >
+                      </h3>
+                      <p class="keynote-speaker-title">
+                        Chief Innovation Officer & Founder
+                      </p>
+                      <div class="keynote-speaker-affiliation">
+                        <p class="keynote-speaker-department">Deep Genomics</p>
+                        <p class="keynote-speaker-department">
+                          <em>Professor,</em> University of Toronto
+                        </p>
+                      </div>
+                    </div>
+                    <a
+                      href="#"
+                      class="keynote-bio-link"
+                      onclick="openKeynoteBio(event, 'brendan')"
                       >bio>></a
                     >
                   </div>
@@ -1033,14 +1065,14 @@
     <!-- Keynote Speaker Bio Modal (moved outside card for stability) -->
     <div
       class="keynote-bio-modal"
-      id="keynote-bio-modal"
+      id="keynote-bio-modal-ava"
       tabindex="-1"
       aria-hidden="true"
     >
       <div class="keynote-bio-modal-content">
         <button
           class="keynote-bio-close"
-          onclick="closeKeynoteBio(event)"
+          onclick="closeKeynoteBio(event, 'ava')"
           aria-label="Close bio"
         >
           &times;
@@ -1067,6 +1099,64 @@
             >MIT Introduction to Deep Learning</a
           >, an in-person and global course on the fundamentals of deep
           learning.
+        </p>
+      </div>
+    </div>
+    <div
+      class="keynote-bio-modal"
+      id="keynote-bio-modal-brendan"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="keynote-bio-modal-content">
+        <button
+          class="keynote-bio-close"
+          onclick="closeKeynoteBio(event, 'brendan')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Brendan Frey</h3>
+
+        <p>
+          Brendan Frey is an internationally acclaimed entrepreneur, engineer
+          and scientist. He is Chief Innovation Officer, Founder and board
+          member of Deep Genomics and co-founder of the Vector Institute for
+          Artificial Intelligence. Brendan made fundamental contributions in the
+          fields of deep learning, genomic medicine, and information technology.
+          He co-authored over 200 papers in these areas, including over a dozen
+          that appeared in Nature, Science and Cell and were on multiple
+          occasions highlighted on the front covers of those magazines. His work
+          with Geoffrey Hinton on the 'wake-sleep algorithm' helped to launch
+          the field of deep learning (Science 1995). His work on deep learning
+          and on factor graphs forms the foundation of thousands of products
+          used world-wide; for example, the WiFi telecommunications standard is
+          based on an algorithm that Brendan co-invented.
+        </p>
+        <p>
+          Brendan was a pioneer in developing AI systems that could accurately
+          predict normal and pathological cell and genome biology, facilitating
+          biomedical breakthroughs. This work led to the discovery of new
+          biology, the founding of Deep Genomics in 2015, the first AI system
+          for predicting pathogenic mutations and identifying therapeutic
+          targets, and the development of new therapeutic candidates for
+          patients with genetic disorders.
+        </p>
+        <p>
+          Brendan is Professor of Engineering and Medicine at the University of
+          Toronto and is a Fellow of the American Association for the
+          Advancement of Science, a Fellow of the Institute of Electrical and
+          Electronic Engineers, a Senior Fellow of the Canadian Institute for
+          Advanced Research, and a Fellow of the Royal Society of Canada.
+          Brendan has advised the leadership of Microsoft Research on machine
+          learning and deep learning technology, and he was a member of its
+          Technical Advisory Board. He has held numerous researcher and
+          professor positions at the University of Illinois at Urbana-Champaign,
+          Cambridge University in England, the Isaac Newton Institute for
+          Mathematical Sciences and the University of Waterloo.
+        </p>
+        <p>
+          Brendan received his Ph.D. from the University of Toronto in 1997.
         </p>
       </div>
     </div>
