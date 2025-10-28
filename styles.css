@@ -630,6 +630,52 @@ body {
 }
 /* End of New Apply Now Button Styles */
 
+/* Banner inline links (Schedule | Tutorials) */
+.banner-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 30px; /* keep similar spacing to previous Apply button */
+}
+
+.banner-link {
+  color: #fff;
+  background: transparent;
+  border: 4px solid rgba(255, 255, 255, 0); /* invisible by default to avoid layout shift; thicker baseline to match hover */
+  padding: 0.35rem 0.75rem; /* reserve space so hover doesn't shift layout */
+  text-decoration: none;
+  font-weight: 900; /* very bold */
+  font-size: 2rem; /* user requested size */
+  line-height: 1;
+  display: inline-block;
+  border-radius: 8px;
+  transition: background-color 180ms ease, border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.banner-link:hover,
+.banner-link:focus {
+  text-decoration: none; /* remove underline */
+  outline: none;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.06
+  ); /* subtle off-white hover color (not cyan) */
+  border-color: rgba(255, 255, 255, 1); /* white bounding box */
+  color: #fff; /* ensure text stays white on hover */
+  transform: translateY(-2px);
+}
+
+.banner-sep {
+  color: #fff;
+  opacity: 0.95;
+  margin: 0 0.4rem;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
 /* Section Backgrounds */
 .section-light-bg {
   background-color: var(--light-color);
