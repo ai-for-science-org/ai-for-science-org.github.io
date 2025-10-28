@@ -113,7 +113,7 @@ window.closeKeynoteBio = function (event, speaker) {
 
 // Close modal on Escape key
 document.addEventListener("keydown", function (e) {
-  ["ava", "brendan"].forEach(function (speaker) {
+  ["chris", "brendan"].forEach(function (speaker) {
     var modal = document.getElementById("keynote-bio-modal-" + speaker);
     if (modal && modal.classList.contains("active")) {
       if (e.key === "Escape") {
@@ -125,7 +125,7 @@ document.addEventListener("keydown", function (e) {
 
 // Close modal when clicking outside the content
 document.addEventListener("mousedown", function (e) {
-  ["ava", "brendan"].forEach(function (speaker) {
+  ["chris", "brendan"].forEach(function (speaker) {
     var modal = document.getElementById("keynote-bio-modal-" + speaker);
     if (modal && modal.classList.contains("active")) {
       if (
