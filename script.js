@@ -212,7 +212,8 @@ document.addEventListener("DOMContentLoaded", function () {
           const offset = headerHeight + mobileBuffer;
 
           const targetPosition =
-            window.pageYOffset + targetElement.getBoundingClientRect().top -
+            window.pageYOffset +
+            targetElement.getBoundingClientRect().top -
             offset;
 
           window.scrollTo({
@@ -337,15 +338,18 @@ document.addEventListener("DOMContentLoaded", function () {
             // Calculate offset dynamically from the actual header height and
             // add a slightly larger buffer on mobile so headings/tabs are
             // clearly visible below the sticky header.
-            const topHeader = document.querySelector('.top-header');
+            const topHeader = document.querySelector(".top-header");
             const stickyHeaderHeight = topHeader ? topHeader.offsetHeight : 100;
             const additionalBuffer = window.innerWidth <= 700 ? 48 : 15;
 
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition =
-              window.pageYOffset + elementPosition - stickyHeaderHeight - additionalBuffer;
+              window.pageYOffset +
+              elementPosition -
+              stickyHeaderHeight -
+              additionalBuffer;
 
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             floatingNav.classList.remove("expanded");
           }
         }
