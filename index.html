@@ -76,7 +76,7 @@
       <nav class="top-header-nav">
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#schedule-start">Schedule</a></li>
           <li><a href="#logistics">Logistics</a></li>
           <li><a href="#organizers">Organizers</a></li>
         </ul>
@@ -155,7 +155,7 @@
           Workshop at the University of Toronto | November 3-5, 2025
         </p>
         <div class="banner-links">
-          <a href="#schedule" class="banner-link">Schedule</a>
+          <a href="#schedule-start" class="banner-link">Schedule</a>
           <span class="banner-sep">|</span>
           <a
             href="https://github.com/ai-for-science-org/tutorials"
@@ -279,8 +279,8 @@
           <p class="tentative-schedule-note">
             <strong
               ><em
-                >Please note: This schedule is tentative and subject to
-                change</em
+                >Note: The times mentioned are in Toronto local time (Eastern
+                Standard Time)</em
               ></strong
             >
           </p>
@@ -351,7 +351,7 @@
                     <a
                       href="#"
                       class="keynote-bio-link"
-                      onclick="openKeynoteBio(event, 'brendan')"
+                      onclick="openKeynoteBio(event, 'albi')"
                       >bio>></a
                     >
                   </div>
@@ -360,7 +360,7 @@
             </div>
           </div>
           <div>
-            <div class="schedule-tabs">
+            <div id="schedule-start" class="schedule-tabs">
               <button class="tab-btn active" data-day="day1-new">
                 Day 1 (Nov 3)
               </button>
@@ -375,7 +375,7 @@
               </div>
               <div class="legend-item">
                 <div class="legend-color tutorial-color"></div>
-                <span>Tutorials & Workshops</span>
+                <span>Tutorials & Hackathons</span>
               </div>
               <div class="legend-item">
                 <div class="legend-color social-color"></div>
@@ -391,26 +391,36 @@
               <div class="schedule-item break">
                 <div class="time">9:00 AM</div>
                 <div class="details">
-                  <h3>Breakfast</h3>
+                  <h3>Breakfast &amp; Registration</h3>
+                </div>
+              </div>
+              <div class="schedule-item keynote">
+                <div class="time">9:30 AM</div>
+                <div class="details">
+                  <h3>Opening Remarks &amp; Logistics</h3>
                 </div>
               </div>
               <div class="schedule-item keynote">
                 <div class="time">10:00 AM</div>
                 <div class="details">
-                  <h3>Keynote 1: Introduction to Foundation Models</h3>
+                  <h3>
+                    Keynote 1: "Foundation Models for Genome Biology and Drug
+                    Discovery" by Albi Celaj
+                  </h3>
                 </div>
               </div>
               <div class="schedule-item break">
                 <div class="time">11:00 AM</div>
                 <div class="details">
-                  <h3>Morning tea</h3>
+                  <h3>Morning Break</h3>
                 </div>
               </div>
               <div class="schedule-item tutorial">
                 <div class="time">11:15 AM</div>
                 <div class="details">
                   <h3>
-                    Tutorial 1: Hands-on Introduction to Foundation Models
+                    Tutorial 1: Introduction to Foundation Models and the
+                    Hackathon Compute Platform
                   </h3>
                 </div>
               </div>
@@ -423,31 +433,75 @@
               <div class="schedule-item tutorial">
                 <div class="time">1:30 PM</div>
                 <div class="details">
-                  <h3>Tutorial 2: Overview of Hackathon Projects</h3>
+                  <h3>
+                    Tutorial 2: Using Foundation Models for Your Specific Tasks
+                  </h3>
+                </div>
+              </div>
+              <div class="schedule-item break">
+                <div class="time">2:45 PM</div>
+                <div class="details">
+                  <h3>Afternoon Break</h3>
                 </div>
               </div>
               <div class="schedule-item social">
                 <div class="time">3:00 PM</div>
                 <div class="details">
-                  <h3>Networking and Team Formation</h3>
+                  <h3>Team Formation and Ice-Breaker</h3>
                 </div>
               </div>
-              <div class="schedule-item break">
-                <div class="time">4:30 PM</div>
+              <div class="schedule-item tutorial">
+                <div class="time">3:30 PM</div>
                 <div class="details">
-                  <h3>Evening Tea</h3>
+                  <h3>
+                    Tutorial 3: Uncertainty Quantification for Foundation Models
+                  </h3>
                 </div>
               </div>
               <div class="schedule-item social">
-                <div class="time">5:00 PM</div>
+                <div class="time">4:30 PM</div>
                 <div class="details">
-                  <h3>Social Event + Networking Dinner</h3>
+                  <h3>
+                    Head out for the CN Tower
+                    <a
+                      class="map-link"
+                      href="https://www.google.com/maps/search/?api=1&query=CN+Tower+Toronto"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Open CN Tower in Google Maps"
+                    >
+                      <span class="map-text"
+                        >(<i
+                          class="fas fa-map-marker-alt"
+                          aria-hidden="true"
+                        ></i
+                        >&nbsp;Map)</span
+                      >
+                    </a>
+                  </h3>
                 </div>
               </div>
-              <div class="schedule-item">
-                <div class="time">8:30 PM</div>
+              <div class="schedule-item social">
+                <div class="time">5:15 PM</div>
                 <div class="details">
-                  <h3>Day Close</h3>
+                  <h3>
+                    Dinner and Sightseeing at the CN Tower
+                    <a
+                      class="map-link"
+                      href="https://www.google.com/maps/search/?api=1&query=CN+Tower+Toronto"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Open CN Tower in Google Maps"
+                    >
+                      <span class="map-text"
+                        >(<i
+                          class="fas fa-map-marker-alt"
+                          aria-hidden="true"
+                        ></i
+                        >&nbsp;Map)</span
+                      >
+                    </a>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -463,23 +517,22 @@
                 <div class="time">10:00 AM</div>
                 <div class="details">
                   <h3>
-                    Keynote 2: Current Challenges to Developing a Foundation
-                    Model for Science
+                    Keynote 2: "Foundation Models for Atomistic Systems" by
+                    Chris Sutton
                   </h3>
                 </div>
               </div>
               <div class="schedule-item break">
                 <div class="time">11:00 AM</div>
                 <div class="details">
-                  <h3>Morning Tea</h3>
+                  <h3>Morning Break</h3>
                 </div>
               </div>
               <div class="schedule-item tutorial">
                 <div class="time">11:15 AM</div>
                 <div class="details">
                   <h3>
-                    Tutorial 3: Advanced Tutorials and Hands-on Exercises on
-                    Foundation Models
+                    Tutorial 4: Interpreting What a Foundation Model Has Learnt
                   </h3>
                 </div>
               </div>
@@ -489,28 +542,75 @@
                   <h3>Lunch</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item tutorial">
                 <div class="time">1:30 PM</div>
                 <div class="details">
-                  <h3>Hackathon Kick Off and Initial Implementations</h3>
+                  <h3>Hackathon Kickoff and Project Conceptualization</h3>
                 </div>
               </div>
               <div class="schedule-item break">
-                <div class="time">4:30 PM</div>
+                <div class="time">2:45 PM</div>
                 <div class="details">
-                  <h3>Evening Tea</h3>
+                  <h3>Afternoon Break</h3>
                 </div>
               </div>
-              <div class="schedule-item">
-                <div class="time">5:00 PM</div>
+              <div class="schedule-item social">
+                <div class="time">3:00 PM</div>
                 <div class="details">
-                  <h3>Continued: Hackathon</h3>
+                  <h3>Group Photo</h3>
                 </div>
               </div>
-              <div class="schedule-item">
-                <div class="time">6:30 PM</div>
+              <div class="schedule-item tutorial">
+                <div class="time">3:30 PM</div>
                 <div class="details">
-                  <h3>Day Close</h3>
+                  <h3>Hackathon Continues: First Push to GitHub</h3>
+                </div>
+              </div>
+              <div class="schedule-item social">
+                <div class="time">5:15 PM</div>
+                <div class="details">
+                  <h3>
+                    Head out to the Rec Room Toronto Roundhouse
+                    <a
+                      class="map-link"
+                      href="https://www.google.com/maps/search/?api=1&query=Rec+Room+Toronto+Roundhouse"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Open Rec Room Toronto Roundhouse in Google Maps"
+                    >
+                      <span class="map-text"
+                        >(<i
+                          class="fas fa-map-marker-alt"
+                          aria-hidden="true"
+                        ></i
+                        >&nbsp;Map)</span
+                      >
+                    </a>
+                  </h3>
+                </div>
+              </div>
+              <div class="schedule-item social">
+                <div class="time">5:45 PM</div>
+                <div class="details">
+                  <h3>
+                    Dinner, Drinks and Team Games at the Rec Room Toronto
+                    Roundhouse
+                    <a
+                      class="map-link"
+                      href="https://www.google.com/maps/search/?api=1&query=Rec+Room+Toronto+Roundhouse"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Open Rec Room Toronto Roundhouse in Google Maps"
+                    >
+                      <span class="map-text"
+                        >(<i
+                          class="fas fa-map-marker-alt"
+                          aria-hidden="true"
+                        ></i
+                        >&nbsp;Map)</span
+                      >
+                    </a>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -525,19 +625,19 @@
               <div class="schedule-item keynote">
                 <div class="time">10:00 AM</div>
                 <div class="details">
-                  <h3>Lightning Talks</h3>
+                  <h3>Participant Talks</h3>
                 </div>
               </div>
               <div class="schedule-item break">
                 <div class="time">11:00 AM</div>
                 <div class="details">
-                  <h3>Morning Tea</h3>
+                  <h3>Morning Break</h3>
                 </div>
               </div>
-              <div class="schedule-item">
+              <div class="schedule-item tutorial">
                 <div class="time">11:15 AM</div>
                 <div class="details">
-                  <h3>Hackathon Continues</h3>
+                  <h3>Hackathon: Check-In with Tutors</h3>
                 </div>
               </div>
               <div class="schedule-item break">
@@ -549,31 +649,83 @@
               <div class="schedule-item">
                 <div class="time">1:30 PM</div>
                 <div class="details">
-                  <h3>Hackathon Wrap Up</h3>
+                  <h3>Hackathon Wrap-Up: Push Final Code to GitHub</h3>
                 </div>
               </div>
               <div class="schedule-item break">
-                <div class="time">4:30 PM</div>
+                <div class="time">2:45 PM</div>
                 <div class="details">
-                  <h3>Evening Tea</h3>
+                  <h3>Afternoon Break</h3>
+                </div>
+              </div>
+              <div class="schedule-item tutorial">
+                <div class="time">3:00 PM</div>
+                <div class="details">
+                  <h3>Hackathon: Make 1-Slide Summary</h3>
                 </div>
               </div>
               <div class="schedule-item keynote">
-                <div class="time">5:00 PM</div>
+                <div class="time">3:30 PM</div>
                 <div class="details">
-                  <h3>Presentation of Hackathon Awards and Closing Remarks</h3>
+                  <h3>Hackathon Summary Presentations</h3>
+                </div>
+              </div>
+              <div class="schedule-item keynote">
+                <div class="time">4:15 PM</div>
+                <div class="details">
+                  <h3>Hackathon Prize Distribution</h3>
+                </div>
+              </div>
+              <div class="schedule-item keynote">
+                <div class="time">4:30 PM</div>
+                <div class="details">
+                  <h3>Closing Remarks by Lisa Strug</h3>
                 </div>
               </div>
               <div class="schedule-item social">
-                <div class="time">6:30 PM</div>
+                <div class="time">5:45 PM</div>
                 <div class="details">
-                  <h3>Social Event + Closing Dinner</h3>
+                  <h3>
+                    Head Out to Pogue Mahone
+                    <a
+                      class="map-link"
+                      href="https://www.google.com/maps/search/?api=1&query=Pogue+Mahone+Toronto"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Open Pogue Mahone in Google Maps"
+                    >
+                      <span class="map-text"
+                        >(<i
+                          class="fas fa-map-marker-alt"
+                          aria-hidden="true"
+                        ></i
+                        >&nbsp;Map)</span
+                      >
+                    </a>
+                  </h3>
                 </div>
               </div>
-              <div class="schedule-item">
-                <div class="time">8:30 PM</div>
+              <div class="schedule-item social">
+                <div class="time">6:00 PM</div>
                 <div class="details">
-                  <h3>Program Ends</h3>
+                  <h3>
+                    Drinks and Dinner at Pogue Mahone
+                    <a
+                      class="map-link"
+                      href="https://www.google.com/maps/search/?api=1&query=Pogue+Mahone+Toronto"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="Open Pogue Mahone in Google Maps"
+                    >
+                      <span class="map-text"
+                        >(<i
+                          class="fas fa-map-marker-alt"
+                          aria-hidden="true"
+                        ></i
+                        >&nbsp;Map)</span
+                      >
+                    </a>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -589,7 +741,7 @@
               <i class="fas fa-map-marker-alt"></i> Conference Location
             </h3>
             <p>
-              The conference will be held at the
+              The conference will be held at the second floor of the
               <strong>
                 <a
                   href="https://sric.utoronto.ca/"
@@ -1098,14 +1250,14 @@
     </div>
     <div
       class="keynote-bio-modal"
-      id="keynote-bio-modal-brendan"
+      id="keynote-bio-modal-albi"
       tabindex="-1"
       aria-hidden="true"
     >
       <div class="keynote-bio-modal-content">
         <button
           class="keynote-bio-close"
-          onclick="closeKeynoteBio(event, 'brendan')"
+          onclick="closeKeynoteBio(event, 'albi')"
           aria-label="Close bio"
         >
           &times;
