@@ -1289,6 +1289,33 @@ header {
   margin-top: 40px;
 }
 
+/* Participant list under schedule (bulleted and spaced) */
+.participant-list {
+  margin-top: 10px; /* space between heading and list */
+  margin-bottom: 0;
+  padding-left: 1.25rem; /* consistent indent for bullets */
+  list-style: disc;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--dark-color);
+}
+
+.schedule-item .details h3 + .participant-list {
+  margin-top: 0rem;
+}
+
+/* When we want the heading and participant list on the same row */
+.details.has-participant-list {
+  display: flex;
+  align-items: flex-start; /* align the top of the list with the heading */
+  gap: 1.1rem; /* horizontal gap between h3 and the list */
+}
+
+.details.has-participant-list .participant-list {
+  margin-top: 0; /* remove vertical gap when inline */
+  padding-left: 1rem; /* keep bullets visible but compact */
+}
+
 /* Venue Section */
 .venue-info {
   display: flex;
