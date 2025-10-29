@@ -113,7 +113,7 @@ window.closeKeynoteBio = function (event, speaker) {
 
 // Close modal on Escape key
 document.addEventListener("keydown", function (e) {
-  ["ava", "brendan"].forEach(function (speaker) {
+  ["chris", "albi"].forEach(function (speaker) {
     var modal = document.getElementById("keynote-bio-modal-" + speaker);
     if (modal && modal.classList.contains("active")) {
       if (e.key === "Escape") {
@@ -125,7 +125,7 @@ document.addEventListener("keydown", function (e) {
 
 // Close modal when clicking outside the content
 document.addEventListener("mousedown", function (e) {
-  ["ava", "brendan"].forEach(function (speaker) {
+  ["chris", "albi"].forEach(function (speaker) {
     var modal = document.getElementById("keynote-bio-modal-" + speaker);
     if (modal && modal.classList.contains("active")) {
       if (
@@ -203,8 +203,21 @@ document.addEventListener("DOMContentLoaded", function () {
           // Add active class to the clicked nav link immediately
           this.classList.add("active"); // Changed from active-section
 
+          // Compute dynamic offset based on the sticky header height and
+          // add a larger buffer on narrow viewports so the tabs are fully
+          // visible under the header on mobile devices.
+          const topHeader = document.querySelector(".top-header");
+          const headerHeight = topHeader ? topHeader.offsetHeight : 80;
+          const mobileBuffer = window.innerWidth <= 700 ? 48 : 16;
+          const offset = headerHeight + mobileBuffer;
+
+          const targetPosition =
+            window.pageYOffset +
+            targetElement.getBoundingClientRect().top -
+            offset;
+
           window.scrollTo({
-            top: targetElement.offsetTop - 80, // Offset for the sticky header
+            top: targetPosition,
             behavior: "smooth",
           });
 
@@ -322,9 +335,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (targetId && targetId.startsWith("#")) {
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
-            // Calculate offset: sticky header + extra buffer
-            const stickyHeaderHeight = 100; // Height of .top-header
-            const additionalBuffer = 15; // Small buffer to ensure heading is fully visible
+            // Calculate offset dynamically from the actual header height and
+            // add a slightly larger buffer on mobile so headings/tabs are
+            // clearly visible below the sticky header.
+            const topHeader = document.querySelector(".top-header");
+            const stickyHeaderHeight = topHeader ? topHeader.offsetHeight : 100;
+            const additionalBuffer = window.innerWidth <= 700 ? 48 : 15;
 
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition =
@@ -333,10 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
               stickyHeaderHeight -
               additionalBuffer;
 
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "smooth",
-            });
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             floatingNav.classList.remove("expanded");
           }
         }
@@ -344,32 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Call this whenever the floating nav panel changes
-  function updateFloatingNavVisibility() {
-    const currentSection = getCurrentSection();
-    if (currentSection && sectionsWithFloatingNav.includes(currentSection)) {
-      if (!floatingNav.classList.contains("show")) {
-        floatingNav.classList.remove("hide", "fade-out");
-        floatingNav.classList.add("show", "fade-in");
-      }
-      floatingNavPanels.forEach((panel) => {
-        panel.classList.remove("active");
-        panel.style.display = "none";
-      });
-      const activePanelId = sectionPanelMap[currentSection];
-      const activePanel = document.getElementById(activePanelId);
-      if (activePanel) {
-        activePanel.classList.add("active");
-        activePanel.style.display = "block";
-        attachFloatingNavListeners(); // Attach listeners to visible links only
-      }
-    } else {
-      if (floatingNav.classList.contains("show")) {
-        floatingNav.classList.remove("show", "fade-in", "expanded");
-        floatingNav.classList.add("hide", "fade-out");
-      }
-    }
-  }
+  // Floating nav visibility is handled below in a single implementation.
 
   // Function to determine current section
   function getCurrentSection() {

@@ -630,6 +630,127 @@ body {
 }
 /* End of New Apply Now Button Styles */
 
+/* Banner inline links (Schedule | Tutorials) */
+.banner-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 30px; /* keep similar spacing to previous Apply button */
+}
+
+.banner-link {
+  color: #fff;
+  background: transparent;
+  border: 4px solid rgba(255, 255, 255, 0); /* invisible by default to avoid layout shift; thicker baseline to match hover */
+  padding: 0.35rem 0.75rem; /* reserve space so hover doesn't shift layout */
+  text-decoration: none;
+  font-weight: 900; /* very bold */
+  font-size: 2rem; /* user requested size */
+  line-height: 1;
+  display: inline-block;
+  border-radius: 8px;
+  transition: background-color 180ms ease, border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.banner-link {
+  color: #fff;
+  background: transparent;
+  padding: 0.35rem 0.75rem; /* reserve space so hover doesn't shift layout */
+  text-decoration: none;
+  font-weight: 900; /* very bold */
+  font-size: 2rem; /* user requested size */
+  line-height: 1;
+  display: inline-block;
+  border-radius: 8px;
+  transition: background-color 220ms ease, transform 220ms ease;
+  position: relative; /* for pseudo-element bounding box */
+  --banner-border-size: 4px; /* default border thickness */
+  z-index: 1;
+}
+
+/* Pseudo-element for animated bounding box to allow subtle fade */
+.banner-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: var(--banner-border-size) solid rgba(255, 255, 255, 1);
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 220ms ease, transform 220ms ease;
+  pointer-events: none;
+  z-index: -1; /* keep behind the link text */
+}
+
+.banner-link:hover,
+.banner-link:focus {
+  text-decoration: none; /* remove underline */
+  outline: none;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.06
+  ); /* subtle off-white hover color (not cyan) */
+  color: #fff; /* ensure text stays white on hover */
+  transform: translateY(-2px);
+}
+
+.banner-link:hover::before,
+.banner-link:focus::before {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Responsive adjustments for banner links */
+@media (max-width: 900px) {
+  .banner-links {
+    gap: 0.4rem;
+    margin-top: 22px;
+  }
+
+  .banner-link {
+    font-size: 1.5rem; /* reduce for medium screens */
+    padding: 0.3rem 0.6rem;
+    --banner-border-size: 3px; /* slightly smaller border on medium */
+  }
+
+  .banner-sep {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Mobile: stack links vertically for easier tapping */
+  .banner-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 18px;
+    width: 100%;
+  }
+
+  .banner-link {
+    width: auto;
+    font-size: 1.25rem; /* comfortable mobile tap target */
+    padding: 0.6rem 1rem; /* larger tap area */
+    --banner-border-size: 3px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
+  /* Hide the pipe separator when stacked */
+  .banner-sep {
+    display: none;
+  }
+
+  /* Ensure high contrast focus for keyboard users */
+  .banner-link:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+  }
+}
+
 /* Section Backgrounds */
 .section-light-bg {
   background-color: var(--light-color);
@@ -1099,6 +1220,26 @@ header {
   line-height: 1.3;
 }
 
+/* Small map link appended to schedule items */
+.map-link {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.map-link .fa-map-marker-alt,
+.map-link i {
+  font-size: 0.95rem;
+  color: var(--secondary-color);
+}
+.map-link:hover,
+.map-link:focus {
+  text-decoration: underline;
+}
+
 /* Schedule Legend */
 .schedule-legend {
   display: flex;
@@ -1146,6 +1287,33 @@ header {
 .schedule-download {
   text-align: center;
   margin-top: 40px;
+}
+
+/* Participant list under schedule (bulleted and spaced) */
+.participant-list {
+  margin-top: 10px; /* space between heading and list */
+  margin-bottom: 0;
+  padding-left: 1.25rem; /* consistent indent for bullets */
+  list-style: disc;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--dark-color);
+}
+
+.schedule-item .details h3 + .participant-list {
+  margin-top: 0rem;
+}
+
+/* When we want the heading and participant list on the same row */
+.details.has-participant-list {
+  display: flex;
+  align-items: flex-start; /* align the top of the list with the heading */
+  gap: 1.1rem; /* horizontal gap between h3 and the list */
+}
+
+.details.has-participant-list .participant-list {
+  margin-top: 0; /* remove vertical gap when inline */
+  padding-left: 1rem; /* keep bullets visible but compact */
 }
 
 /* Venue Section */
