@@ -357,32 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Call this whenever the floating nav panel changes
-  function updateFloatingNavVisibility() {
-    const currentSection = getCurrentSection();
-    if (currentSection && sectionsWithFloatingNav.includes(currentSection)) {
-      if (!floatingNav.classList.contains("show")) {
-        floatingNav.classList.remove("hide", "fade-out");
-        floatingNav.classList.add("show", "fade-in");
-      }
-      floatingNavPanels.forEach((panel) => {
-        panel.classList.remove("active");
-        panel.style.display = "none";
-      });
-      const activePanelId = sectionPanelMap[currentSection];
-      const activePanel = document.getElementById(activePanelId);
-      if (activePanel) {
-        activePanel.classList.add("active");
-        activePanel.style.display = "block";
-        attachFloatingNavListeners(); // Attach listeners to visible links only
-      }
-    } else {
-      if (floatingNav.classList.contains("show")) {
-        floatingNav.classList.remove("show", "fade-in", "expanded");
-        floatingNav.classList.add("hide", "fade-out");
-      }
-    }
-  }
+  // Floating nav visibility is handled below in a single implementation.
 
   // Function to determine current section
   function getCurrentSection() {
