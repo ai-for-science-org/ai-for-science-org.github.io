@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Code of Conduct for the AI Foundation Models for Science Conference 2025"
+    />
+    <title>
+      Code of Conduct - AI Foundation Models for Science Workshop 2025
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* Header with logos */
+      .coc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background-color: white;
+        border-bottom: 2px solid #e0e0e0;
+        margin-bottom: 40px;
+      }
+
+      .coc-logo-left img {
+        height: 60px;
+        width: auto;
+      }
+
+      .coc-logo-right img {
+        height: 80px;
+        width: auto;
+        max-width: 400px;
+      }
+
+      /* Content styling */
+      .coc-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 40px 60px;
+        line-height: 1.8;
+      }
+
+      .coc-content h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 30px;
+        border-bottom: 3px solid var(--accent-color);
+        padding-bottom: 15px;
+        word-wrap: break-word;
+      }
+
+      .coc-content h2 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-top: 40px;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+      }
+
+      .coc-content p {
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+        text-align: justify;
+      }
+
+      .coc-content ul {
+        margin-left: 20px;
+        margin-bottom: 1.5rem;
+        padding-left: 20px;
+        list-style-type: disc;
+      }
+
+      .coc-content ol {
+        margin-left: 20px;
+        margin-bottom: 1.5rem;
+        padding-left: 20px;
+      }
+
+      .coc-content li {
+        margin-bottom: 0.8rem;
+        font-size: 1.05rem;
+        word-wrap: break-word;
+      }
+
+      .coc-content a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-bottom 0.2s;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .coc-content a:hover {
+        border-bottom: 1px solid var(--secondary-color);
+      }
+
+      .coc-content a:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      .coc-footer-note {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid #e0e0e0;
+        font-size: 0.95rem;
+        color: #666;
+      }
+
+      .references {
+        margin-top: 30px;
+        font-size: 0.95rem;
+      }
+
+      .references p {
+        margin-bottom: 0.8rem;
+        word-wrap: break-word;
+      }
+
+      /* Tablet responsive styles */
+      @media (max-width: 768px) {
+        .coc-header {
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px;
+        }
+
+        .coc-logo-left img,
+        .coc-logo-right img {
+          height: 50px;
+          max-width: 100%;
+        }
+
+        .coc-content {
+          padding: 0 20px 40px;
+        }
+
+        .coc-content h1 {
+          font-size: 2rem;
+        }
+
+        .coc-content h2 {
+          font-size: 1.5rem;
+        }
+
+        .coc-content p {
+          font-size: 1rem;
+          text-align: left;
+        }
+
+        .coc-content li {
+          font-size: 0.95rem;
+        }
+
+        .coc-content ul,
+        .coc-content ol {
+          margin-left: 10px;
+          padding-left: 20px;
+        }
+      }
+
+      /* Mobile responsive styles */
+      @media (max-width: 480px) {
+        .coc-header {
+          padding: 15px;
+          gap: 15px;
+        }
+
+        .coc-logo-left img,
+        .coc-logo-right img {
+          height: 40px;
+        }
+
+        .coc-content {
+          padding: 0 15px 30px;
+        }
+
+        .coc-content h1 {
+          font-size: 1.6rem;
+          margin-bottom: 20px;
+          padding-bottom: 10px;
+        }
+
+        .coc-content h2 {
+          font-size: 1.3rem;
+          margin-top: 30px;
+          margin-bottom: 15px;
+        }
+
+        .coc-content p {
+          font-size: 0.95rem;
+          margin-bottom: 1rem;
+          line-height: 1.6;
+        }
+
+        .coc-content li {
+          font-size: 0.9rem;
+          margin-bottom: 0.6rem;
+        }
+
+        .coc-content ul,
+        .coc-content ol {
+          margin-left: 5px;
+          padding-left: 20px;
+        }
+
+        .coc-footer-note {
+          font-size: 0.85rem;
+          margin-top: 30px;
+          padding-top: 20px;
+        }
+
+        .references {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* Accessibility improvements */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        .coc-content a {
+          text-decoration: underline;
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        .coc-header {
+          border-bottom: 1px solid #000;
+        }
+
+        .coc-content a {
+          color: #000;
+          text-decoration: underline;
+        }
+
+        .coc-content {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with logos -->
+    <div class="coc-header">
+      <div class="coc-logo-left">
+        <a href="https://www.utoronto.ca" target="_blank">
+          <img src="imgs/uoft_logo.png" alt="University of Toronto Logo" />
+        </a>
+      </div>
+      <div class="coc-logo-right">
+        <a href="index.html">
+          <img
+            src="imgs/Foundation Models for Science_Logo-Horizontal.png"
+            alt="AI Foundation Models for Science Conference Logo"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="coc-content">
+      <h1>CODE OF CONDUCT</h1>
+
+      <p>
+        The University of Toronto Foundation Models for Science Workshop
+        organizers are committed to ensuring that all members of our community
+        are aware of and adhere to University of Toronto policies. This includes
+        making its science, training and public outreach activities productive
+        and enjoyable for everyone, regardless of gender identity, sexual
+        orientation, disability, physical appearance, body size, race,
+        nationality, religion, or any of the prohibited grounds as set out in
+        the
+        <a
+          href="https://www.ontario.ca/laws/statute/90h19"
+          target="_blank"
+          rel="noopener"
+          >Ontario Human Rights Code</a
+        >.<sup>3</sup> In so doing, the University of Toronto Foundation Models
+        for Science Workshop aspires to be an equitable and inclusive
+        environment free of discrimination and harassment, where all members of
+        our community are treated with dignity and respect.<sup>4,5,6,7</sup>
+      </p>
+
+      <p>
+        The University of Toronto expects all scientists, students and staff who
+        are members, associates or visitors in all their professional conduct to
+        encourage behaviour, language and attitudes which will create a
+        favourable environment, free of discriminatory actions, stereotyping and
+        harassment.<sup>4,5,6</sup> We expect the same of participants and
+        instructors in University of Toronto training programs, workshops,
+        conferences and all other events or activities sponsored or organized by
+        the University of Toronto.
+      </p>
+
+      <p>
+        All members of our community are expected to follow these guidelines:
+      </p>
+
+      <ol style="margin-left: 20px; margin-bottom: 1.5rem">
+        <li style="margin-bottom: 1.5rem">
+          <strong>Behave in a professional manner</strong> as outlined in the
+          University's
+          <a
+            href="https://hrandequity.utoronto.ca/wp-content/uploads/sites/34/2016/09/Human-Resources-Guideline-on-Workplace-Harassment-and-Civil-Conduct-Civ....pdf"
+            target="_blank"
+            rel="noopener"
+            >Guideline on Civil Conduct</a
+          >.<sup>4</sup> This includes:
+          <ul style="margin-top: 0.8rem">
+            <li>
+              Treating others with dignity, courtesy, respect, politeness and
+              consideration.
+            </li>
+            <li>
+              Being respectful of others' right to express their views, even if
+              you disagree.<sup>1</sup>
+            </li>
+            <li>
+              Managing conflict with others in a respectful way rather than in a
+              confrontational way.
+            </li>
+            <li>
+              Making decisions concerning the use of alcohol that are
+              responsible, legal and in compliance with any obligations arising
+              from the individual's relationship with the University.<sup
+                >9</sup
+              >
+            </li>
+          </ul>
+        </li>
+        <li style="margin-bottom: 1.5rem">
+          All communication, whether it be in person or electronically, should
+          be kept appropriate and respectful for a professional audience
+          including people of many different backgrounds and identities.<sup
+            >4,5,6,7,8</sup
+          >
+        </li>
+        <li style="margin-bottom: 1.5rem">
+          <strong>Be kind to others.</strong> Do not insult or put down peers,
+          colleagues or attendees.<sup>4</sup>
+        </li>
+      </ol>
+
+      <p>
+        The workshop organizers will not condone unprofessional behaviour that
+        violates any of the University's Policies, such as:
+      </p>
+
+      <ul>
+        <li>
+          Profanity, abuse, shouting, aggression, violent language, or
+          inappropriate physical contact directed at an individual or
+          individuals.<sup>4,6</sup>
+        </li>
+        <li>
+          Humiliating, degrading, demeaning, belittling, insulting, frightening,
+          harassing or intimidating another person.<sup>4,5</sup>
+        </li>
+        <li>
+          Making sexist, racist, or exclusionary comments or jokes.<sup
+            >5,6,7</sup
+          >
+        </li>
+        <li>Using sexual or sexist language or imagery.<sup>5,6</sup></li>
+        <li>
+          Use of alcohol that is irresponsible, illegal, or breaches other
+          obligations that the individual has to the University.<sup>9</sup>
+        </li>
+      </ul>
+
+      <p>
+        The workshop organizers wish to maintain a collegial environment in
+        which all members of our community behave in a respectful and courteous
+        manner as prescribed by the University's Policies. All individuals are
+        expected to respect the values outlined in this Statement regardless of
+        the influence presented by alcohol and/or drug use. Those engaging in
+        inappropriate behaviour may be asked to leave events by relevant event
+        organizers (without refund of any registration or admission fee).
+        Additional measures (e.g. discipline, termination of contractual
+        relationship) may be taken, depending upon the individual's relationship
+        with the University.
+      </p>
+
+      <h2>Reporting Concerns</h2>
+
+      <p>
+        Individuals who are concerned that there has been a breach of any policy
+        or guideline referred to in this Code of Conduct should raise their
+        concern in accordance with the process set out in the applicable
+        policy/guideline. Further, or in situations where there is no process
+        set out in a policy/guideline, concerned individuals may contact the
+        workshop organizers, the appropriate
+        <a
+          href="http://contact.hrandequity.utoronto.ca/#divisional"
+          target="_blank"
+          rel="noopener"
+          >HR Divisional Office</a
+        >, or an appropriate University of Toronto Equity Office:
+      </p>
+
+      <p><strong>University of Toronto Equity Offices:</strong></p>
+
+      <ul>
+        <li>
+          <a
+            href="http://www.antiracism.utoronto.ca/"
+            target="_blank"
+            rel="noopener"
+            >Anti-Racism and Cultural Diversity website</a
+          >
+        </li>
+        <li>
+          <a href="http://sgdo.utoronto.ca/" target="_blank" rel="noopener"
+            >Sexual and Gender Diversity Office website</a
+          >
+        </li>
+        <li>
+          <a
+            href="http://www.communitysafety.utoronto.ca/"
+            target="_blank"
+            rel="noopener"
+            >Community Safety website</a
+          >
+        </li>
+        <li>
+          <a
+            href="http://www.safety.utoronto.ca/"
+            target="_blank"
+            rel="noopener"
+            >Sexual Violence, Sexual Assault, and Sexual Harassment website</a
+          >
+        </li>
+      </ul>
+
+      <p>
+        <strong>In case of emergency, please contact Campus Police:</strong>
+      </p>
+
+      <ul>
+        <li>St. George: (416) 978-2222</li>
+        <li>UTM: (905) 569-4333</li>
+        <li>UTSC: (416) 287-7333</li>
+      </ul>
+
+      <div class="coc-footer-note">
+        <p>
+          This Code of Conduct was created by Jessica Campbell, Heidi White, and
+          Ariel Amaral, in collaboration with the Dunlap Diversity Committee,
+          for use by the Dunlap Institute. It was developed with the assistance
+          of Carol Robb, Assistant Dean and Director of Human Resources in the
+          Faculty of Arts & Science. This Code of Conduct may be adopted by
+          other academic units within the University of Toronto, provided that
+          it is reproduced in full (including this license), and that the only
+          changes made are to the name of the relevant unit. By adopting this
+          Code of Conduct, each academic unit assumes responsibility for
+          maintaining its included university URLs and phone numbers.
+        </p>
+
+        <p>
+          The development of this Code of Conduct was inspired by the
+          <a
+            href="https://github.com/apontzen/london_cc/blob/master/codeofconduct.md"
+            target="_blank"
+            rel="noopener"
+            >London Code of Conduct</a
+          >.
+        </p>
+      </div>
+
+      <div class="references">
+        <h2>References</h2>
+
+        <p>
+          1
+          <a
+            href="http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Policies/PDF/ppmay281992.pdf"
+            target="_blank"
+            rel="noopener"
+            >Statement on Freedom of Speech (PDF 227KB)</a
+          >
+        </p>
+
+        <p>
+          2
+          <a
+            href="http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Policies/PDF/ppmar281991i.pdf"
+            target="_blank"
+            rel="noopener"
+            >Policy on Ethical Conduct on Research (PDF 221KB)</a
+          >
+        </p>
+          
+        </p>
+
+        <p>
+          3
+          <a
+            href="https://www.ontario.ca/laws/statute/90h19"
+            target="_blank"
+            rel="noopener"
+            >Ontario Human Rights Code website</a
+          >
+          
+        </p>
+
+        <p>
+          4
+          <a
+            href="https://hrandequity.utoronto.ca/wp-content/uploads/sites/34/2016/09/Human-Resources-Guideline-on-Workplace-Harassment-and-Civil-Conduct-Civ....pdf"
+            target="_blank"
+            rel="noopener"
+            >Human Resources Guideline on Workplace Harassment and Civil Conduct
+            (PDF 131KB)</a
+          >
+        </p>
+
+        <p>
+          5
+          <a
+            href="http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Policies/PDF/ppmar311994.pdf"
+            target="_blank"
+            rel="noopener"
+            >Statement on Prohibited Discrimination and Discriminatory
+            Harassment (PDF 35KB)</a
+          >
+        </p>
+
+        <p>
+          6
+          <a
+            href="https://governingcouncil.utoronto.ca/secretariat/policies/sexual-violence-and-sexual-harassment-policy-january-1-2023"
+            target="_blank"
+            rel="noopener"
+            >Policy on Sexual Violence and Sexual Harassment (PDF 290KB)</a
+          >
+        </p>
+          
+        </p>
+
+        <p>
+          7
+          <a
+            href="http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Policies/PDF/ppnov012004.pdf"
+            target="_blank"
+            rel="noopener"
+            >Statement of Commitment Regarding Persons with Disabilities (PDF
+            265KB)</a
+          >
+        </p>
+
+        <p>
+          8
+          <a
+            href="http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Policies/PDF/ppdec142006.pdf"
+            target="_blank"
+            rel="noopener"
+            >Statement on Equity, Diversity and Excellence (PDF 280KB)</a
+          >
+        </p>
+          
+        </p>
+
+        <p>
+          9
+          <a
+            href="http://www.governingcouncil.utoronto.ca/Assets/Governing+Council+Digital+Assets/Policies/PDF/ppjun262003.pdf"
+            target="_blank"
+            rel="noopener"
+            >Alcohol Policy (PDF 250KB)</a
+          >
+        </p>
+
+        <p style="margin-top: 30px; font-style: italic">
+          Last updated 30 May 2018
+        </p>
+      </div>
+    </div>
+
+    <footer class="uoft-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a
+            href="https://www.utoronto.ca/"
+            target="_blank"
+            aria-label="University of Toronto"
+          >
+            <img
+              src="imgs/defy_gravity.svg"
+              alt="University of Toronto - Defy Gravity"
+              class="footer-defy-gravity"
+            />
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="https://www.utoronto.ca/accessibility" target="_blank">
+                Accessibility
+              </a>
+            </li>
+            <li>
+              <a href="https://www.utoronto.ca/privacy" target="_blank">
+                Privacy
+              </a>
+            </li>
+            <li>
+              <a href="https://safety.utoronto.ca/" target="_blank">
+                Campus Safety
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@ai-for-science.org">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
