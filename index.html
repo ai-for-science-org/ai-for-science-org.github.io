@@ -1,572 +1,1345 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 Fall School on Agentic AI | University of Toronto</title>
-    <meta name="description" content="The official landing page for the 2026 Fall School on Agentic AI at the University of Toronto. Stay tuned for more details.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ai-for-science-org.github.io/">
-    <meta property="og:title" content="2026 Fall School on Agentic AI | University of Toronto">
-    <meta property="og:description" content="More details about the 2026 Fall School on Agentic AI coming soon.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-color: #0b1120;
-            --card-bg: rgba(15, 23, 42, 0.65);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --accent-primary: #007894;
-            --accent-glow: #6fc7ea;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --primary-font: 'Outfit', 'Inter', sans-serif;
-            --secondary-font: 'Inter', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--primary-font);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated Background */
-        .background-glows {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            animation: float 20s infinite alternate ease-in-out;
-        }
-
-        .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            top: -100px;
-            left: -100px;
-            animation-duration: 25s;
-        }
-
-        .orb-2 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
-            bottom: -150px;
-            right: -150px;
-            animation-duration: 30s;
-            animation-delay: -5s;
-        }
-
-        .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.08;
-            animation-duration: 18s;
-            animation-delay: -2s;
-        }
-
-        .grid-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: 1;
-            mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 40%, transparent 100%);
-            -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 40%, transparent 100%);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            50% {
-                transform: translate(5%, 8%) scale(1.1);
-            }
-            100% {
-                transform: translate(-3%, -5%) scale(0.95);
-            }
-        }
-
-        /* Header logo bar */
-        header {
-            width: 100%;
-            max-width: 1200px;
-            padding: 2.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .logo-container {
-            background: #ffffff;
-            padding: 0.85rem 2.25rem;
-            border-radius: 50px;
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.25), 
-                0 0 0 1px rgba(255, 255, 255, 0.1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-        }
-
-        .logo-container:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.35), 
-                0 0 0 1px rgba(255, 255, 255, 0.2);
-        }
-
-        .logo-img {
-            height: 44px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* Menu Toggle Button */
-        .menu-toggle {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 100;
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .menu-toggle:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .menu-toggle:active {
-            transform: scale(0.95);
-        }
-
-        .bar {
-            width: 20px;
-            height: 2px;
-            background-color: var(--text-primary);
-            border-radius: 2px;
-            transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
-        }
-
-        /* Animate Hamburger to X */
-        .menu-toggle[aria-expanded="true"] .bar-1 {
-            transform: translateY(7px) rotate(45deg);
-            background-color: var(--accent-glow);
-        }
-
-        .menu-toggle[aria-expanded="true"] .bar-2 {
-            opacity: 0;
-        }
-
-        .menu-toggle[aria-expanded="true"] .bar-3 {
-            transform: translateY(-7px) rotate(-45deg);
-            background-color: var(--accent-glow);
-        }
-
-        /* Slide-out Drawer Navigation */
-        .drawer-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 90;
-            visibility: hidden;
-            transition: visibility 0.4s;
-        }
-
-        .drawer-menu.active {
-            visibility: visible;
-        }
-
-        .drawer-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(5, 8, 16, 0.4);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            opacity: 0;
-            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .drawer-menu.active .drawer-overlay {
-            opacity: 1;
-        }
-
-        .drawer-content {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            max-width: 360px;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-left: 1px solid var(--card-border);
-            padding: 7rem 2.5rem 2.5rem 2.5rem;
-            display: flex;
-            flex-direction: column;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .drawer-menu.active .drawer-content {
-            transform: translateX(0);
-        }
-
-        .drawer-header {
-            margin-bottom: 2rem;
-        }
-
-        .drawer-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #ffffff 40%, #c8f2ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .drawer-links {
-            list-style: none;
-        }
-
-        .drawer-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 1.5rem;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .drawer-link:hover {
-            background: rgba(111, 199, 234, 0.06);
-            border-color: rgba(111, 199, 234, 0.3);
-            transform: translateY(-2px);
-            color: var(--accent-glow);
-        }
-
-        .drawer-link:active {
-            transform: translateY(0);
-        }
-
-        .link-arrow {
-            width: 18px;
-            height: 18px;
-            opacity: 0.6;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .drawer-link:hover .link-arrow {
-            transform: translateX(4px);
-            opacity: 1;
-        }
-
-        /* Main Content area */
-        main {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 1.5rem;
-            z-index: 10;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-radius: 28px;
-            padding: 3.5rem 3rem;
-            width: 100%;
-            max-width: 640px;
-            box-shadow: 
-                0 30px 60px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: cardFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes cardFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Decorative glowing border accent */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-glow), var(--accent-primary), transparent);
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(111, 199, 234, 0.08);
-            border: 1px solid rgba(111, 199, 234, 0.2);
-            color: var(--accent-glow);
-            padding: 0.5rem 1.25rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-glow);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-glow);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(111, 199, 234, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 6px rgba(111, 199, 234, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(111, 199, 234, 0);
-            }
-        }
-
-        h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 40%, #c8f2ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .subtitle {
-            font-family: var(--secondary-font);
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            width: 100%;
-            padding: 2.5rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-family: var(--secondary-font);
-            z-index: 10;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        footer p {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 640px) {
-            .card {
-                padding: 2.5rem 1.75rem;
-            }
-            
-            h1 {
-                font-size: 2.15rem;
-            }
-
-            .logo-container {
-                padding: 0.7rem 1.5rem;
-            }
-
-            .logo-img {
-                height: 36px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Ambient glowing backgrounds -->
-    <div class="background-glows" aria-hidden="true">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-        <div class="glow-orb orb-3"></div>
-        <div class="grid-overlay"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Join the Fall School on Agentic AI in Science at the University of Toronto (October 18-22, 2026, Blue Mountain Resort, Ontario). A three-day, train-the-trainer program of hands-on tutorials and a team hackathon on building, coordinating, and evaluating agentic AI systems for scientific discovery. Sponsored by Schmidt Sciences and the University of Toronto."
+    />
+    <meta
+      name="keywords"
+      content="Agentic AI, AI for Science, Fall School, Schmidt AI in Science, University of Toronto, Hackathon, Model Context Protocol, Reinforcement Learning, Multi-Agent Systems, Blue Mountain Resort, Toronto Events"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ai-for-science.org/" />
+    <meta
+      property="og:title"
+      content="Fall School on Agentic AI in Science 2026"
+    />
+    <meta
+      property="og:description"
+      content="A three-day train-the-trainer Fall School at the University of Toronto (Oct 18-22, 2026): hands-on tutorials and a team hackathon on building, coordinating, and evaluating agentic AI systems for scientific discovery."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ai-for-science.org/" />
+    <meta
+      property="og:image"
+      content="https://ai-for-science.org/imgs/og_banner.jpg"
+    />
+    <meta
+      property="og:site_name"
+      content="Fall School on Agentic AI in Science"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Fall School on Agentic AI in Science 2026"
+    />
+    <meta
+      name="twitter:description"
+      content="Join us at the University of Toronto (Oct 18-22, 2026) for hands-on tutorials and a team hackathon exploring agentic AI for scientific discovery."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ai-for-science.org/imgs/og_banner.jpg"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fall School on Agentic AI in Science 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="top-header">
+      <a
+        href="https://www.utoronto.ca"
+        target="_blank"
+        class="top-header-logo-link"
+      >
+        <img
+          src="imgs/uoft_logo.png"
+          alt="University of Toronto Logo"
+          class="top-header-logo"
+        />
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-header-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#schedule-start">Schedule</a></li>
+          <li><a href="#logistics">Logistics</a></li>
+          <li><a href="#organizers">Organizers</a></li>
+        </ul>
+      </nav>
     </div>
 
-    <!-- Header containing University of Toronto Logo & Hamburger Toggle -->
-    <header>
-        <div class="logo-container" id="logo-wrapper">
-            <img src="imgs/uoft_logo.png" alt="University of Toronto" class="logo-img" id="uoft-logo">
+    <!-- Floating Section Navigation -->
+    <div class="floating-nav" id="floating-nav">
+      <div class="floating-nav-toggle" id="floating-nav-toggle">
+        <i class="fas fa-list"></i>
+      </div>
+      <div class="floating-nav-content" id="floating-nav-content">
+        <div class="floating-nav-section" id="about-nav" style="display: none">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#about-purpose">Why Agentic AI, Why Now</a></li>
+            <li><a href="#about-outcomes">What You'll Gain</a></li>
+            <li><a href="#about-tutorials">Hands-On Tutorials</a></li>
+            <li><a href="#about-hackathon">Team Hackathon</a></li>
+            <li><a href="#about-eligibility">Who Should Apply</a></li>
+          </ul>
         </div>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer-menu">
-            <span class="bar bar-1"></span>
-            <span class="bar bar-2"></span>
-            <span class="bar bar-3"></span>
-        </button>
+        <div
+          class="floating-nav-section"
+          id="logistics-nav"
+          style="display: none"
+        >
+          <h4>Logistics</h4>
+          <ul>
+            <li><a href="#logistics-venue">Venue</a></li>
+            <li><a href="#logistics-travel">Travel &amp; Transportation</a></li>
+            <li><a href="#logistics-accommodation">Accommodation &amp; Amenities</a></li>
+            <li><a href="#logistics-milestones">Key Planning Milestones</a></li>
+          </ul>
+        </div>
+        <div
+          class="floating-nav-section"
+          id="organizers-nav"
+          style="display: none"
+        >
+          <h4>Organizers</h4>
+          <ul>
+            <li><a href="#organizers-contact">Contact Information</a></li>
+            <li><a href="#organizers-committee">Organizing Committee</a></li>
+            <li><a href="#organizers-manager">Program Management</a></li>
+            <li><a href="#organizers-funding">Acknowledgments</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="hero-glows" aria-hidden="true">
+        <div class="hero-glow-orb hero-orb-1"></div>
+        <div class="hero-glow-orb hero-orb-2"></div>
+        <div class="hero-grid-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Schmidt AI in Science &middot; CIF Fall School
+          </div>
+          <h1 class="hero-title">Fall School on Agentic AI in Science</h1>
+          <p class="hero-subtitle">
+            A three-day, train-the-trainer program of hands-on tutorials and
+            a team hackathon on building, coordinating, and evaluating
+            agentic AI systems&mdash;so fellows can bring these skills back
+            to their home institutions.
+          </p>
+          <div class="hero-meta">
+            <span class="hero-meta-item">
+              <i class="fas fa-calendar-alt"></i> October 18&ndash;22, 2026
+              (Tentative)
+            </span>
+            <span class="hero-meta-item">
+              <i class="fas fa-map-marker-alt"></i> Blue Mountain Resort,
+              Ontario
+            </span>
+            <span class="hero-meta-item">
+              <i class="fas fa-users"></i> 25 Selected Participants
+            </span>
+          </div>
+          <div class="hero-actions">
+            <a href="#schedule-start" class="hero-btn hero-btn-primary">
+              <i class="fas fa-calendar-alt"></i> View Schedule
+            </a>
+            <a
+              href="mailto:contact@ai-for-science.org?subject=Fall%20School%20on%20Agentic%20AI%20-%20Interest"
+              class="hero-btn hero-btn-secondary"
+            >
+              <i class="fas fa-envelope"></i> Express Interest
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-visual-glow"></div>
+          <img
+            src="imgs/homepage_banner.jpg"
+            alt="Abstract 3D render of a branching, agent-like network structure, symbolizing agentic AI systems"
+          />
+        </div>
+      </div>
+
+      <div class="hero-scroll-cue" aria-hidden="true">
+        <span>Scroll to explore</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
     </header>
 
-    <!-- Slide-out Navigation Drawer -->
-    <aside class="drawer-menu" id="drawer-menu" aria-hidden="true">
-        <div class="drawer-overlay" id="drawer-overlay"></div>
-        <nav class="drawer-content" aria-label="Archive Navigation">
-            <div class="drawer-header">
-                <h2>Past Editions</h2>
-            </div>
-            <ul class="drawer-links">
-                <li>
-                    <a href="2025/index.html" class="drawer-link">
-                        <span>2025 Workshop</span>
-                        <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
-
-    <!-- Main Card Content -->
     <main>
-        <section class="card" id="main-card" aria-labelledby="card-title">
-            <div class="badge" id="coming-badge">
-                <span class="badge-dot" aria-hidden="true"></span>
-                Coming Fall 2026
+      <section id="about" class="section section-light-bg">
+        <div class="container">
+          <h2 class="section-title">About the Fall School</h2>
+          <div class="about-sections">
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-purpose">
+                <i class="fas fa-project-diagram"></i> Why Agentic AI, Why Now
+              </h3>
+              <p>
+                The Schmidt AI in Science Program envisions a future where AI
+                acts as a catalyst for scientific discovery, empowering
+                researchers to transcend traditional limits of data analysis,
+                modeling, experimentation, and prediction. This Fall School
+                explores the next frontier in AI-driven research:
+                <strong>Agentic AI</strong>&mdash;systems that can process
+                information to derive insights, as well as autonomously
+                generate hypotheses and pursue scientific goals. While
+                today's AI tools primarily serve as computational aids,
+                agentic AI represents a paradigm shift toward autonomous,
+                adaptive, and context-aware systems that can meaningfully
+                collaborate with human scientists as subject-matter experts.
+              </p>
+              <p>
+                This moment is critical: the rise of foundation models and
+                multimodal agents has made autonomous scientific reasoning
+                technically feasible, yet the responsible development and
+                governance of agentic systems is not yet clearly defined. By
+                convening researchers from AI, the natural and applied
+                sciences, engineering, and ethics, this Fall School will help
+                define what it means for AI to function as a scientific
+                agent&mdash;both technically and philosophically&mdash;while
+                setting the stage for responsible innovation and
+                interdisciplinary collaboration.
+              </p>
             </div>
-            
-            <h1 id="card-title">2026 Fall School on Agentic AI</h1>
-            
-            <p class="subtitle" id="card-subtitle">
-                More details about the 2026 Fall School on Agentic AI coming soon.
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-outcomes">
+                <i class="fas fa-bullseye"></i> What You'll Gain
+              </h3>
+              <p>
+                Our three-day Fall School uses a
+                <strong>&ldquo;train-the-trainer&rdquo;</strong> model:
+                through interactive tutorials and a team-based hackathon,
+                attendees will gain critical agentic AI competencies&mdash;
+                building agents, coordinating multiple agents, and
+                implementing guardrails&mdash;so they can disseminate these
+                skills at their home institutions. Attendees will also
+                contribute to a public Playbook documenting hackathon
+                projects and results, to be published within 8 weeks of the
+                Fall School's conclusion.
+              </p>
+              <ul class="goals-list">
+                <li>
+                  <strong>Develop agentic AI competency:</strong> design,
+                  interpret, and evaluate agentic workflows for hypothesis
+                  generation and data-driven discovery, while maintaining
+                  critical oversight and interpretability.
+                </li>
+                <li>
+                  <strong>Foster collaboration:</strong> build new networks
+                  across Schmidt AI in Science fellows and domain
+                  researchers, with potential for joint research proposals
+                  exploring the design, deployment, and governance of
+                  agentic AI.
+                </li>
+                <li>
+                  <strong>Drive innovation in agentic AI:</strong> identify
+                  opportunities, risks, and guiding principles for the
+                  responsible use of agentic AI in scientific research, and
+                  help shape research priorities for the Schmidt AI in
+                  Science community.
+                </li>
+              </ul>
+              <div class="visa-info">
+                <p>
+                  <strong>How we'll measure success:</strong> &ge;70% of
+                  participants reporting improved competence in at least two
+                  areas, &ge;10 cross-site collaborative teams formed, and a
+                  public &ldquo;GenAI-for-X&rdquo; Playbook with datasets,
+                  slides, and notebooks documented following FAIR and
+                  reproducibility best practices.
+                </p>
+              </div>
+            </div>
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-tutorials">
+                <i class="fas fa-laptop-code"></i> Hands-On Tutorials
+              </h3>
+              <p>
+                Days 1 and 2 feature four interactive tutorials, each led by
+                a member of the organizing committee, that build the
+                technical foundation for the hackathon.
+              </p>
+              <div class="info-grid">
+                <div class="info-card">
+                  <h4>
+                    <span class="info-card-index">1</span>
+                    Building a Tool-Using Agent
+                  </h4>
+                  <p>
+                    Implement a minimal agent loop (plan &rarr; act &rarr;
+                    reflect), structured tool calling, and trace logging.
+                    Deliver a working agent that completes a multi-step task
+                    with auditable execution traces.
+                    <em>Led by Ioana Zelko.</em>
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h4>
+                    <span class="info-card-index">2</span>
+                    Reinforcement Learning Agents for Decision-Making
+                  </h4>
+                  <p>
+                    Implement a simple RL agent (e.g., actor&ndash;critic or
+                    PPO) in a toy environment; connect it to a goal-directed
+                    task loop and discuss reward design, credit assignment,
+                    and online vs. offline RL.
+                    <em>Led by Ashley Dale.</em>
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h4>
+                    <span class="info-card-index">3</span>
+                    Model Context Protocol (MCP) for Interoperable Tools
+                  </h4>
+                  <p>
+                    Stand up a small MCP server exposing a few
+                    tools/resources, connect an MCP client, and run
+                    end-to-end tasks; cover practical security
+                    basics&mdash;permissions, input validation, and
+                    least-privilege. <em>Led by Afeez Popoola.</em>
+                  </p>
+                </div>
+                <div class="info-card">
+                  <h4>
+                    <span class="info-card-index">4</span>
+                    Error, Reliability &amp; Coordination for Agentic Systems
+                  </h4>
+                  <p>
+                    Build an evaluation harness (task suite + metrics), add
+                    trace-based debugging and guardrails, and implement a
+                    lightweight multi-agent pattern
+                    (planner/executor/critic) to compare against a
+                    single-agent baseline. <em>Led by Amey Pore.</em>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-hackathon">
+                <i class="fas fa-flag-checkered"></i> Team Hackathon
+              </h3>
+              <p>
+                Over Days 2&ndash;3, participants put the tutorials into
+                practice by building an end-to-end agentic system in
+                interdisciplinary teams.
+              </p>
+              <div class="hackathon-details">
+                <div class="hackathon-detail-box">
+                  <h4><i class="fas fa-users"></i> Format</h4>
+                  <p>
+                    Teams of 3&ndash;6 people build an end-to-end agentic
+                    system based on their research or project of interest.
+                  </p>
+                </div>
+                <div class="hackathon-detail-box">
+                  <h4><i class="fas fa-route"></i> Challenge Tracks</h4>
+                  <ul>
+                    <li>Scientific workflow agent (literature &rarr; data &rarr; code &rarr; report)</li>
+                    <li>Tool-integrated operations agent (via MCP)</li>
+                    <li>Multi-agent &ldquo;review board&rdquo; (planner/executor/critic)</li>
+                    <li>RL-driven decision agent in a simulated environment</li>
+                  </ul>
+                </div>
+                <div class="hackathon-detail-box">
+                  <h4><i class="fas fa-tasks"></i> Requirements</h4>
+                  <p>
+                    Each project must incorporate at least two tutorial
+                    components (e.g., tool use + evaluation; MCP +
+                    guardrails; RL + multi-agent coordination) and produce a
+                    reproducible artifact (code, run instructions, and
+                    logs/traces).
+                  </p>
+                </div>
+                <div class="hackathon-detail-box">
+                  <h4><i class="fas fa-archive"></i> Deliverables</h4>
+                  <p>
+                    A short live demo, a 2&ndash;4 page project write-up,
+                    and a public (or shareable) repository including
+                    evaluation results and failure-analysis examples.
+                  </p>
+                </div>
+                <div class="hackathon-detail-box">
+                  <h4><i class="fas fa-trophy"></i> Evaluation &amp; Awards</h4>
+                  <p>
+                    Projects are evaluated by the organizing committee using
+                    a simple rubric: task success, reliability
+                    (evaluation/guardrails), clarity of traces/observability,
+                    and reproducibility. All teams receive awards reflecting
+                    their strengths, achievements, and challenges overcome.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-subsection">
+              <h3 class="about-subsection-heading" id="about-eligibility">
+                <i class="fas fa-user-check"></i> Who Should Apply
+              </h3>
+              <p>
+                We anticipate 32 total attendees: 5 organizing committee
+                members, 2 University of Toronto staff, and 25 competitively
+                selected participants. Building on the composition of the
+                2025 Foundation Models workshop, we anticipate participants
+                from the University of Toronto, the United States, the
+                United Kingdom, and Singapore.
+              </p>
+              <p>Applicants will be evaluated based on:</p>
+              <ul class="eligibility-list">
+                <li>Prior knowledge of agentic AI research</li>
+                <li>Planned usage of agentic AI in their own research</li>
+                <li>
+                  A technical skill set including strong coding, software
+                  engineering, and high-performance computing experience
+                </li>
+                <li>Second-year Schmidt Fellows will be prioritized</li>
+              </ul>
+              <p>
+                Interested community members will complete an application
+                form confirming the above criteria before acceptance.
+                Applications are expected to open in Spring 2026&mdash;see
+                the Key Planning Milestones in the Logistics section below,
+                or
+                <a href="mailto:contact@ai-for-science.org">contact us</a>
+                to express your interest now.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="schedule" class="section section-mid-bg">
+        <div class="container">
+          <h2 class="section-title">Fall School Schedule</h2>
+          <p class="tentative-schedule-note">
+            <strong
+              ><em
+                >Note: This is a tentative schedule based on the approved
+                program proposal and is subject to change. Times are shown
+                in Toronto local time (Eastern Time).</em
+              ></strong
+            >
+          </p>
+
+          <div id="schedule-start" class="schedule-tabs">
+            <button class="tab-btn active" data-day="day0-new">
+              Day 0 (Oct 18)
+            </button>
+            <button class="tab-btn" data-day="day1-new">
+              Day 1 (Oct 19)
+            </button>
+            <button class="tab-btn" data-day="day2-new">
+              Day 2 (Oct 20)
+            </button>
+            <button class="tab-btn" data-day="day3-new">
+              Day 3 (Oct 21)
+            </button>
+            <button class="tab-btn" data-day="day4-new">
+              Day 4 (Oct 22)
+            </button>
+          </div>
+
+          <div class="schedule-legend">
+            <div class="legend-item">
+              <div class="legend-color keynote-color"></div>
+              <span>Program &amp; Presentations</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color tutorial-color"></div>
+              <span>Tutorials</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color hackathon-color"></div>
+              <span>Hackathon Work</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color social-color"></div>
+              <span>Social &amp; Networking</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color travel-color"></div>
+              <span>Travel</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color break-color"></div>
+              <span>Breaks &amp; Meals</span>
+            </div>
+          </div>
+
+          <div id="day0-new" class="schedule-content active">
+            <div class="schedule-item travel">
+              <div class="time">All Day</div>
+              <div class="details">
+                <h3>
+                  Arrive in Toronto (independently). Attendees arriving a day
+                  early on Saturday, Oct 17 (Day &minus;1) will be offered
+                  hotel accommodation in Toronto for that night.
+                </h3>
+              </div>
+            </div>
+            <div class="schedule-item travel">
+              <div class="time">1:00 PM</div>
+              <div class="details">
+                <h3>Board chartered bus from Toronto to Blue Mountain Resort</h3>
+              </div>
+            </div>
+            <div class="schedule-item travel">
+              <div class="time">3:00 PM</div>
+              <div class="details">
+                <h3>Arrive at Blue Mountain Resort</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">6:00 PM</div>
+              <div class="details">
+                <h3>Dinner</h3>
+              </div>
+            </div>
+            <div class="schedule-item social">
+              <div class="time">7:30 PM</div>
+              <div class="details">
+                <h3>Welcome Social Activity</h3>
+              </div>
+            </div>
+          </div>
+
+          <div id="day1-new" class="schedule-content">
+            <div class="schedule-item break">
+              <div class="time">8:00 AM</div>
+              <div class="details">
+                <h3>Breakfast</h3>
+              </div>
+            </div>
+            <div class="schedule-item keynote">
+              <div class="time">9:00 AM</div>
+              <div class="details">
+                <h3>Opening Remarks &amp; Logistics</h3>
+              </div>
+            </div>
+            <div class="schedule-item tutorial">
+              <div class="time">9:30 AM</div>
+              <div class="details">
+                <h3>Tutorial 1: Building a Tool-Using Agent (Agent Foundations)</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">10:30 AM</div>
+              <div class="details">
+                <h3>Snack/Coffee Break</h3>
+              </div>
+            </div>
+            <div class="schedule-item tutorial">
+              <div class="time">11:00 AM</div>
+              <div class="details">
+                <h3>
+                  Tutorial 2: Reinforcement Learning (RL) Agents for
+                  Decision-Making
+                </h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">12:00 PM</div>
+              <div class="details">
+                <h3>
+                  Team Assignments &amp; GitHub Tutorial &mdash; Milestone I:
+                  First GitHub Push
+                </h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">12:30 PM</div>
+              <div class="details">
+                <h3>Lunch</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">1:30 PM</div>
+              <div class="details">
+                <h3>Group Work &mdash; Milestone II: 1-Page Project Spec</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">3:00 PM</div>
+              <div class="details">
+                <h3>Snack/Coffee Break</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">3:30 PM</div>
+              <div class="details">
+                <h3>Group Work &mdash; Milestone III: Baseline Pipeline</h3>
+              </div>
+            </div>
+            <div class="schedule-item social">
+              <div class="time">5:30 PM</div>
+              <div class="details">
+                <h3>Social Activity</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">6:00 PM</div>
+              <div class="details">
+                <h3>Dinner</h3>
+              </div>
+            </div>
+            <div class="schedule-item social">
+              <div class="time">7:30 PM</div>
+              <div class="details">
+                <h3>Social Activity</h3>
+              </div>
+            </div>
+          </div>
+
+          <div id="day2-new" class="schedule-content">
+            <div class="schedule-item break">
+              <div class="time">8:00 AM</div>
+              <div class="details">
+                <h3>Breakfast</h3>
+              </div>
+            </div>
+            <div class="schedule-item tutorial">
+              <div class="time">9:00 AM</div>
+              <div class="details">
+                <h3>GitHub Clinic</h3>
+              </div>
+            </div>
+            <div class="schedule-item tutorial">
+              <div class="time">9:30 AM</div>
+              <div class="details">
+                <h3>
+                  Tutorial 3: Model Context Protocol (MCP) for Interoperable
+                  Tools
+                </h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">10:30 AM</div>
+              <div class="details">
+                <h3>Snack/Coffee Break</h3>
+              </div>
+            </div>
+            <div class="schedule-item tutorial">
+              <div class="time">11:00 AM</div>
+              <div class="details">
+                <h3>
+                  Tutorial 4: Error, Reliability, &amp; Coordination for
+                  Agentic Systems
+                </h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">12:00 PM</div>
+              <div class="details">
+                <h3>Group Work</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">12:30 PM</div>
+              <div class="details">
+                <h3>Lunch</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">1:30 PM</div>
+              <div class="details">
+                <h3>Group Work</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">3:00 PM</div>
+              <div class="details">
+                <h3>Group Photo &amp; Snack/Coffee Break</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">3:30 PM</div>
+              <div class="details">
+                <h3>Group Work &mdash; Milestone IV: Evaluation Script</h3>
+              </div>
+            </div>
+            <div class="schedule-item social">
+              <div class="time">5:00 PM</div>
+              <div class="details">
+                <h3>Social Activity</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">6:00 PM</div>
+              <div class="details">
+                <h3>Dinner</h3>
+              </div>
+            </div>
+            <div class="schedule-item social">
+              <div class="time">7:30 PM</div>
+              <div class="details">
+                <h3>Social Activity</h3>
+              </div>
+            </div>
+          </div>
+
+          <div id="day3-new" class="schedule-content">
+            <div class="schedule-item break">
+              <div class="time">8:00 AM</div>
+              <div class="details">
+                <h3>Breakfast</h3>
+              </div>
+            </div>
+            <div class="schedule-item tutorial">
+              <div class="time">9:00 AM</div>
+              <div class="details">
+                <h3>GitHub Clinic</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">9:30 AM</div>
+              <div class="details">
+                <h3>Group Work</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">10:30 AM</div>
+              <div class="details">
+                <h3>Snack/Coffee Break</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">11:00 AM</div>
+              <div class="details">
+                <h3>Group Work</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">12:30 PM</div>
+              <div class="details">
+                <h3>Lunch</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">1:30 PM</div>
+              <div class="details">
+                <h3>Group Work &mdash; Milestone V: Demo Script</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">3:00 PM</div>
+              <div class="details">
+                <h3>Snack/Coffee Break</h3>
+              </div>
+            </div>
+            <div class="schedule-item hackathon">
+              <div class="time">3:30 PM</div>
+              <div class="details">
+                <h3>Prepare Presentations</h3>
+              </div>
+            </div>
+            <div class="schedule-item keynote">
+              <div class="time">4:30 PM</div>
+              <div class="details">
+                <h3>Team Presentations</h3>
+              </div>
+            </div>
+            <div class="schedule-item keynote">
+              <div class="time">5:30 PM</div>
+              <div class="details">
+                <h3>Awards</h3>
+              </div>
+            </div>
+            <div class="schedule-item break">
+              <div class="time">6:00 PM</div>
+              <div class="details">
+                <h3>Dinner</h3>
+              </div>
+            </div>
+            <div class="schedule-item keynote">
+              <div class="time">7:00 PM</div>
+              <div class="details">
+                <h3>Closing Remarks</h3>
+              </div>
+            </div>
+            <div class="schedule-item social">
+              <div class="time">7:30 PM</div>
+              <div class="details">
+                <h3>Social Activity</h3>
+              </div>
+            </div>
+          </div>
+
+          <div id="day4-new" class="schedule-content">
+            <div class="schedule-item break">
+              <div class="time">8:00 AM</div>
+              <div class="details">
+                <h3>Breakfast</h3>
+              </div>
+            </div>
+            <div class="schedule-item travel">
+              <div class="time">9:00 AM</div>
+              <div class="details">
+                <h3>Board chartered bus from Blue Mountain Resort to Toronto</h3>
+              </div>
+            </div>
+            <div class="schedule-item travel">
+              <div class="time">11:00 AM</div>
+              <div class="details">
+                <h3>
+                  Arrive in Toronto. A limited number of international
+                  attendees departing Friday will be offered hotel
+                  accommodation in Toronto for Thursday night.
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="logistics" class="section section-light-bg">
+        <div class="container">
+          <h2 class="section-title">Logistics</h2>
+          <div class="logistics-content">
+            <h3 class="logistics-location-heading" id="logistics-venue">
+              <i class="fas fa-mountain"></i> Venue: Blue Mountain Resort
+            </h3>
+            <p>
+              This Fall School will be held at the
+              <strong>
+                <a
+                  href="https://www.bluemountain.ca/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Blue Mountain Resort
+                </a>
+              </strong>
+              in Ontario, Canada&mdash;a scenic, peaceful setting about a
+              two-hour drive from downtown Toronto. We selected Blue Mountain
+              for its scenic views, tranquil environment, and outdoor
+              recreation opportunities, allowing attendees to focus on
+              forming strong collaborations and professional networks over
+              three days, away from everyday distractions. The resort
+              package includes guest accommodation, meals, social
+              activities, and full conferencing facilities and A/V. All
+              dietary and accessibility needs will be accommodated.
             </p>
-        </section>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps?q=Blue+Mountain+Resort,+Ontario,+Canada&output=embed"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Blue Mountain Resort Location"
+              ></iframe>
+            </div>
+
+            <h3 class="logistics-travel-heading" id="logistics-travel">
+              <i class="fas fa-bus"></i> Travel &amp; Transportation
+            </h3>
+            <p>
+              All attendees will arrive in Toronto by Sunday afternoon
+              (Day 0). Anyone arriving a day early on Saturday (Day
+              &minus;1) will be offered hotel accommodation in Toronto for
+              that night.
+            </p>
+            <p>
+              Chartered bus transportation to and from Blue Mountain Resort
+              will be provided on Sunday afternoon (Day 0) and Thursday
+              morning (Day 4). A limited number of international attendees
+              who must depart on Friday will be offered hotel accommodation
+              in Toronto for Thursday night (Day 4).
+            </p>
+            <p>
+              Two University of Toronto staff members will be onsite
+              throughout the Fall School to provide operational and
+              logistical support beyond what the Blue Mountain Resort staff
+              offer.
+            </p>
+            <div class="visa-info">
+              <p>
+                <strong
+                  >Participants are responsible for arranging and funding
+                  their own travel to and from Toronto.</strong
+                >
+              </p>
+              <p>
+                <strong>International Travel:</strong> Participants
+                traveling from outside Canada may need a valid passport and
+                either a visa or an Electronic Travel Authorization (eTA),
+                depending on citizenship. Please consult
+                <a
+                  href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Immigration, Refugees and Citizenship Canada (IRCC)
+                </a>
+                for travel requirements and take appropriate steps. The
+                organizers can provide an invitation letter for visa
+                purposes&mdash;please
+                <a href="mailto:contact@ai-for-science.org">reach out</a> if
+                a letter is needed.
+              </p>
+            </div>
+
+            <h3
+              class="logistics-accommodation-heading"
+              id="logistics-accommodation"
+            >
+              <i class="fas fa-bed"></i> Accommodation &amp; Amenities
+            </h3>
+            <div class="clean-light-gray-box">
+              <p>
+                The Blue Mountain Resort package includes guest
+                accommodation, all meals, and a full social program
+                alongside conferencing facilities and A/V support. Social
+                activities include mini golf, pottery classes, and hiking,
+                giving attendees plenty of opportunities to unwind and
+                connect between sessions.
+              </p>
+              <p>
+                All dietary and accessibility needs will be
+                accommodated&mdash;please let us know your requirements when
+                you apply.
+              </p>
+            </div>
+
+            <h3 class="logistics-travel-heading" id="logistics-milestones">
+              <i class="fas fa-calendar-check"></i> Key Planning Milestones
+            </h3>
+            <ul class="milestones-list">
+              <li class="milestone-item">
+                <span class="milestone-date">Mar &ndash; Apr 2026</span>
+                <p>
+                  Confirm venue, dates, and staff availability; open the
+                  participant interest form and invite attendees.
+                </p>
+              </li>
+              <li class="milestone-item">
+                <span class="milestone-date">May &ndash; Jul 2026</span>
+                <p>
+                  Finalize tutorials and hackathon challenge kits; open
+                  registration and operations planning.
+                </p>
+              </li>
+              <li class="milestone-item milestone-active">
+                <span class="milestone-date">October 2026</span>
+                <p>The three-day Fall School takes place at Blue Mountain Resort.</p>
+              </li>
+              <li class="milestone-item">
+                <span class="milestone-date">Nov &ndash; Dec 2026</span>
+                <p>
+                  Publish the public Playbook; hold brief virtual check-ins
+                  with attendees.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="organizers" class="section section-light-bg">
+        <div class="container">
+          <h2 class="section-title">Organizers</h2>
+
+          <div class="organizers-content">
+            <div class="contact-section">
+              <h3 class="contact-information-heading" id="organizers-contact">
+                <i class="fas fa-envelope"></i> Contact Information
+              </h3>
+              <p>
+                <span class="highlight-text"
+                  >For all Fall School-related questions and communications,
+                  please contact us at:
+                  <a href="mailto:contact@ai-for-science.org"
+                    >contact@ai-for-science.org</a
+                  >.</span
+                >
+              </p>
+            </div>
+
+            <div class="organizer-tier">
+              <h3 class="local-organizers-heading" id="organizers-committee">
+                <i class="fas fa-users"></i> Organizing Committee
+              </h3>
+              <div class="organizers-grid">
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Afeez_Popoola.jpg"
+                    alt="Afeez Popoola"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>Afeez Popoola</h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow &middot;
+                      Leads Tutorial 3 (Model Context Protocol)
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Earth Sciences
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                  <a href="#" class="organizer-bio-link" data-organizer="afeez" onclick="openOrganizerBio(event, 'afeez')">Bio »</a>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Amey_Pore.jpg"
+                    alt="Amey Pore"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>Amey Pore</h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow &middot;
+                      Leads Tutorial 4 (Error, Reliability &amp;
+                      Coordination)
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">Robotics</p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                  <a href="#" class="organizer-bio-link" data-organizer="amey" onclick="openOrganizerBio(event, 'amey')">Bio »</a>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Ryan_Yeung.jpg"
+                    alt="Ryan Yeung"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>Ryan C. Yeung</h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Psychology
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                  <a href="#" class="organizer-bio-link" data-organizer="ryan" onclick="openOrganizerBio(event, 'ryan')">Bio »</a>
+                </div>
+
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Ioana_Zelko.jpg"
+                    alt="Ioana Zelko"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>Ioana A. Zelko</h3>
+                    <p class="organizer-title">
+                      Schmidt AI in Science Postdoctoral Fellow &middot;
+                      Leads Tutorial 1 (Agent Foundations)
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-department">
+                        Department of Astronomy and Astrophysics
+                      </p>
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                  <a href="#" class="organizer-bio-link" data-organizer="ioana" onclick="openOrganizerBio(event, 'ioana')">Bio »</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="organizer-tier">
+              <h3 class="scientific-advisors-heading" id="organizers-manager">
+                <i class="fas fa-clipboard-list"></i> Program Management
+              </h3>
+              <div class="organizers-grid">
+                <div class="organizer-card">
+                  <img
+                    src="imgs/Amanda_Mohabeer.jpg"
+                    alt="Amanda Mohabeer"
+                    class="organizer-photo"
+                  />
+                  <div class="organizer-info">
+                    <h3>
+                      <a
+                        href="https://www.linkedin.com/in/amanda-mohabeer"
+                        target="_blank"
+                        rel="noopener"
+                        >Amanda Mohabeer</a
+                      >
+                    </h3>
+                    <p class="organizer-title">
+                      Program Manager, Schmidt AI in Science Program
+                    </p>
+                    <div class="organizer-affiliation">
+                      <p class="organizer-university">University of Toronto</p>
+                    </div>
+                  </div>
+                  <a href="#" class="organizer-bio-link" data-organizer="amanda" onclick="openOrganizerBio(event, 'amanda')">Bio »</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="funding-acknowledgment">
+              <h3
+                class="funding-acknowledgment-heading"
+                id="organizers-funding"
+              >
+                <i class="fas fa-dollar-sign"></i> Acknowledgments
+              </h3>
+              <div class="sponsorship-note">
+                <p>
+                  This Fall School is proposed as a Community Initiative
+                  Fund (CIF) event of the Schmidt AI in Science Program,
+                  sponsored by
+                  <a
+                    href="https://schmidtsciences.org/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Schmidt Sciences</a
+                  >
+                  in partnership with the University of Toronto.
+                </p>
+                <img
+                  src="imgs/SchmidtSciences_primary.png"
+                  alt="Schmidt Sciences Logo"
+                  class="sponsor-logo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer links -->
-    <footer>
-        <p>&copy; 2026 University of Toronto. All rights reserved.</p>
+    <footer class="uoft-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a
+            href="https://www.utoronto.ca/"
+            target="_blank"
+            aria-label="University of Toronto"
+          >
+            <img
+              src="imgs/defy_gravity.svg"
+              alt="University of Toronto - Defy Gravity"
+              class="footer-defy-gravity"
+            />
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <ul>
+            <li>
+              <a href="2025/index.html" class="past-edition-link">
+                2025 Workshop Archive
+              </a>
+            </li>
+            <li>
+              <a href="https://www.utoronto.ca/accessibility" target="_blank">
+                Accessibility
+              </a>
+            </li>
+            <li>
+              <a href="https://www.utoronto.ca/privacy" target="_blank">
+                Privacy
+              </a>
+            </li>
+            <li>
+              <a href="https://safety.utoronto.ca/" target="_blank">
+                Campus Safety
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@ai-for-science.org">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </footer>
 
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const drawerMenu = document.getElementById('drawer-menu');
-        const drawerOverlay = document.getElementById('drawer-overlay');
-
-        function toggleMenu() {
-            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isOpen);
-            drawerMenu.classList.toggle('active');
-            drawerMenu.setAttribute('aria-hidden', isOpen);
-            
-            // Toggle body scroll to prevent background scrolling when menu is active
-            document.body.style.overflow = isOpen ? '' : 'hidden';
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-        drawerOverlay.addEventListener('click', toggleMenu);
-
-        // Close menu on ESC keypress
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && drawerMenu.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    </script>
-</body>
+    <!-- Organizer Bio Modals -->
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-afeez"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'afeez')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Afeez Popoola</h3>
+        <p>
+          Afeez works at the intersection of artificial intelligence and
+          renewable energy. His research integrates reinforcement learning
+          techniques to achieve optimal control of fluid dynamics in
+          geothermal reservoirs. He has served on the organizing committee
+          of an industry-sponsors research showcase at UofT and volunteered
+          in different roles at international geoscience conferences with
+          the Society of Exploration Geophysicists and the European
+          Association of Geoscientists and Engineers. Afeez will lead
+          Tutorial 3 (Model Context Protocol).
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-amey"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'amey')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Amey Pore</h3>
+        <p>
+          Amey's research spans robotic learning for manipulation tasks,
+          particularly applied to robot-assisted surgery. He is currently
+          developing methods in reinforcement learning (RL), accelerated
+          simulation, and imitation learning to scale robotics. Amey was the
+          Program Chair of the British Machine Vision Conference 2024 and
+          has organized international workshops, robotics outreach events,
+          and cross-industry academic visits at UofT. Amey will lead
+          Tutorial 4 (Error, Reliability, &amp; Coordination).
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-ryan"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'ryan')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Ryan C. Yeung</h3>
+        <p>
+          Ryan studies how and why people vividly relive the past, with a
+          focus on intrusive memories. He uses AI/ML methods to integrate
+          objective (e.g., narrative content, neuroimaging) and subjective
+          (e.g., vividness, emotion) data, and applies them towards
+          understanding human memory and PTSD. Ryan has served on the
+          organizing committees for the Toronto Area Memory Group Annual
+          Meeting, the Canadian Society for Brain, Behaviour, and Cognitive
+          Science, and the Rotman Research Institute's Research Training
+          Centre.
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-ioana"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'ioana')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Ioana A. Zelko</h3>
+        <p>
+          Ioana's work focuses on dark matter and the Milky Way's
+          interstellar medium, using AI-accelerated inference, GPU
+          simulation/emulators, and multi-probe astronomy. She built the
+          first 3D map of Galactic dust temperature and published PRL
+          constraints on sterile-neutrino dark matter. Current projects
+          include DarkMatterFM, an agentic platform for joint multimodal
+          inference, and a GPU framework for real-time 3D interstellar
+          radiation fields. Beyond research, she chairs the United States
+          Astronomy and Astrophysics Olympiad and mentors undergraduate
+          researchers. She's motivated to shorten the path from data to
+          discovery through transparent, open, reusable tools. Ioana will
+          lead Tutorial 1 (Agent Foundations).
+        </p>
+      </div>
+    </div>
+    <div
+      class="organizer-bio-modal"
+      id="organizer-bio-modal-amanda"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="organizer-bio-modal-content">
+        <button
+          class="organizer-bio-close"
+          onclick="closeOrganizerBio(event, 'amanda')"
+          aria-label="Close bio"
+        >
+          &times;
+        </button>
+        <h3>Amanda Mohabeer</h3>
+        <p>
+          Amanda Mohabeer is the Schmidt AI in Science Postdoctoral Program
+          Manager at the University of Toronto, where she manages strategic
+          programming initiatives, budgeting, and administrative tasks for
+          multi-day events. Her background includes a diverse set of
+          experiences, including roles in research operations, awards
+          administration, and teaching and learning. In addition to a
+          Ph.D. in Pathobiology from UofT, she completed the Adult Learning
+          and Development Certificate at OISE and is pursuing Lean Six
+          Sigma certification. She was the recipient of the 2021 Avrum
+          Gotlieb Award for Curriculum Development and Teaching Excellence
+          in Training, and is driven by student success initiatives and
+          trainee development. Amanda was a coordinator of the 2025
+          Foundation Models in Science workshop hosted by the University of
+          Toronto. When not working on providing the best experience for
+          the Schmidt Fellows, Amanda enjoys reading, baking, and working on
+          <a href="https://www.beyondthesc.com/" target="_blank" rel="noopener"
+            >Beyond the BSc</a
+          >&mdash;a higher education blog for STEM students.
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
