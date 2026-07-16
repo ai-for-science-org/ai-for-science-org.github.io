@@ -951,19 +951,30 @@ header {
   justify-content: center;
 }
 
+.banner-title h1 {
+  font-family: "Lato", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 1.15;
+  color: white;
+  text-align: center;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  max-width: 900px;
+}
+
 .banner-title .subtitle {
   font-family: "Lato", Arial, sans-serif;
   font-weight: 500;
-  font-size: 1.35rem;
-  line-height: 1.65;
+  font-size: 1.8rem;
   color: white;
   text-align: center;
-  margin: 10px auto 15px auto;
+  margin: 10px 0 15px 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   padding: 8px 15px;
   border-radius: 5px;
-  display: block;
-  max-width: 900px;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .hero-meta {
@@ -1026,8 +1037,14 @@ header {
     top: 42%;
   }
 
+  .banner-title h1 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+  }
+
   .banner-title .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    padding: 6px 12px;
   }
 }
 
@@ -1043,9 +1060,13 @@ header {
     top: 38%;
   }
 
+  .banner-title h1 {
+    font-size: 2.2rem;
+  }
+
   .banner-title .subtitle {
-    font-size: 1.05rem;
-    padding: 6px 12px;
+    font-size: 1.2rem;
+    padding: 5px 10px;
   }
 
   .hero-meta-item {
