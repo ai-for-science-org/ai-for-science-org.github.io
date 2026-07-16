@@ -939,19 +939,6 @@ header {
   z-index: 0;
 }
 
-/* Subtle overlay just for text legibility; keeps the background bright */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-      90deg,
-      rgba(11, 17, 32, 0.35) 0%,
-      rgba(11, 17, 32, 0.15) 45%,
-      rgba(11, 17, 32, 0) 100%
-    );
-}
-
 .hero-glows {
   position: absolute;
   inset: 0;
@@ -1019,6 +1006,21 @@ header {
 .hero-text {
   max-width: 780px;
   text-align: left;
+}
+
+.hero-logo {
+  display: block;
+  width: auto;
+  max-width: 320px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.45));
+}
+
+@media (max-width: 600px) {
+  .hero-logo {
+    max-width: 220px;
+  }
 }
 
 .hero-badge {
